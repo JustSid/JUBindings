@@ -27,6 +27,8 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 + (void)initializeBindings
 {
     [self exposeBinding:@"value"];
+    [self exposeBinding:@"minimumValue"];
+    [self exposeBinding:@"maximumValue"];
 }
 
 
@@ -48,9 +50,10 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 - (Class)valueClassForBinding:(NSString *)bindingKey
 {
     if([bindingKey isEqualToString:@"value"])
-    {
         return [NSNumber class];
-    }
+    
+    if([bindingKey isEqualToString:@"minimumValue"] || [bindingKey isEqualToString:@"maximumValue"])
+        return [NSNumber class];
     
     return [super valueClassForBinding:bindingKey];
 }

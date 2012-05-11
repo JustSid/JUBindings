@@ -23,6 +23,27 @@
 + (void)initializeBindings
 {
     [self exposeBinding:@"text"];
+    [self exposeBinding:@"textColor"];
+    [self exposeBinding:@"font"];
+    [self exposeBinding:@"placeholder"];
+    [self exposeBinding:@"clearsOnBeginEditing"];
+}
+
+- (Class)valueClassForBinding:(NSString *)bindingKey
+{
+    if([bindingKey isEqualToString:@"text"] || [bindingKey isEqualToString:@"placeholder"])
+        return [NSString class];
+    
+    if([bindingKey isEqualToString:@"textColor"])
+        return [UIColor class];
+    
+    if([bindingKey isEqualToString:@"font"])
+        return [UIFont class];
+    
+    if([bindingKey isEqualToString:@"clearsOnBeginEditing"])
+        return [NSNumber class];
+    
+    return [super valueClassForBinding:bindingKey];
 }
 
 @end
