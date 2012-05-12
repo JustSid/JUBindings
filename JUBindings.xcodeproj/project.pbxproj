@@ -12,29 +12,50 @@
 		E960EF33155D68F800711060 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF32155D68F800711060 /* CoreGraphics.framework */; };
 		E960EF4E155D6A0400711060 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF30155D68F800711060 /* Foundation.framework */; };
 		E960EF60155D6A1D00711060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF5A155D6A1D00711060 /* AppDelegate.m */; };
-		E960EF69155D6B1100711060 /* JUExplicitBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF67155D6B1100711060 /* JUExplicitBinding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E960EF69155D6B1100711060 /* JUExplicitBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF67155D6B1100711060 /* JUExplicitBinding.h */; settings = {ATTRIBUTES = (); }; };
 		E960EF6A155D6B1100711060 /* JUExplicitBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF68155D6B1100711060 /* JUExplicitBinding.m */; };
-		E960EF6D155D748400711060 /* JUBindingProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF6B155D748400711060 /* JUBindingProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E960EF6D155D748400711060 /* JUBindingProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF6B155D748400711060 /* JUBindingProxy.h */; settings = {ATTRIBUTES = (); }; };
 		E960EF6E155D748400711060 /* JUBindingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF6C155D748400711060 /* JUBindingProxy.m */; };
-		E960EF71155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF6F155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E960EF71155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF6F155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h */; settings = {ATTRIBUTES = (); }; };
 		E960EF72155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF70155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m */; };
 		E960EF73155D7E5500711060 /* libJUBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF4D155D6A0400711060 /* libJUBindings.a */; };
-		E9844278155D8535007066C3 /* UITextField+JUBindingsAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */; };
+		E9844278155D8535007066C3 /* UITextField+JUBindingsAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E9844279155D8535007066C3 /* UITextField+JUBindingsAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */; };
 		E9844286155D8758007066C3 /* LabelDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E984427F155D8758007066C3 /* LabelDemoView.xib */; };
 		E9844287155D8758007066C3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9844280155D8758007066C3 /* MainWindow.xib */; };
 		E9844289155D8758007066C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844284155D8758007066C3 /* main.m */; };
 		E984428C155D87A1007066C3 /* LabelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E984428B155D87A1007066C3 /* LabelDemoViewController.m */; };
-		E984428F155D89FC007066C3 /* UISlider+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E984428D155D89FC007066C3 /* UISlider+JUBindingAddition.h */; };
+		E984428F155D89FC007066C3 /* UISlider+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E984428D155D89FC007066C3 /* UISlider+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E9844290155D89FC007066C3 /* UISlider+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E984428E155D89FC007066C3 /* UISlider+JUBindingAddition.m */; };
-		E9844293155DA169007066C3 /* NSObject+JUAssociatedSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844291155DA169007066C3 /* NSObject+JUAssociatedSet.h */; };
+		E9844293155DA169007066C3 /* NSObject+JUAssociatedSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844291155DA169007066C3 /* NSObject+JUAssociatedSet.h */; settings = {ATTRIBUTES = (); }; };
 		E9844294155DA169007066C3 /* NSObject+JUAssociatedSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844292155DA169007066C3 /* NSObject+JUAssociatedSet.m */; };
-		E98442C3155DA557007066C3 /* UILabel+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442C1155DA557007066C3 /* UILabel+JUBindingAddition.h */; };
+		E98442C3155DA557007066C3 /* UILabel+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442C1155DA557007066C3 /* UILabel+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E98442C4155DA557007066C3 /* UILabel+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E98442C2155DA557007066C3 /* UILabel+JUBindingAddition.m */; };
-		E98442CB155DC6C4007066C3 /* UIView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442C9155DC6C4007066C3 /* UIView+JUBindingAddition.h */; };
+		E98442CB155DC6C4007066C3 /* UIView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442C9155DC6C4007066C3 /* UIView+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E98442CC155DC6C4007066C3 /* UIView+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E98442CA155DC6C4007066C3 /* UIView+JUBindingAddition.m */; };
-		E98442CF155DCCF1007066C3 /* UIViewController+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442CD155DCCF1007066C3 /* UIViewController+JUBindingAddition.h */; };
+		E98442CF155DCCF1007066C3 /* UIViewController+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442CD155DCCF1007066C3 /* UIViewController+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E98442D0155DCCF1007066C3 /* UIViewController+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E98442CE155DCCF1007066C3 /* UIViewController+JUBindingAddition.m */; };
+		E98442D3155DDC02007066C3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98442D2155DDC02007066C3 /* RootViewController.m */; };
+		E984430C155DDFF9007066C3 /* UITableView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E984430A155DDFF7007066C3 /* UITableView+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
+		E984430D155DDFF9007066C3 /* UITableView+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E984430B155DDFF7007066C3 /* UITableView+JUBindingAddition.m */; };
+		E9844315155DE9AC007066C3 /* JUArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844313155DE9AC007066C3 /* JUArrayController.h */; settings = {ATTRIBUTES = (); }; };
+		E9844316155DE9AC007066C3 /* JUArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844314155DE9AC007066C3 /* JUArrayController.m */; };
+		E9844319155DE9C6007066C3 /* JUObjectController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844317155DE9C6007066C3 /* JUObjectController.h */; settings = {ATTRIBUTES = (); }; };
+		E984431A155DE9C6007066C3 /* JUObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844318155DE9C6007066C3 /* JUObjectController.m */; };
+		E9844320155DEFF1007066C3 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E984431F155DEF9C007066C3 /* RootView.xib */; };
+		E9844323155DF310007066C3 /* JUTableViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844321155DF30F007066C3 /* JUTableViewProxy.h */; };
+		E9844324155DF310007066C3 /* JUTableViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844322155DF310007066C3 /* JUTableViewProxy.m */; };
+		E9844327155E0B63007066C3 /* UITableViewCell+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844325155E0B62007066C3 /* UITableViewCell+JUBindingAddition.h */; };
+		E9844328155E0B63007066C3 /* UITableViewCell+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844326155E0B62007066C3 /* UITableViewCell+JUBindingAddition.m */; };
+		E984432B155E1145007066C3 /* UIImageView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844329155E1144007066C3 /* UIImageView+JUBindingAddition.h */; };
+		E984432C155E1145007066C3 /* UIImageView+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E984432A155E1144007066C3 /* UIImageView+JUBindingAddition.m */; };
+		E984432F155E1BD5007066C3 /* JUUserDefaultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = E984432D155E1BD4007066C3 /* JUUserDefaultsController.h */; };
+		E9844330155E1BD5007066C3 /* JUUserDefaultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E984432E155E1BD4007066C3 /* JUUserDefaultsController.m */; };
+		E9844334155E1E13007066C3 /* UISwitch+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844332155E1E12007066C3 /* UISwitch+JUBindingAddition.h */; };
+		E9844335155E1E13007066C3 /* UISwitch+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */; };
+		E9844338155E1E8E007066C3 /* DefaultsDemoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */; };
+		E984433A155E1EBF007066C3 /* DefaultsDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */; };
+		E984433B155E1FE0007066C3 /* DefaultsDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9844331155E1D71007066C3 /* DefaultsDemoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +75,13 @@
 		E960EF32155D68F800711060 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E960EF4D155D6A0400711060 /* libJUBindings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJUBindings.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E960EF51155D6A0400711060 /* JUBindings-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JUBindings-Prefix.pch"; sourceTree = "<group>"; };
-		E960EF52155D6A0400711060 /* JUBindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JUBindings.h; sourceTree = "<group>"; };
-		E960EF59155D6A1D00711060 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E960EF5A155D6A1D00711060 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E960EF52155D6A0400711060 /* JUBindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = JUBindings.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E960EF59155D6A1D00711060 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E960EF5A155D6A1D00711060 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E960EF67155D6B1100711060 /* JUExplicitBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUExplicitBinding.h; sourceTree = "<group>"; };
 		E960EF68155D6B1100711060 /* JUExplicitBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUExplicitBinding.m; sourceTree = "<group>"; };
-		E960EF6B155D748400711060 /* JUBindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUBindingProxy.h; sourceTree = "<group>"; };
-		E960EF6C155D748400711060 /* JUBindingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUBindingProxy.m; sourceTree = "<group>"; };
+		E960EF6B155D748400711060 /* JUBindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = JUBindingProxy.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E960EF6C155D748400711060 /* JUBindingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = JUBindingProxy.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E960EF6F155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JUKeyValueBindingCreation.h"; sourceTree = "<group>"; };
 		E960EF70155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JUKeyValueBindingCreation.m"; sourceTree = "<group>"; };
 		E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+JUBindingsAddition.h"; sourceTree = "<group>"; };
@@ -82,6 +103,28 @@
 		E98442CA155DC6C4007066C3 /* UIView+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JUBindingAddition.m"; sourceTree = "<group>"; };
 		E98442CD155DCCF1007066C3 /* UIViewController+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JUBindingAddition.h"; sourceTree = "<group>"; };
 		E98442CE155DCCF1007066C3 /* UIViewController+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E98442D1155DDC02007066C3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E98442D2155DDC02007066C3 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E984430A155DDFF7007066C3 /* UITableView+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E984430B155DDFF7007066C3 /* UITableView+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E9844313155DE9AC007066C3 /* JUArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUArrayController.h; sourceTree = "<group>"; };
+		E9844314155DE9AC007066C3 /* JUArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUArrayController.m; sourceTree = "<group>"; };
+		E9844317155DE9C6007066C3 /* JUObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUObjectController.h; sourceTree = "<group>"; };
+		E9844318155DE9C6007066C3 /* JUObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUObjectController.m; sourceTree = "<group>"; };
+		E984431F155DEF9C007066C3 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
+		E9844321155DF30F007066C3 /* JUTableViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUTableViewProxy.h; sourceTree = "<group>"; };
+		E9844322155DF310007066C3 /* JUTableViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUTableViewProxy.m; sourceTree = "<group>"; };
+		E9844325155E0B62007066C3 /* UITableViewCell+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E9844326155E0B62007066C3 /* UITableViewCell+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E9844329155E1144007066C3 /* UIImageView+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E984432A155E1144007066C3 /* UIImageView+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E984432D155E1BD4007066C3 /* JUUserDefaultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUUserDefaultsController.h; sourceTree = "<group>"; };
+		E984432E155E1BD4007066C3 /* JUUserDefaultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUUserDefaultsController.m; sourceTree = "<group>"; };
+		E9844331155E1D71007066C3 /* DefaultsDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultsDemoView.xib; sourceTree = "<group>"; };
+		E9844332155E1E12007066C3 /* UISwitch+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsDemoViewController.h; sourceTree = "<group>"; };
+		E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsDemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +211,7 @@
 		E960EF64155D6A5600711060 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E9844312155DE9AC007066C3 /* Controller */,
 				E9844275155D8503007066C3 /* UIKit Additions */,
 				E960EF52155D6A0400711060 /* JUBindings.h */,
 				E960EF6B155D748400711060 /* JUBindingProxy.h */,
@@ -195,6 +239,16 @@
 				E98442CA155DC6C4007066C3 /* UIView+JUBindingAddition.m */,
 				E98442CD155DCCF1007066C3 /* UIViewController+JUBindingAddition.h */,
 				E98442CE155DCCF1007066C3 /* UIViewController+JUBindingAddition.m */,
+				E984430A155DDFF7007066C3 /* UITableView+JUBindingAddition.h */,
+				E984430B155DDFF7007066C3 /* UITableView+JUBindingAddition.m */,
+				E9844325155E0B62007066C3 /* UITableViewCell+JUBindingAddition.h */,
+				E9844326155E0B62007066C3 /* UITableViewCell+JUBindingAddition.m */,
+				E9844329155E1144007066C3 /* UIImageView+JUBindingAddition.h */,
+				E984432A155E1144007066C3 /* UIImageView+JUBindingAddition.m */,
+				E9844332155E1E12007066C3 /* UISwitch+JUBindingAddition.h */,
+				E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */,
+				E9844321155DF30F007066C3 /* JUTableViewProxy.h */,
+				E9844322155DF310007066C3 /* JUTableViewProxy.m */,
 			);
 			path = "UIKit Additions";
 			sourceTree = "<group>";
@@ -202,7 +256,9 @@
 		E984427E155D8758007066C3 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				E984431F155DEF9C007066C3 /* RootView.xib */,
 				E984427F155D8758007066C3 /* LabelDemoView.xib */,
+				E9844331155E1D71007066C3 /* DefaultsDemoView.xib */,
 				E9844280155D8758007066C3 /* MainWindow.xib */,
 			);
 			path = Nibs;
@@ -221,10 +277,27 @@
 		E9844285155D8758007066C3 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E98442D1155DDC02007066C3 /* RootViewController.h */,
+				E98442D2155DDC02007066C3 /* RootViewController.m */,
 				E984428A155D87A1007066C3 /* LabelDemoViewController.h */,
 				E984428B155D87A1007066C3 /* LabelDemoViewController.m */,
+				E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */,
+				E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		E9844312155DE9AC007066C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9844313155DE9AC007066C3 /* JUArrayController.h */,
+				E9844314155DE9AC007066C3 /* JUArrayController.m */,
+				E9844317155DE9C6007066C3 /* JUObjectController.h */,
+				E9844318155DE9C6007066C3 /* JUObjectController.m */,
+				E984432D155E1BD4007066C3 /* JUUserDefaultsController.h */,
+				E984432E155E1BD4007066C3 /* JUUserDefaultsController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +316,15 @@
 				E98442C3155DA557007066C3 /* UILabel+JUBindingAddition.h in Headers */,
 				E98442CB155DC6C4007066C3 /* UIView+JUBindingAddition.h in Headers */,
 				E98442CF155DCCF1007066C3 /* UIViewController+JUBindingAddition.h in Headers */,
+				E984430C155DDFF9007066C3 /* UITableView+JUBindingAddition.h in Headers */,
+				E9844315155DE9AC007066C3 /* JUArrayController.h in Headers */,
+				E9844319155DE9C6007066C3 /* JUObjectController.h in Headers */,
+				E9844323155DF310007066C3 /* JUTableViewProxy.h in Headers */,
+				E9844327155E0B63007066C3 /* UITableViewCell+JUBindingAddition.h in Headers */,
+				E984432B155E1145007066C3 /* UIImageView+JUBindingAddition.h in Headers */,
+				E984432F155E1BD5007066C3 /* JUUserDefaultsController.h in Headers */,
+				E9844334155E1E13007066C3 /* UISwitch+JUBindingAddition.h in Headers */,
+				E9844338155E1E8E007066C3 /* DefaultsDemoViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +386,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E960EF29155D68F800711060 /* JUBindingsExample */,
 				E960EF4C155D6A0400711060 /* JUBindings */,
+				E960EF29155D68F800711060 /* JUBindingsExample */,
 			);
 		};
 /* End PBXProject section */
@@ -316,6 +398,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9844286155D8758007066C3 /* LabelDemoView.xib in Resources */,
+				E984433B155E1FE0007066C3 /* DefaultsDemoView.xib in Resources */,
+				E9844320155DEFF1007066C3 /* RootView.xib in Resources */,
 				E9844287155D8758007066C3 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +414,8 @@
 				E960EF60155D6A1D00711060 /* AppDelegate.m in Sources */,
 				E9844289155D8758007066C3 /* main.m in Sources */,
 				E984428C155D87A1007066C3 /* LabelDemoViewController.m in Sources */,
+				E98442D3155DDC02007066C3 /* RootViewController.m in Sources */,
+				E984433A155E1EBF007066C3 /* DefaultsDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +432,14 @@
 				E98442C4155DA557007066C3 /* UILabel+JUBindingAddition.m in Sources */,
 				E98442CC155DC6C4007066C3 /* UIView+JUBindingAddition.m in Sources */,
 				E98442D0155DCCF1007066C3 /* UIViewController+JUBindingAddition.m in Sources */,
+				E984430D155DDFF9007066C3 /* UITableView+JUBindingAddition.m in Sources */,
+				E9844316155DE9AC007066C3 /* JUArrayController.m in Sources */,
+				E984431A155DE9C6007066C3 /* JUObjectController.m in Sources */,
+				E9844324155DF310007066C3 /* JUTableViewProxy.m in Sources */,
+				E9844328155E0B63007066C3 /* UITableViewCell+JUBindingAddition.m in Sources */,
+				E984432C155E1145007066C3 /* UIImageView+JUBindingAddition.m in Sources */,
+				E9844330155E1BD5007066C3 /* JUUserDefaultsController.m in Sources */,
+				E9844335155E1E13007066C3 /* UISwitch+JUBindingAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

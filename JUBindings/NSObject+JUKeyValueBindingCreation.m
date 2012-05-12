@@ -14,7 +14,6 @@
 //  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//
 
 #import <objc/runtime.h>
 
@@ -53,6 +52,7 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     {
         bindings = [[NSMutableSet alloc] init];
         [JUBindingExposedBindings setObject:bindings forKey:self];
+        [bindings release]; // We most certainly have no autorelease pool in place at this time!
     }
     
     [bindings addObject:binding];
@@ -71,34 +71,73 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     return bindings;
 }
 
++ (NSSet *)exposedBindingsForClassAsSet:(Class)class
+{
+    NSMutableSet *bindings = [NSMutableSet set];
+    
+    do {
+        NSSet *set = [JUBindingExposedBindings objectForKey:class];
+        
+        [bindings unionSet:set];
+    } while ((class = class_getSuperclass(class)));
+    
+    return bindings;
+}
+
 
 - (NSArray *)exposedBindings
 {
     return [NSObject exposedBindingsForClass:self->isa];
 }
 
-
-
-
-
-- (BOOL)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding
+- (BOOL)exposesBinding:(NSString *)binding
 {
-    return NO;
+    NSSet *allBindings = [NSObject exposedBindingsForClassAsSet:self->isa];
+    return [allBindings containsObject:binding];
+}
+
+
+
+
+- (void)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding
+{
 }
 
 - (void)unbindCustomBinding:(JUExplicitBinding *)binding
 {
 }
 
+- (BOOL)wantsCustomBindingForBinding:(NSString *)binding
+{
+    return NO;
+}
+
+- (BOOL)wantsKVOBindingForBinding:(NSString *)binding
+{
+    return YES;
+}
+
+
 - (void)bind:(NSString *)bindingKey toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary *)options
 {
+    if(![self exposesBinding:bindingKey])
+    {
+        @throw [NSException exceptionWithName:[NSString stringWithFormat:@"%@ doesn't expose %@!", self, bindingKey] reason:@"No such binding found!" userInfo:nil];
+        return;
+    }
+    
+    
     JUBindingProxy *proxy = [self bindingProxy];
     JUExplicitBinding *binding = [[[JUExplicitBinding alloc] initWithBindingKey:bindingKey observable:observableController withKeyPath:keyPath options:options andTarget:self] autorelease];
     
-    if(![observableController createCustomBindingWithExplicitBinding:binding])
+    if([self wantsCustomBindingForBinding:bindingKey])
+        [binding bindCustomBinding];
+    
+    if([self wantsKVOBindingForBinding:bindingKey])
         [binding bindUsingKVO];
     
     [proxy setExplicitBinding:binding forBinding:bindingKey];
+    
 }
 
 - (void)unbind:(NSString *)binding
@@ -138,11 +177,29 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 
 - (NSArray *)optionDescriptionsForBinding:(NSString *)binding
 {
+    // Not implemented anywhere because this is most of the time only used by IB
     return nil;
 }
 
 
 
+- (void)fireKeyPath:(NSString *)keyPath
+{
+    NSRange range = [keyPath rangeOfString:@"."];
+    if(range.location == NSNotFound)
+    {
+        [self willChangeValueForKey:keyPath];
+        [self didChangeValueForKey:keyPath];
+        
+        return;
+    }
+    
+    NSString *key = [keyPath substringToIndex:range.location];
+    keyPath = [keyPath substringFromIndex:range.location + 1];
+
+    NSObject *object = [self valueForKey:key];
+    [object fireKeyPath:keyPath];    
+}
 
 
 

@@ -1,5 +1,5 @@
 //
-//  main.m
+//  RootViewController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -17,9 +17,13 @@
 
 #import <UIKit/UIKit.h>
 
-int main(int argc, char *argv[])
+@interface RootViewController : UIViewController <JUTableViewDataSource, UITableViewDelegate>
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+@private
+    IBOutlet UITableView *tableView;
+    
+    JUArrayController *arrayController;
+    NSMutableArray *entries;
 }
+
+@end

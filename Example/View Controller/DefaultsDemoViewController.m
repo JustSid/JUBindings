@@ -1,5 +1,5 @@
 //
-//  main.m
+//  DefaultsDemoViewController.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,37 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "DefaultsDemoViewController.h"
 
-int main(int argc, char *argv[])
+@implementation DefaultsDemoViewController
+
+- (void)viewDidLoad
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+    [super viewDidLoad];
+    
+    defaultsController = [JUUserDefaultsController sharedDefaultsController];
+    
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO], NSNullPlaceholderBindingOption, nil];
+	
+    [onSwitch bind:@"on" toObject:defaultsController withKeyPath:@"DemoSwitchState" options:options];
+    [textField bind:@"text" toObject:defaultsController withKeyPath:@"DemoTextField" options:nil];
+    
+    [defaultsController bind:@"DemoSwitchState" toObject:onSwitch withKeyPath:@"on" options:nil];
+    [defaultsController bind:@"DemoTextField" toObject:textField withKeyPath:@"text" options:nil];
 }
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    [onSwitch unbind:@"on"];
+    [textField unbind:@"text"];
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+@end

@@ -1,5 +1,5 @@
 //
-//  main.m
+//  JUObjectController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,14 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
-}
+@interface JUObjectController : NSObject
+@property (nonatomic, retain) id content;
+
+- (id)selection;
+- (NSArray *)selectedObjects;
+
+- (id)initWithContent:(id)content;
+
+@end

@@ -1,5 +1,5 @@
 //
-//  main.m
+//  UITableView+JUBindingAddition.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -16,10 +16,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JUBindings.h"
 
-int main(int argc, char *argv[])
-{
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
-}
+@protocol JUTableViewDataSource;
+@interface UITableView (JUBindingAddition)
+- (void)setJUDataSource:(id<JUTableViewDataSource>)dataSource;
+@end
+
+
+
+@protocol JUTableViewDataSource <NSObject>
+@required
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@optional
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section;
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
+
+@end

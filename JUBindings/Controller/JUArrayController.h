@@ -1,5 +1,5 @@
 //
-//  main.m
+//  JUArrayController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,25 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "JUObjectController.h"
 
-int main(int argc, char *argv[])
+@interface JUArrayController : JUObjectController
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+@private
+    NSArray *sortDescriptors;
+    NSPredicate *filterPredicate;
+    
+    NSArray *arrangedObjects;
 }
+
+@property (nonatomic, retain) NSArray *sortDescriptors;
+@property (nonatomic, retain) NSPredicate *filterPredicate;
+
+- (NSArray *)arrangedObjects;
+- (NSArray *)arrangedObjects:(NSArray *)objects;
+- (void)rearrangeObjects;
+
+//- (id)selection;
+
+@end

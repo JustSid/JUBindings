@@ -1,5 +1,5 @@
 //
-//  main.m
+//  JUObjectController.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,65 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "JUObjectController.h"
+#import "JUBindings.h"
 
-int main(int argc, char *argv[])
+@interface JUObjectController ()
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
+    id content;
+}
+
+@end
+
+@implementation JUObjectController
+@synthesize content;
+
++ (void)initializeBindings
+{
+    [self exposeBinding:@"content"];
+}
+
+- (Class)valueClassForBinding:(NSString *)binding
+{
+    if([binding isEqualToString:@"content"])
+        return [NSObject class];
+    
+    return [super valueClassForBinding:binding];
+}
+
+
+
+- (id)selection
+{
+    return content;
+}
+
+- (NSArray *)selectedObjects
+{
+    return [NSArray arrayWithObject:content];
+}
+
+
+
+- (id)initWithContent:(id)tcontent
+{
+    if((self = [super init]))
+    {
+        self.content = tcontent;
     }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    [content release];
+    [super dealloc];
+}
+
+@end
+
+__attribute__((constructor)) void _JUObjectControllerInitBindings()
+{
+    [JUObjectController initializeBindings];
 }

@@ -1,5 +1,5 @@
 //
-//  main.m
+//  DefaultsDemoViewController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -17,9 +17,13 @@
 
 #import <UIKit/UIKit.h>
 
-int main(int argc, char *argv[])
+@interface DefaultsDemoViewController : UIViewController
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+@private
+    IBOutlet UISwitch *onSwitch;
+    IBOutlet UITextField *textField;
+    
+    JUUserDefaultsController *defaultsController;
 }
+
+@end

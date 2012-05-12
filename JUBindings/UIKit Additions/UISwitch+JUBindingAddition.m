@@ -1,5 +1,5 @@
 //
-//  UISlider+JUBindingAddition.m
+//  UISwitch+JUBindingAddition.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,30 +15,25 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <objc/runtime.h>
-#import "UISlider+JUBindingAddition.h"
+#import "UISwitch+JUBindingAddition.h"
 #import "NSObject+JUAssociatedSet.h"
+#import "JUBindings.h"
 
-static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
+static NSString *JUBindingUISwitchValueKey = @"JUBindingUISwitchValueKey";
 
-@implementation UISlider (JUBindingAddition)
+@implementation UISwitch (JUBindingAddition)
 
 + (void)initializeBindings
 {
-    [self exposeBinding:@"value"];
-    [self exposeBinding:@"minimumValue"];
-    [self exposeBinding:@"maximumValue"];
+    [self exposeBinding:@"on"];
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"value"])
+    if([binding isEqualToString:@"on"])
         return [NSNumber class];
-    
-    if([bindingKey isEqualToString:@"minimumValue"] || [bindingKey isEqualToString:@"maximumValue"])
-        return [NSNumber class];
-    
-    return [super valueClassForBinding:bindingKey];
+        
+    return [super valueClassForBinding:binding];
 }
 
 
@@ -46,8 +41,8 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 
 - (void)__valueDidChange:(id)object
 {
-    NSArray *observer = [self objectsInSetWithKey:JUBindingUISliderValueKey];
-    NSNumber *value = [NSNumber numberWithFloat:[self value]];
+    NSArray *observer = [self objectsInSetWithKey:JUBindingUISwitchValueKey];
+    NSNumber *value = [NSNumber numberWithBool:[self isOn]];
     
     for(JUExplicitBinding *binding in observer)
         [binding boundValueChangedTo:value];
@@ -58,11 +53,11 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 {
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
     
-    if([keyPath isEqualToString:@"value"])
+    if([keyPath isEqualToString:@"on"])
     {
-        [self addObject:observer intoSetWithKey:JUBindingUISliderValueKey];
+        [self addObject:observer intoSetWithKey:JUBindingUISwitchValueKey];
         
-        if([[self objectsInSetWithKey:JUBindingUISliderValueKey] count] == 1)
+        if([[self objectsInSetWithKey:JUBindingUISwitchValueKey] count] == 1)
             [self addTarget:self action:@selector(__valueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
 }
@@ -71,20 +66,18 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 {
     [super removeObserver:observer forKeyPath:keyPath context:context];
     
-    if([keyPath isEqualToString:@"value"])
+    if([keyPath isEqualToString:@"on"])
     {
-        [self removeObject:observer fromSetWithKey:JUBindingUISliderValueKey];
+        [self removeObject:observer fromSetWithKey:JUBindingUISwitchValueKey];
         
-        if([[self objectsInSetWithKey:JUBindingUISliderValueKey] count] == 0)
+        if([[self objectsInSetWithKey:JUBindingUISwitchValueKey] count] == 0)
             [self removeTarget:self action:@selector(__valueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
 }
 
-
 @end
 
-
-__attribute__((constructor)) void _UISliderInitBindings()
+__attribute__((constructor)) void _UISwitchInitBindings()
 {
-    [UISlider initializeBindings];
+    [UISwitch initializeBindings];
 }

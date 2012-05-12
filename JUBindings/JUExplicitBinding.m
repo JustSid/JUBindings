@@ -14,7 +14,6 @@
 //  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//
 
 #import "JUExplicitBinding.h"
 #import "JUBindings.h"
@@ -22,6 +21,7 @@
 @interface JUExplicitBinding ()
 {
     BOOL usesKVO;
+    BOOL usesCustomBinding;
 }
 
 @end
@@ -40,6 +40,14 @@
         return [tobject description];
     }
     
+    if([class isSubclassOfClass:[NSNumber class]])
+    {
+        if([object isKindOfClass:[NSString class]])
+        {
+            return [NSNumber numberWithFloat:[object floatValue]];
+        }
+    }
+    
     return nil;
 }
 
@@ -53,6 +61,8 @@
     if(newValue && ![newValue isKindOfClass:[NSNull class]])
     {
         result = transformer ? [transformer transformedValue:newValue] : [self convertObject:newValue toClass:[target valueClassForBinding:binding]];
+        if(!result)
+            result = placeholder;
     }
     else 
     {
@@ -76,20 +86,26 @@
 {
     NSKeyValueObservingOptions ovserverOptions = NSKeyValueObservingOptionNew;
     [object addObserver:self forKeyPath:keyPath options:ovserverOptions context:self];
+    [object fireKeyPath:keyPath];
     
     usesKVO = YES;
+}
+
+- (void)bindCustomBinding
+{
+    [target createCustomBindingWithExplicitBinding:self];    
+    usesCustomBinding = YES;
 }
 
 - (void)forceUnbind
 {
     if(usesKVO)
-    {
         [object removeObserver:self forKeyPath:keyPath context:self];
-    }
-    else 
-    {
+    
+    if(usesCustomBinding)
         [object unbindCustomBinding:self];
-    }
+    
+    usesKVO = usesCustomBinding = NO;
 }
 
 
@@ -111,6 +127,8 @@
 
 - (void)dealloc
 {
+    [self forceUnbind];
+    
     [binding release];
     [object release];
     [keyPath release];

@@ -1,5 +1,5 @@
 //
-//  main.m
+//  JUUserDefaultsController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,17 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-int main(int argc, char *argv[])
+@interface JUUserDefaultsController : NSObject
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+@private
+    NSUserDefaults *defaults;
+    NSValueTransformer *transformer;
 }
+
++ (JUUserDefaultsController *)sharedDefaultsController;
+
+- (id)initWithDefaults:(NSUserDefaults *)defaults;
+
+@end

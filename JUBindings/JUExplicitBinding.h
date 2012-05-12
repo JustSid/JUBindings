@@ -14,7 +14,6 @@
 //  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//
 
 #import <Foundation/Foundation.h>
 
@@ -37,7 +36,9 @@
 @property (nonatomic, readonly) NSDictionary *options;
 
 - (void)bindUsingKVO;
+- (void)bindCustomBinding;
 - (void)forceUnbind;
+
 
 - (void)boundValueChangedTo:(id)newValue;
 

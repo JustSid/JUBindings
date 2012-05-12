@@ -1,5 +1,5 @@
 //
-//  main.m
+//  UIImageView+JUBindingAddition.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,29 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIImageView+JUBindingAddition.h"
+#import "JUBindings.h"
 
-int main(int argc, char *argv[])
+@implementation UIImageView (JUBindingAddition)
+
++ (void)initializeBindings
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+    [self exposeBinding:@"image"];
+    [self exposeBinding:@"highlightedImage"];
 }
+
+- (Class)valueClassForBinding:(NSString *)binding
+{
+    if([binding isEqualToString:@"image"] || [binding isEqualToString:@"highlightedImage"])
+        return [UIImage class];
+    
+    return [super valueClassForBinding:binding];
+}
+
+@end
+
+__attribute__((constructor)) void _UIImageViewInitBindings()
+{
+    [UIImageView initializeBindings];
+}
+

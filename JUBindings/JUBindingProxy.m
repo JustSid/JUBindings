@@ -14,7 +14,6 @@
 //  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//
 
 #import <objc/runtime.h>
 #import "JUBindingProxy.h"
@@ -69,8 +68,13 @@ extern NSMutableDictionary *JUBindingExposedBindings;
 
 - (void)dealloc
 {
-    for(JUExplicitBinding *binding in bindings)
+    NSEnumerator *enumrator = [bindings objectEnumerator];
+    JUExplicitBinding *binding;
+    
+    while((binding = [enumrator nextObject]))
+    {
         [binding forceUnbind];
+    }
     
     [bindings release];
     [super dealloc];

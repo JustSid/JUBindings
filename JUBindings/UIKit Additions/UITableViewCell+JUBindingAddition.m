@@ -1,5 +1,5 @@
 //
-//  main.m
+//  UITableViewCell+JUBindingAddition.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,30 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <objc/runtime.h>
+#import "UITableViewCell+JUBindingAddition.h"
 
-int main(int argc, char *argv[])
+static NSString *JUTableViewCellObjectKey = @"JUTableViewCellObjectKey";
+
+@implementation UITableViewCell (JUBindingAddition)
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
+    if([key isEqualToString:@"object"])
+    {
+        objc_setAssociatedObject(self, JUTableViewCellObjectKey, value, OBJC_ASSOCIATION_RETAIN);
+        return;
     }
+    
+    [super setValue:value forUndefinedKey:key];
 }
+
+- (id)valueForUndefinedKey:(NSString *)key
+{
+    if([key isEqualToString:@"object"])
+        return objc_getAssociatedObject(self, JUTableViewCellObjectKey);
+      
+    return [super valueForUndefinedKey:key];
+}
+
+@end

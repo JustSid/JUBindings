@@ -1,5 +1,5 @@
 //
-//  main.m
+//  JUTableViewProxy.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,11 +15,22 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UITableView+JUBindingAddition.h"
 
-int main(int argc, char *argv[])
+@interface JUTableViewProxy : NSObject <UITableViewDataSource>
 {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, nil);
-    }
+@private
+    UITableView *tableView;
+    NSArray *content;
+    
+    id dataSource;
 }
+
+@property (nonatomic, retain) NSArray *content;
+@property (nonatomic, assign) id<JUTableViewDataSource> dataSource;
+
+- (id)initWithTableView:(UITableView *)tableView;
+
+@end

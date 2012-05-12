@@ -14,7 +14,6 @@
 //  FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-//
 
 #import "LabelDemoViewController.h"
 
@@ -39,11 +38,15 @@
     
     [valueLabel bind:@"text" toObject:slider withKeyPath:@"value" options:nil];
     [valueLabel bind:@"textColor" toObject:self withKeyPath:@"color" options:options];
-    
-    [self willChangeValueForKey:@"color"];
-    [self didChangeValueForKey:@"color"];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    [valueLabel unbind:@"text"];
+    [valueLabel unbind:@"textColor"];
+}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
