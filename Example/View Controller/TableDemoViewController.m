@@ -75,7 +75,7 @@
 #pragma mark -
 #pragma mark Misc
 
-- (NSDictionary *)sectionWithHeader:(NSString *)header andEntries:(NSInteger)numEntries
+- (NSDictionary *)sectionWithHeader:(NSString *)header andEntries:(NSInteger)numEntries atIndex:(NSInteger)index 
 {
     NSMutableArray *entries = [NSMutableArray arrayWithCapacity:numEntries];
     for(NSInteger i=0; i<numEntries; i++)
@@ -88,6 +88,7 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     [dictionary setObject:header forKey:@"header"];
     [dictionary setObject:[NSString stringWithFormat:@"%i entries", numEntries] forKey:@"footer"];
+    [dictionary setObject:[NSString stringWithFormat:@"%i", index]  forKey:@"title"];
     [dictionary setObject:entries forKey:@"entries"];
     
     return dictionary;
@@ -106,12 +107,14 @@
     tableController = [[JUTableController alloc] initWithContent:content];
     [tableController setSectionHeaderKey:@"header"];
     [tableController setSectionFooterKey:@"footer"];
+    [tableController setSectionTitleKey:@"title"];
     [tableController setChildrenKey:@"entries"];
     
     [tableController bind:@"contentArray" toObject:self withKeyPath:@"content" options:nil];
     
     [contentTable setJUDataSource:self];
     [contentTable setDelegate:self];
+    [contentTable setSectionIndexMinimumDisplayRowCount:5];
     [contentTable bind:@"content" toObject:tableController withKeyPath:@"arrangedObjects" options:nil];
     
     [self willChangeValueForKey:@"content"];
@@ -123,7 +126,7 @@
     for(NSInteger i=0; i<sections; i++)
     {
         NSInteger entries = arc4random_uniform(10) + 2;
-        NSDictionary *section = [self sectionWithHeader:[NSString stringWithFormat:@"Section %i", i] andEntries:entries];
+        NSDictionary *section = [self sectionWithHeader:[NSString stringWithFormat:@"Section %i", i] andEntries:entries atIndex:i];
         
         [array addObject:section];
     }

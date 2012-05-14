@@ -24,9 +24,11 @@
 @private
     UITableView *tableView;
     NSArray *content;
+    NSMutableArray *titleIndexes;
     
     id dataSource;
     BOOL usesSections;
+    BOOL titleForEverySection;
 }
 
 @property (nonatomic, retain) NSArray *content;

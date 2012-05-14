@@ -18,7 +18,7 @@
 #import "JUSectionProxy.h"
 
 @implementation __JUSectionProxy
-@synthesize header, footer;
+@synthesize header, footer, title;
 
 - (NSArray *)arrangedObjects
 {
@@ -43,10 +43,12 @@
 {
     [header autorelease];
     [footer autorelease];
+    [title autorelease];
     [arrangedObjects autorelease];
     
     header = [[object valueForKey:[controller sectionHeaderKey]] retain];
     footer = [[object valueForKey:[controller sectionFooterKey]] retain];
+    title = [[object valueForKey:[controller sectionTitleKey]] retain];
     
     id children = [object valueForKey:[controller childrenKey]];
     NSArray *objects = ([children isKindOfClass:[NSArray class]]) ? children : [children allObjects];

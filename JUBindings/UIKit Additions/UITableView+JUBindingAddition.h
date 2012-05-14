@@ -16,7 +16,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JUBindings.h"
 
 @protocol JUTableViewDataSource;
 @interface UITableView (JUBindingAddition)

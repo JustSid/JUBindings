@@ -66,6 +66,63 @@
 
 
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)ttableView
+{
+    if([dataSource respondsToSelector:@selector(sectionIndexTitlesForTableView:)])
+        return [dataSource sectionIndexTitlesForTableView:ttableView];
+    
+    if(usesSections)
+    {
+        titleForEverySection = YES;
+        
+        int i = 0;
+        NSMutableArray *titles = [NSMutableArray arrayWithCapacity:[content count]];
+        [titleIndexes removeAllObjects];
+        
+        for(__JUSectionProxy *proxy in content)
+        {
+            NSString *title = [proxy title];
+            
+            if([title length] > 0)
+            {
+                [titles addObject:title];
+                [titleIndexes addObject:[NSNumber numberWithInt:i]];
+            }
+            else 
+            {
+                titleForEverySection = NO;
+            }
+            
+            i ++;
+        }
+        
+        if(titleForEverySection)
+            [titleIndexes removeAllObjects];
+        
+        return titles;
+    }
+    
+    return nil;
+}
+
+- (NSInteger)tableView:(UITableView *)ttableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    if([dataSource respondsToSelector:@selector(tableView:sectionForSectionIndexTitle:atIndex:)])
+        return [dataSource tableView:ttableView sectionForSectionIndexTitle:title atIndex:index];
+    
+    if(usesSections)
+    {
+        if(titleForEverySection)
+            return index;
+        
+        return [[titleIndexes objectAtIndex:index] integerValue];
+    }
+    
+    return -1;
+}
+
+
+
 - (NSString *)tableView:(UITableView *)ttableView titleForHeaderInSection:(NSInteger)section
 {
     if(!usesSections)
@@ -133,6 +190,7 @@
     if((self = [super init]))
     {
         tableView = ttableView;
+        titleIndexes = [[NSMutableArray alloc] init];
         
         [tableView setDataSource:self];
     }
@@ -143,6 +201,8 @@
 - (void)dealloc
 {
     [content release];
+    [titleIndexes release];
+    
     [tableView setDataSource:nil];
     
     [super dealloc];

@@ -26,11 +26,13 @@
     
     NSString *header;
     NSString *footer;
+    NSString *title;
     NSArray *arrangedObjects;
 }
 
 @property (nonatomic, readonly) NSString *header;
 @property (nonatomic, readonly) NSString *footer;
+@property (nonatomic, readonly) NSString *title;
 
 - (NSArray *)arrangedObjects;
 - (NSArray *)arrangedObjects:(NSArray *)objects;

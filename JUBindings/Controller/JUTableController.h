@@ -23,6 +23,7 @@
 @protected
     NSString *sectionHeaderKey;
     NSString *sectionFooterKey;
+    NSString *sectionTitleKey;
     NSString *childrenKey;
     
     BOOL preserveEmptySections;
@@ -30,6 +31,7 @@
 
 @property (nonatomic, retain) NSString *sectionHeaderKey;
 @property (nonatomic, retain) NSString *sectionFooterKey;
+@property (nonatomic, retain) NSString *sectionTitleKey;
 @property (nonatomic, retain) NSString *childrenKey;
 
 @property (nonatomic, assign) BOOL preserveEmptySections;

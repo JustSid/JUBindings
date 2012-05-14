@@ -24,7 +24,7 @@
 @end
 
 @implementation JUTableController
-@synthesize sectionHeaderKey, sectionFooterKey, childrenKey;
+@synthesize sectionHeaderKey, sectionFooterKey, sectionTitleKey, childrenKey;
 @synthesize preserveEmptySections;
 
 - (void)setSectionHeaderKey:(NSString *)tsectionHeaderKey
@@ -66,6 +66,17 @@
     sortDescriptors = [tsortDescriptors retain];
     
     [self softRearrangeObjects];
+}
+
+
+- (void)setSectionTitleKey:(NSString *)tsectionTitleKey
+{
+    [sectionTitleKey autorelease];
+    sectionTitleKey = [tsectionTitleKey retain];
+    
+    [self willChangeValueForKey:@"arrangedObjects"];
+    [arrangedObjects makeObjectsPerformSelector:@selector(rearrangeObjects)];
+    [self didChangeValueForKey:@"arrangedObjects"];
 }
 
 

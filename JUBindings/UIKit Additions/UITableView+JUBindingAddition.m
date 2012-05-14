@@ -17,6 +17,8 @@
 
 #import <objc/runtime.h>
 #import "UITableView+JUBindingAddition.h"
+#import "NSString+JUMassComparison.h"
+#import "JUBindings.h"
 #import "JUTableViewProxy.h"
 
 static NSString *JUTableViewProxyKey = @"JUTableViewProxyKey";
@@ -27,14 +29,40 @@ static NSString *JUTableViewProxyKey = @"JUTableViewProxyKey";
 + (void)initializeBindings
 {
     [self exposeBinding:@"content"];
+    [self exposeBinding:@"rowHeight"];
+    [self exposeBinding:@"seperatorStyle"];
+    [self exposeBinding:@"seperatorColor"];
+    [self exposeBinding:@"backgroundView"];
+    [self exposeBinding:@"tableHeaderView"];
+    [self exposeBinding:@"tableFooterView"];
+    [self exposeBinding:@"sectionHeaderHeight"];
+    [self exposeBinding:@"sectionFooterHeight"];
+    [self exposeBinding:@"sectionIndexMinimumDisplayRowCount"];
+    [self exposeBinding:@"allowsSelection"];
+    [self exposeBinding:@"allowsMultipleSelection"];
+    [self exposeBinding:@"allowsSelectionDuringEditing"];
+    [self exposeBinding:@"allowsMultipleSelectionDuringEditing"];
+    [self exposeBinding:@"editing"];
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"content"])
+    if([binding isEqualToString:@"content"])
         return [NSArray class];
     
-    return [super valueClassForBinding:bindingKey];
+    if([binding isEqualToAnyStringInArray:JUArray(@"rowHeight", @"seperatorStyle", @"sectionHeaderHeight", @"sectionFooterHeight", @"sectionFooterHeight", @"sectionIndexMinimumDisplayRowCount")])
+        return [NSNumber class];
+    
+    if([binding isEqualToAnyStringInArray:JUArray(@"allowsSelection", @"allowsMultipleSelection", @"allowsSelectionDuringEditing", @"allowsMultipleSelectionDuringEditing", @"editing")])
+        return [NSNumber class];
+    
+    if([binding isEqualToAnyStringInArray:JUArray(@"backgroundView", @"tableHeaderView", @"tableFooterView")])
+        return [UIView class];
+    
+    if([binding isEqualToString:@"seperatorColor"])
+        return [UIColor class];
+    
+    return [super valueClassForBinding:binding];
 }
 
 
