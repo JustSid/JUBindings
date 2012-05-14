@@ -99,25 +99,6 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 
 
 
-- (void)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding
-{
-}
-
-- (void)unbindCustomBinding:(JUExplicitBinding *)binding
-{
-}
-
-- (BOOL)wantsCustomBindingForBinding:(NSString *)binding
-{
-    return NO;
-}
-
-- (BOOL)wantsKVOBindingForBinding:(NSString *)binding
-{
-    return YES;
-}
-
-
 - (void)bind:(NSString *)bindingKey toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary *)options
 {
     if(![self exposesBinding:bindingKey])
@@ -131,18 +112,13 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     JUExplicitBinding *binding = [proxy explicitBindingForBinding:bindingKey];
     
     // Remove the old binding
-    [binding forceUnbind];
+    [binding unbind];
     [proxy setExplicitBinding:nil forBinding:bindingKey];
     
     // Create a new binding
     binding = [[[JUExplicitBinding alloc] initWithBindingKey:bindingKey observable:observableController withKeyPath:keyPath options:options andTarget:self] autorelease];
     
-    if([self wantsCustomBindingForBinding:bindingKey])
-        [binding bindCustomBinding];
-    
-    if([self wantsKVOBindingForBinding:bindingKey])
-        [binding bindUsingKVO];
-    
+    [binding bind];
     [proxy setExplicitBinding:binding forBinding:bindingKey];
     
 }
@@ -152,7 +128,7 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     JUBindingProxy *proxy = [self bindingProxy];
     JUExplicitBinding *ebinding = [proxy explicitBindingForBinding:binding];
     
-    [ebinding forceUnbind];
+    [ebinding unbind];
     [proxy setExplicitBinding:nil forBinding:binding];
 }
 

@@ -35,10 +35,8 @@
 @property (nonatomic, readonly) NSString *keyPath;
 @property (nonatomic, readonly) NSDictionary *options;
 
-- (void)bindUsingKVO;
-- (void)bindCustomBinding;
-- (void)forceUnbind;
-
+- (void)bind;
+- (void)unbind;
 
 - (void)boundValueChangedTo:(id)newValue;
 

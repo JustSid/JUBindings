@@ -32,13 +32,6 @@
 - (NSDictionary *)infoForBinding:(NSString *)binding;
 - (NSArray *)optionDescriptionsForBinding:(NSString *)binding;
 
-
-// Non standard stuff, only used for classes which don't provide enough KVC/KVO capabilities to work out of the box
-- (void)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding;
-- (void)unbindCustomBinding:(JUExplicitBinding *)binding;
-- (BOOL)wantsCustomBindingForBinding:(NSString *)binding;
-- (BOOL)wantsKVOBindingForBinding:(NSString *)binding;
-
 @end
 
 extern NSString *NSValueTransformerBindingOption;

@@ -73,7 +73,7 @@ extern NSMutableDictionary *JUBindingExposedBindings;
     
     while((binding = [enumrator nextObject]))
     {
-        [binding forceUnbind];
+        [binding unbind];
     }
     
     [bindings release];

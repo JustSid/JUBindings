@@ -25,8 +25,7 @@
 
 @interface JUExplicitBinding ()
 {
-    BOOL usesKVO;
-    BOOL usesCustomBinding;
+    BOOL bound;
 }
 
 @end
@@ -87,30 +86,22 @@
     [self boundValueChangedTo:[change objectForKey:NSKeyValueChangeNewKey]];
 }
 
-- (void)bindUsingKVO
+- (void)bind
 {
     NSKeyValueObservingOptions ovserverOptions = NSKeyValueObservingOptionNew;
     [object addObserver:self forKeyPath:keyPath options:ovserverOptions context:self];
     [object fireKeyPath:keyPath];
     
-    usesKVO = YES;
+    bound = YES;
 }
 
-- (void)bindCustomBinding
-{
-    [target createCustomBindingWithExplicitBinding:self];    
-    usesCustomBinding = YES;
-}
 
-- (void)forceUnbind
+- (void)unbind
 {
-    if(usesKVO)
+    if(bound)
         [object removeObserver:self forKeyPath:keyPath context:self];
     
-    if(usesCustomBinding)
-        [object unbindCustomBinding:self];
-    
-    usesKVO = usesCustomBinding = NO;
+    bound = NO;
 }
 
 
@@ -132,7 +123,7 @@
 
 - (void)dealloc
 {
-    [self forceUnbind];
+    [self unbind];
     
     [binding release];
     [object release];
