@@ -16,9 +16,15 @@
 		E960EF6A155D6B1100711060 /* JUExplicitBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF68155D6B1100711060 /* JUExplicitBinding.m */; };
 		E960EF6D155D748400711060 /* JUBindingProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF6B155D748400711060 /* JUBindingProxy.h */; settings = {ATTRIBUTES = (); }; };
 		E960EF6E155D748400711060 /* JUBindingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF6C155D748400711060 /* JUBindingProxy.m */; };
-		E960EF71155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h in Headers */ = {isa = PBXBuildFile; fileRef = E960EF6F155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h */; settings = {ATTRIBUTES = (); }; };
-		E960EF72155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = E960EF70155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m */; };
 		E960EF73155D7E5500711060 /* libJUBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF4D155D6A0400711060 /* libJUBindings.a */; };
+		E9670E1A155F5603006D6BAF /* NSObject+JUAssociatedSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E9670E15155F5603006D6BAF /* NSObject+JUAssociatedSet.h */; };
+		E9670E1B155F5603006D6BAF /* NSObject+JUAssociatedSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9670E16155F5603006D6BAF /* NSObject+JUAssociatedSet.m */; };
+		E9670E1C155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h in Headers */ = {isa = PBXBuildFile; fileRef = E9670E17155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h */; };
+		E9670E1D155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9670E18155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m */; };
+		E9670E24155F5719006D6BAF /* JUSectionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E9670E22155F5719006D6BAF /* JUSectionProxy.h */; };
+		E9670E25155F5719006D6BAF /* JUSectionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9670E23155F5719006D6BAF /* JUSectionProxy.m */; };
+		E96D6EB11560862F0022E619 /* TableDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EB01560862F0022E619 /* TableDemoViewController.m */; };
+		E96D6EB41560A1A80022E619 /* TableDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96D6EB31560A1A80022E619 /* TableDemoView.xib */; };
 		E9844278155D8535007066C3 /* UITextField+JUBindingsAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E9844279155D8535007066C3 /* UITextField+JUBindingsAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */; };
 		E9844286155D8758007066C3 /* LabelDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E984427F155D8758007066C3 /* LabelDemoView.xib */; };
@@ -27,8 +33,6 @@
 		E984428C155D87A1007066C3 /* LabelDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E984428B155D87A1007066C3 /* LabelDemoViewController.m */; };
 		E984428F155D89FC007066C3 /* UISlider+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E984428D155D89FC007066C3 /* UISlider+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E9844290155D89FC007066C3 /* UISlider+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E984428E155D89FC007066C3 /* UISlider+JUBindingAddition.m */; };
-		E9844293155DA169007066C3 /* NSObject+JUAssociatedSet.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844291155DA169007066C3 /* NSObject+JUAssociatedSet.h */; settings = {ATTRIBUTES = (); }; };
-		E9844294155DA169007066C3 /* NSObject+JUAssociatedSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844292155DA169007066C3 /* NSObject+JUAssociatedSet.m */; };
 		E98442C3155DA557007066C3 /* UILabel+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442C1155DA557007066C3 /* UILabel+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E98442C4155DA557007066C3 /* UILabel+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E98442C2155DA557007066C3 /* UILabel+JUBindingAddition.m */; };
 		E98442CB155DC6C4007066C3 /* UIView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E98442C9155DC6C4007066C3 /* UIView+JUBindingAddition.h */; settings = {ATTRIBUTES = (); }; };
@@ -56,6 +60,8 @@
 		E9844338155E1E8E007066C3 /* DefaultsDemoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */; };
 		E984433A155E1EBF007066C3 /* DefaultsDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */; };
 		E984433B155E1FE0007066C3 /* DefaultsDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9844331155E1D71007066C3 /* DefaultsDemoView.xib */; };
+		E9DCB277155F32730008D9F3 /* JUTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DCB275155F32730008D9F3 /* JUTableController.h */; };
+		E9DCB278155F32730008D9F3 /* JUTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DCB276155F32730008D9F3 /* JUTableController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +88,15 @@
 		E960EF68155D6B1100711060 /* JUExplicitBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUExplicitBinding.m; sourceTree = "<group>"; };
 		E960EF6B155D748400711060 /* JUBindingProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = JUBindingProxy.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E960EF6C155D748400711060 /* JUBindingProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = JUBindingProxy.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E960EF6F155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JUKeyValueBindingCreation.h"; sourceTree = "<group>"; };
-		E960EF70155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JUKeyValueBindingCreation.m"; sourceTree = "<group>"; };
+		E9670E15155F5603006D6BAF /* NSObject+JUAssociatedSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JUAssociatedSet.h"; sourceTree = "<group>"; };
+		E9670E16155F5603006D6BAF /* NSObject+JUAssociatedSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JUAssociatedSet.m"; sourceTree = "<group>"; };
+		E9670E17155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JUKeyValueBindingCreation.h"; sourceTree = "<group>"; };
+		E9670E18155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JUKeyValueBindingCreation.m"; sourceTree = "<group>"; };
+		E9670E22155F5719006D6BAF /* JUSectionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUSectionProxy.h; sourceTree = "<group>"; };
+		E9670E23155F5719006D6BAF /* JUSectionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUSectionProxy.m; sourceTree = "<group>"; };
+		E96D6EAF1560862F0022E619 /* TableDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDemoViewController.h; sourceTree = "<group>"; };
+		E96D6EB01560862F0022E619 /* TableDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDemoViewController.m; sourceTree = "<group>"; };
+		E96D6EB31560A1A80022E619 /* TableDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableDemoView.xib; sourceTree = "<group>"; };
 		E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+JUBindingsAddition.h"; sourceTree = "<group>"; };
 		E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+JUBindingsAddition.m"; sourceTree = "<group>"; };
 		E984427F155D8758007066C3 /* LabelDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelDemoView.xib; sourceTree = "<group>"; };
@@ -95,8 +108,6 @@
 		E984428B155D87A1007066C3 /* LabelDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelDemoViewController.m; sourceTree = "<group>"; };
 		E984428D155D89FC007066C3 /* UISlider+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+JUBindingAddition.h"; sourceTree = "<group>"; };
 		E984428E155D89FC007066C3 /* UISlider+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+JUBindingAddition.m"; sourceTree = "<group>"; };
-		E9844291155DA169007066C3 /* NSObject+JUAssociatedSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JUAssociatedSet.h"; sourceTree = "<group>"; };
-		E9844292155DA169007066C3 /* NSObject+JUAssociatedSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JUAssociatedSet.m"; sourceTree = "<group>"; };
 		E98442C1155DA557007066C3 /* UILabel+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JUBindingAddition.h"; sourceTree = "<group>"; };
 		E98442C2155DA557007066C3 /* UILabel+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JUBindingAddition.m"; sourceTree = "<group>"; };
 		E98442C9155DC6C4007066C3 /* UIView+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JUBindingAddition.h"; sourceTree = "<group>"; };
@@ -125,6 +136,8 @@
 		E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+JUBindingAddition.m"; sourceTree = "<group>"; };
 		E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsDemoViewController.h; sourceTree = "<group>"; };
 		E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsDemoViewController.m; sourceTree = "<group>"; };
+		E9DCB275155F32730008D9F3 /* JUTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUTableController.h; sourceTree = "<group>"; };
+		E9DCB276155F32730008D9F3 /* JUTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUTableController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,19 +224,37 @@
 		E960EF64155D6A5600711060 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				E9670E14155F5603006D6BAF /* Categories */,
 				E9844312155DE9AC007066C3 /* Controller */,
+				E9670E19155F5603006D6BAF /* Helper */,
 				E9844275155D8503007066C3 /* UIKit Additions */,
 				E960EF52155D6A0400711060 /* JUBindings.h */,
 				E960EF6B155D748400711060 /* JUBindingProxy.h */,
 				E960EF6C155D748400711060 /* JUBindingProxy.m */,
 				E960EF67155D6B1100711060 /* JUExplicitBinding.h */,
 				E960EF68155D6B1100711060 /* JUExplicitBinding.m */,
-				E9844291155DA169007066C3 /* NSObject+JUAssociatedSet.h */,
-				E9844292155DA169007066C3 /* NSObject+JUAssociatedSet.m */,
-				E960EF6F155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h */,
-				E960EF70155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		E9670E14155F5603006D6BAF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E9670E15155F5603006D6BAF /* NSObject+JUAssociatedSet.h */,
+				E9670E16155F5603006D6BAF /* NSObject+JUAssociatedSet.m */,
+				E9670E17155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h */,
+				E9670E18155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		E9670E19155F5603006D6BAF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E9670E22155F5719006D6BAF /* JUSectionProxy.h */,
+				E9670E23155F5719006D6BAF /* JUSectionProxy.m */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		E9844275155D8503007066C3 /* UIKit Additions */ = {
@@ -259,6 +290,7 @@
 				E984431F155DEF9C007066C3 /* RootView.xib */,
 				E984427F155D8758007066C3 /* LabelDemoView.xib */,
 				E9844331155E1D71007066C3 /* DefaultsDemoView.xib */,
+				E96D6EB31560A1A80022E619 /* TableDemoView.xib */,
 				E9844280155D8758007066C3 /* MainWindow.xib */,
 			);
 			path = Nibs;
@@ -283,6 +315,8 @@
 				E984428B155D87A1007066C3 /* LabelDemoViewController.m */,
 				E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */,
 				E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */,
+				E96D6EAF1560862F0022E619 /* TableDemoViewController.h */,
+				E96D6EB01560862F0022E619 /* TableDemoViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -294,6 +328,8 @@
 				E9844314155DE9AC007066C3 /* JUArrayController.m */,
 				E9844317155DE9C6007066C3 /* JUObjectController.h */,
 				E9844318155DE9C6007066C3 /* JUObjectController.m */,
+				E9DCB275155F32730008D9F3 /* JUTableController.h */,
+				E9DCB276155F32730008D9F3 /* JUTableController.m */,
 				E984432D155E1BD4007066C3 /* JUUserDefaultsController.h */,
 				E984432E155E1BD4007066C3 /* JUUserDefaultsController.m */,
 			);
@@ -309,10 +345,8 @@
 			files = (
 				E960EF69155D6B1100711060 /* JUExplicitBinding.h in Headers */,
 				E960EF6D155D748400711060 /* JUBindingProxy.h in Headers */,
-				E960EF71155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.h in Headers */,
 				E9844278155D8535007066C3 /* UITextField+JUBindingsAddition.h in Headers */,
 				E984428F155D89FC007066C3 /* UISlider+JUBindingAddition.h in Headers */,
-				E9844293155DA169007066C3 /* NSObject+JUAssociatedSet.h in Headers */,
 				E98442C3155DA557007066C3 /* UILabel+JUBindingAddition.h in Headers */,
 				E98442CB155DC6C4007066C3 /* UIView+JUBindingAddition.h in Headers */,
 				E98442CF155DCCF1007066C3 /* UIViewController+JUBindingAddition.h in Headers */,
@@ -325,6 +359,10 @@
 				E984432F155E1BD5007066C3 /* JUUserDefaultsController.h in Headers */,
 				E9844334155E1E13007066C3 /* UISwitch+JUBindingAddition.h in Headers */,
 				E9844338155E1E8E007066C3 /* DefaultsDemoViewController.h in Headers */,
+				E9DCB277155F32730008D9F3 /* JUTableController.h in Headers */,
+				E9670E1A155F5603006D6BAF /* NSObject+JUAssociatedSet.h in Headers */,
+				E9670E1C155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h in Headers */,
+				E9670E24155F5719006D6BAF /* JUSectionProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +439,7 @@
 				E984433B155E1FE0007066C3 /* DefaultsDemoView.xib in Resources */,
 				E9844320155DEFF1007066C3 /* RootView.xib in Resources */,
 				E9844287155D8758007066C3 /* MainWindow.xib in Resources */,
+				E96D6EB41560A1A80022E619 /* TableDemoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +455,7 @@
 				E984428C155D87A1007066C3 /* LabelDemoViewController.m in Sources */,
 				E98442D3155DDC02007066C3 /* RootViewController.m in Sources */,
 				E984433A155E1EBF007066C3 /* DefaultsDemoViewController.m in Sources */,
+				E96D6EB11560862F0022E619 /* TableDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,10 +465,8 @@
 			files = (
 				E960EF6A155D6B1100711060 /* JUExplicitBinding.m in Sources */,
 				E960EF6E155D748400711060 /* JUBindingProxy.m in Sources */,
-				E960EF72155D7A6100711060 /* NSObject+JUKeyValueBindingCreation.m in Sources */,
 				E9844279155D8535007066C3 /* UITextField+JUBindingsAddition.m in Sources */,
 				E9844290155D89FC007066C3 /* UISlider+JUBindingAddition.m in Sources */,
-				E9844294155DA169007066C3 /* NSObject+JUAssociatedSet.m in Sources */,
 				E98442C4155DA557007066C3 /* UILabel+JUBindingAddition.m in Sources */,
 				E98442CC155DC6C4007066C3 /* UIView+JUBindingAddition.m in Sources */,
 				E98442D0155DCCF1007066C3 /* UIViewController+JUBindingAddition.m in Sources */,
@@ -440,6 +478,10 @@
 				E984432C155E1145007066C3 /* UIImageView+JUBindingAddition.m in Sources */,
 				E9844330155E1BD5007066C3 /* JUUserDefaultsController.m in Sources */,
 				E9844335155E1E13007066C3 /* UISwitch+JUBindingAddition.m in Sources */,
+				E9DCB278155F32730008D9F3 /* JUTableController.m in Sources */,
+				E9670E1B155F5603006D6BAF /* NSObject+JUAssociatedSet.m in Sources */,
+				E9670E1D155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m in Sources */,
+				E9670E25155F5719006D6BAF /* JUSectionProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

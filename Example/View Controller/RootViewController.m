@@ -18,8 +18,31 @@
 #import "RootViewController.h"
 #import "LabelDemoViewController.h"
 #import "DefaultsDemoViewController.h"
+#import "TableDemoViewController.h"
 
 @implementation RootViewController
+
+#pragma mark -
+#pragma mark Sorting
+
+- (IBAction)toggleSortingAction:(UIBarButtonItem *)sender
+{
+    if([[arrayController sortDescriptors] count] > 0)
+    {
+        [arrayController setSortDescriptors:nil];
+        [sender setStyle:UIBarButtonItemStylePlain];
+    }
+    else {
+        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+        [arrayController setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+        
+        [sender setStyle:UIBarButtonItemStyleDone];
+    }
+}
+
+
+#pragma mark -
+#pragma mark Table View
 
 - (void)tableView:(UITableView *)ttableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -53,6 +76,8 @@
 }
 
 
+#pragma mark -
+#pragma mark View Controller
 
 - (NSDictionary *)dictionaryForEntryWithTitle:(NSString *)title subtitle:(NSString *)subtitle viewController:(Class)vcclass andNibName:(NSString *)nib
 {
@@ -80,8 +105,13 @@
     entries = [[NSMutableArray alloc] init];
     [entries addObject:[self dictionaryForEntryWithTitle:@"Label & Slider" subtitle:@"A label bound to a slider" viewController:[LabelDemoViewController class] andNibName:@"LabelDemoView"]];
     [entries addObject:[self dictionaryForEntryWithTitle:@"User Defaults" subtitle:@"User defaults bound to objects" viewController:[DefaultsDemoViewController class] andNibName:@"DefaultsDemoView"]];
+    [entries addObject:[self dictionaryForEntryWithTitle:@"Table View" subtitle:@"Table view with sections and search" viewController:[TableDemoViewController class] andNibName:@"TableDemoView"]];
     
     [self didChangeValueForKey:@"entries"];
+    
+    // Add the sort button
+    UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStylePlain target:self action:@selector(toggleSortingAction:)];
+    [[self navigationItem] setRightBarButtonItem:[sortItem autorelease]];
 }
 
 - (void)viewDidUnload
@@ -93,7 +123,6 @@
     entries = nil;
     arrayController = nil;
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

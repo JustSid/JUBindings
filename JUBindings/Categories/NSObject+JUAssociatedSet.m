@@ -1,5 +1,5 @@
 //
-//  JUTableViewProxy.h
+//  NSObject+JUAssociatedSet.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,23 +15,40 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "UITableView+JUBindingAddition.h"
+#import <objc/runtime.h>
+#import "NSObject+JUAssociatedSet.h"
 
-@interface JUTableViewProxy : NSObject <UITableViewDataSource>
+@implementation NSObject (JUAssociatedSet)
+
+- (void)addObject:(id)object intoSetWithKey:(void *)key
 {
-@private
-    UITableView *tableView;
-    NSArray *content;
+    NSMutableSet *set = objc_getAssociatedObject(self, key);
+    if(!set)
+    {
+        set = [[[NSMutableSet alloc] init] autorelease];
+        objc_setAssociatedObject(self, key, set, OBJC_ASSOCIATION_RETAIN);
+    }
     
-    id dataSource;
-    BOOL usesSections;
+    
+    [set addObject:object];
 }
 
-@property (nonatomic, retain) NSArray *content;
-@property (nonatomic, assign) id<JUTableViewDataSource> dataSource;
+- (void)removeObject:(id)object fromSetWithKey:(void *)key
+{
+    NSMutableSet *set = objc_getAssociatedObject(self, key);
+    if(!set)
+        return;
+    
+    [set removeObject:object];
+    
+    if([set count] == 0)
+        objc_setAssociatedObject(self, key, nil, OBJC_ASSOCIATION_RETAIN);
+}
 
-- (id)initWithTableView:(UITableView *)tableView;
+- (NSArray *)objectsInSetWithKey:(void *)key
+{
+    NSMutableSet *set = objc_getAssociatedObject(self, key);
+    return [set allObjects];
+}
 
 @end

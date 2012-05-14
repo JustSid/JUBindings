@@ -23,13 +23,13 @@
 
 static NSString *JUBindingProxyKey = @"JUBindingProxyKey";
 
-NSString *NSValueTransformerBindingOption = @"NSValueTransformerBindingOption";
-NSString *NSSelectorNameBindingOption = @"NSSelectorNameBindingOption";
-NSString *NSNullPlaceholderBindingOption = @"NSNullPlaceholderBindingOption";
+NSString *NSValueTransformerBindingOption   = @"NSValueTransformerBindingOption";
+NSString *NSSelectorNameBindingOption       = @"NSSelectorNameBindingOption";
+NSString *NSNullPlaceholderBindingOption    = @"NSNullPlaceholderBindingOption";
 
-NSString *NSObservedObjectKey = @"NSObservedObjectKey";
-NSString *NSObservedKeyPathKey = @"NSObservedKeyPathKey";
-NSString *NSOptionsKey = @"NSOptionsKey";
+NSString *NSObservedObjectKey   = @"NSObservedObjectKey";
+NSString *NSObservedKeyPathKey  = @"NSObservedKeyPathKey";
+NSString *NSOptionsKey          = @"NSOptionsKey";
 
 @interface NSObject (JUKeyValueBindingCreationPrivate)
 
@@ -128,7 +128,14 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     
     
     JUBindingProxy *proxy = [self bindingProxy];
-    JUExplicitBinding *binding = [[[JUExplicitBinding alloc] initWithBindingKey:bindingKey observable:observableController withKeyPath:keyPath options:options andTarget:self] autorelease];
+    JUExplicitBinding *binding = [proxy explicitBindingForBinding:bindingKey];
+    
+    // Remove the old binding
+    [binding forceUnbind];
+    [proxy setExplicitBinding:nil forBinding:bindingKey];
+    
+    // Create a new binding
+    binding = [[[JUExplicitBinding alloc] initWithBindingKey:bindingKey observable:observableController withKeyPath:keyPath options:options andTarget:self] autorelease];
     
     if([self wantsCustomBindingForBinding:bindingKey])
         [binding bindCustomBinding];

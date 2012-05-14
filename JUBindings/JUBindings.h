@@ -24,5 +24,6 @@
 #import "JUObjectController.h"
 #import "JUUserDefaultsController.h"
 #import "JUArrayController.h"
+#import "JUTableController.h"
 
 #import "UITableView+JUBindingAddition.h"

@@ -28,7 +28,7 @@
 @implementation JUObjectController
 @synthesize content;
 
-+ (void)initializeBindings
++ (void)initialize
 {
     [self exposeBinding:@"content"];
 }
@@ -72,8 +72,3 @@
 }
 
 @end
-
-__attribute__((constructor)) void _JUObjectControllerInitBindings()
-{
-    [JUObjectController initializeBindings];
-}

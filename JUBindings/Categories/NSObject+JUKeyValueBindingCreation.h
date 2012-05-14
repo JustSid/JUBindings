@@ -1,5 +1,5 @@
 //
-//  JUTableViewProxy.h
+//  NSObject+JUKeyValueBindingCreation.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -16,22 +16,34 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "UITableView+JUBindingAddition.h"
+#import "JUExplicitBinding.h"
 
-@interface JUTableViewProxy : NSObject <UITableViewDataSource>
-{
-@private
-    UITableView *tableView;
-    NSArray *content;
-    
-    id dataSource;
-    BOOL usesSections;
-}
+@interface NSObject (JUKeyValueBindingCreation)
 
-@property (nonatomic, retain) NSArray *content;
-@property (nonatomic, assign) id<JUTableViewDataSource> dataSource;
++ (void)exposeBinding:(NSString *)binding;
+- (NSArray *)exposedBindings;
 
-- (id)initWithTableView:(UITableView *)tableView;
+
+- (void)bind:(NSString *)binding toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary *)options;
+- (void)unbind:(NSString *)binding;
+
+
+- (Class)valueClassForBinding:(NSString *)binding;
+- (NSDictionary *)infoForBinding:(NSString *)binding;
+- (NSArray *)optionDescriptionsForBinding:(NSString *)binding;
+
+
+// Non standard stuff, only used for classes which don't provide enough KVC/KVO capabilities to work out of the box
+- (void)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding;
+- (void)unbindCustomBinding:(JUExplicitBinding *)binding;
+- (BOOL)wantsCustomBindingForBinding:(NSString *)binding;
+- (BOOL)wantsKVOBindingForBinding:(NSString *)binding;
 
 @end
+
+extern NSString *NSValueTransformerBindingOption;
+extern NSString *NSNullPlaceholderBindingOption;
+
+extern NSString *NSObservedObjectKey;
+extern NSString *NSObservedKeyPathKey;
+extern NSString *NSOptionsKey;

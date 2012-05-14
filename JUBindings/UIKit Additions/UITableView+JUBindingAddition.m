@@ -29,62 +29,6 @@ static NSString *JUTableViewProxyKey = @"JUTableViewProxyKey";
     [self exposeBinding:@"content"];
 }
 
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key
-{
-    if([key isEqualToString:@"content"])
-    {
-        JUTableViewProxy *proxy = objc_getAssociatedObject(self, JUTableViewProxyKey);
-        [proxy setContent:value];
-        
-        return;
-    }
-    
-    [super setValue:value forUndefinedKey:key];
-}
-
-
-
-- (void)setJUDataSource:(id<JUTableViewDataSource>)dataSource
-{
-    JUTableViewProxy *proxy = objc_getAssociatedObject(self, JUTableViewProxyKey);
-    [proxy setDataSource:dataSource];
-}
-
-
-- (BOOL)wantsCustomBindingForBinding:(NSString *)binding
-{
-    if([binding isEqualToString:@"content"])
-    {
-        return YES;
-    }
-    
-    return [super wantsCustomBindingForBinding:binding];
-}
-
-- (void)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding
-{
-    if([[binding binding] isEqualToString:@"content"])
-    {
-        JUTableViewProxy *proxy = [[[JUTableViewProxy alloc] initWithTableView:self] autorelease];
-        objc_setAssociatedObject(self, JUTableViewProxyKey, proxy, OBJC_ASSOCIATION_RETAIN);
-    }
-    
-    [super createCustomBindingWithExplicitBinding:binding];
-}
-
-- (void)unbindCustomBinding:(JUExplicitBinding *)binding
-{
-    if([[binding binding] isEqualToString:@"content"])
-    {
-        objc_setAssociatedObject(self, JUTableViewProxyKey, nil, OBJC_ASSOCIATION_RETAIN);
-    }
-    
-    [super unbindCustomBinding:binding];
-}
-
-
-
 - (Class)valueClassForBinding:(NSString *)bindingKey
 {
     if([bindingKey isEqualToString:@"content"])
@@ -92,6 +36,37 @@ static NSString *JUTableViewProxyKey = @"JUTableViewProxyKey";
     
     return [super valueClassForBinding:bindingKey];
 }
+
+
+
+
+- (JUTableViewProxy *)jutableProxy
+{
+    JUTableViewProxy *proxy = objc_getAssociatedObject(self, JUTableViewProxyKey);
+    if(!proxy)
+    {
+        proxy = [[[JUTableViewProxy alloc] initWithTableView:self] autorelease];
+        objc_setAssociatedObject(self, JUTableViewProxyKey, proxy, OBJC_ASSOCIATION_RETAIN);
+    }
+    
+    return proxy;
+}
+
+
+- (void)setContent:(NSArray *)content
+{
+    JUTableViewProxy *proxy = [self jutableProxy];
+    [proxy setContent:content];
+}
+
+- (void)setJUDataSource:(id<JUTableViewDataSource>)dataSource
+{
+    JUTableViewProxy *proxy = [self jutableProxy];
+    [proxy setDataSource:dataSource];
+}
+
+
+
 
 @end
 

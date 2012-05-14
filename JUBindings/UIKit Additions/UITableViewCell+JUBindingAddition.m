@@ -22,23 +22,14 @@ static NSString *JUTableViewCellObjectKey = @"JUTableViewCellObjectKey";
 
 @implementation UITableViewCell (JUBindingAddition)
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+- (void)setObject:(id)object
 {
-    if([key isEqualToString:@"object"])
-    {
-        objc_setAssociatedObject(self, JUTableViewCellObjectKey, value, OBJC_ASSOCIATION_RETAIN);
-        return;
-    }
-    
-    [super setValue:value forUndefinedKey:key];
+    objc_setAssociatedObject(self, JUTableViewCellObjectKey, object, OBJC_ASSOCIATION_RETAIN);
 }
 
-- (id)valueForUndefinedKey:(NSString *)key
+- (id)object
 {
-    if([key isEqualToString:@"object"])
-        return objc_getAssociatedObject(self, JUTableViewCellObjectKey);
-      
-    return [super valueForUndefinedKey:key];
+    return objc_getAssociatedObject(self, JUTableViewCellObjectKey);
 }
 
 @end

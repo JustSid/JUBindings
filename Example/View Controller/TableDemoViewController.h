@@ -1,5 +1,5 @@
 //
-//  JUTableViewProxy.h
+//  TableDemoViewController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,23 +15,16 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "UITableView+JUBindingAddition.h"
 
-@interface JUTableViewProxy : NSObject <UITableViewDataSource>
+@interface TableDemoViewController : UIViewController <JUTableViewDataSource, UITableViewDelegate>
 {
 @private
-    UITableView *tableView;
-    NSArray *content;
+    IBOutlet UITableView *contentTable;
+    IBOutlet UISearchBar *searchBar;
     
-    id dataSource;
-    BOOL usesSections;
+    NSArray *content;
+    JUTableController *tableController;
 }
-
-@property (nonatomic, retain) NSArray *content;
-@property (nonatomic, assign) id<JUTableViewDataSource> dataSource;
-
-- (id)initWithTableView:(UITableView *)tableView;
 
 @end

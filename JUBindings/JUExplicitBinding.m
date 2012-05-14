@@ -18,6 +18,11 @@
 #import "JUExplicitBinding.h"
 #import "JUBindings.h"
 
+
+@interface NSObject (JUBindingAddition)
+- (void)fireKeyPath:(NSString *)keyPath;
+@end
+
 @interface JUExplicitBinding ()
 {
     BOOL usesKVO;

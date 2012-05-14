@@ -20,7 +20,7 @@
 
 @interface JUArrayController : JUObjectController
 {
-@private
+@protected
     NSArray *sortDescriptors;
     NSPredicate *filterPredicate;
     
@@ -33,7 +33,5 @@
 - (NSArray *)arrangedObjects;
 - (NSArray *)arrangedObjects:(NSArray *)objects;
 - (void)rearrangeObjects;
-
-//- (id)selection;
 
 @end

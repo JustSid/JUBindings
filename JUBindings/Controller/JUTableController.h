@@ -1,5 +1,5 @@
 //
-//  NSObject+JUAssociatedSet.m
+//  JUTableController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,37 +15,23 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <objc/runtime.h>
-#import "NSObject+JUAssociatedSet.h"
+#import <Foundation/Foundation.h>
+#import "JUArrayController.h"
 
-@implementation NSObject (JUAssociatedSet)
-
-- (void)addObject:(id)object intoSetWithKey:(void *)key
+@interface JUTableController : JUArrayController
 {
-    NSMutableSet *set = objc_getAssociatedObject(self, key);
-    if(!set)
-        set = [[[NSMutableSet alloc] init] autorelease];
+@protected
+    NSString *sectionHeaderKey;
+    NSString *sectionFooterKey;
+    NSString *childrenKey;
     
-    [set addObject:object];
-    objc_setAssociatedObject(self, key, set, OBJC_ASSOCIATION_RETAIN);
+    BOOL preserveEmptySections;
 }
 
-- (void)removeObject:(id)object fromSetWithKey:(void *)key
-{
-    NSMutableSet *set = objc_getAssociatedObject(self, key);
-    if(!set)
-        return;
-    
-    [set removeObject:object];
-    
-    if([set count] == 0)
-        objc_setAssociatedObject(self, key, nil, OBJC_ASSOCIATION_RETAIN);
-}
+@property (nonatomic, retain) NSString *sectionHeaderKey;
+@property (nonatomic, retain) NSString *sectionFooterKey;
+@property (nonatomic, retain) NSString *childrenKey;
 
-- (NSArray *)objectsInSetWithKey:(void *)key
-{
-    NSMutableSet *set = objc_getAssociatedObject(self, key);
-    return [set allObjects];
-}
+@property (nonatomic, assign) BOOL preserveEmptySections;
 
 @end

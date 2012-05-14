@@ -26,8 +26,6 @@
     [self exposeBinding:@"editing"];
 }
 
-
-
 - (Class)valueClassForBinding:(NSString *)bindingKey
 {
     if([bindingKey isEqualToString:@"title"])

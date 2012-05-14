@@ -22,7 +22,7 @@
 @implementation JUArrayController
 @synthesize sortDescriptors, filterPredicate;
 
-+ (void)initializeBindings
++ (void)initialize
 {
     [self exposeBinding:@"contentArray"];
     [self exposeBinding:@"contentSet"];
@@ -123,9 +123,4 @@
 }
 
 @end
-
-__attribute__((constructor)) void _JUArrayControllerInitBindings()
-{
-    [JUArrayController initializeBindings];
-}
 

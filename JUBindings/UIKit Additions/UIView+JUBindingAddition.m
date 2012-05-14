@@ -25,9 +25,6 @@
     [self exposeBinding:@"alpha"];
 }
 
-
-
-
 - (Class)valueClassForBinding:(NSString *)bindingKey
 {
     if([bindingKey isEqualToString:@"hidden"] || [bindingKey isEqualToString:@"alpha"])

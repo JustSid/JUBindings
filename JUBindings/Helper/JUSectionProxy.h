@@ -1,5 +1,5 @@
 //
-//  NSObject+JUKeyValueBindingCreation.h
+//  JUSectionProxy.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -16,36 +16,26 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JUExplicitBinding.h"
+#import "JUTableController.h"
 
-@interface NSObject (JUKeyValueBindingCreation)
+@interface __JUSectionProxy : NSObject
+{
+@private
+    JUTableController *controller;
+    id object;
+    
+    NSString *header;
+    NSString *footer;
+    NSArray *arrangedObjects;
+}
 
-+ (void)exposeBinding:(NSString *)binding;
-- (NSArray *)exposedBindings;
+@property (nonatomic, readonly) NSString *header;
+@property (nonatomic, readonly) NSString *footer;
 
+- (NSArray *)arrangedObjects;
+- (NSArray *)arrangedObjects:(NSArray *)objects;
+- (void)rearrangeObjects;
 
-- (void)bind:(NSString *)binding toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary *)options;
-- (void)unbind:(NSString *)binding;
-
-
-- (Class)valueClassForBinding:(NSString *)binding;
-- (NSDictionary *)infoForBinding:(NSString *)binding;
-- (NSArray *)optionDescriptionsForBinding:(NSString *)binding;
-
-
-// Non standard stuff
-- (void)createCustomBindingWithExplicitBinding:(JUExplicitBinding *)binding;
-- (void)unbindCustomBinding:(JUExplicitBinding *)binding;
-- (BOOL)wantsCustomBindingForBinding:(NSString *)binding;
-- (BOOL)wantsKVOBindingForBinding:(NSString *)binding;
-
-- (void)fireKeyPath:(NSString *)keyPath;
+- (id)initWithObject:(id)tobject andTableController:(JUTableController *)tcontroller;
 
 @end
-
-extern NSString *NSValueTransformerBindingOption;
-extern NSString *NSNullPlaceholderBindingOption;
-
-extern NSString *NSObservedObjectKey;
-extern NSString *NSObservedKeyPathKey;
-extern NSString *NSOptionsKey;

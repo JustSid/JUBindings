@@ -13,6 +13,8 @@ Simple example to show the basic concept:
 	[label bind:@"text" toObject:slider withKeyPath:@"value" options:nil];
 	[label bind:@"textColor" toObject:self withKeyPath:@"color" options:nil];
 	
+	self.color = [UIColor redColor]; // Automagically changes the text color of the label as well.
+	
 A slightly more interesting example:
 
     JUUserDefaultsController *defaultsController = [JUUserDefaultsController sharedDefaultsController];
@@ -36,6 +38,7 @@ A slightly more interesting example:
   * `JUObjectController` (NSObjectController)
   * `JUArrayController` (NSArrayController)
   * `JUUserDefaultsController` (NSUserDefaultsController)
+  * `JUTableController` (No AppKit counterpart, used to manage table view like content with sections)
   
 ### Classes
 **Remark:** This is a list of classes that are already exposing some of their properties as bindings. 

@@ -16,6 +16,7 @@
 //
 
 #import "JUTableViewProxy.h"
+#import "JUSectionProxy.h"
 
 @implementation JUTableViewProxy
 @synthesize content, dataSource;
@@ -25,41 +26,75 @@
     [content autorelease];
     content = [tcontent retain];
     
+    usesSections = ([content count] > 0 && [[content objectAtIndex:0] isKindOfClass:[__JUSectionProxy class]]);
+
     [tableView reloadData];
 }
 
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return (usesSections) ? [content count] : 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [content count];
+    if(!usesSections)
+        return [content count];
+    
+    NSArray *entries = [[content objectAtIndex:section] arrangedObjects];
+    return [entries count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)ttableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     assert(dataSource);
-    
     UITableViewCell *cell = [dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
-    [cell setValue:[content objectAtIndex:indexPath.row] forKey:@"object"];
+    
+    if(usesSections)
+    {
+        NSArray *entries = [[content objectAtIndex:indexPath.section] arrangedObjects];
+        [cell setValue:[entries objectAtIndex:indexPath.row] forKey:@"object"];
+    }
+    else
+    {
+        [cell setValue:[content objectAtIndex:indexPath.row] forKey:@"object"];
+    }
     
     return cell;
 }
 
+
+
 - (NSString *)tableView:(UITableView *)ttableView titleForHeaderInSection:(NSInteger)section
 {
-    if([dataSource respondsToSelector:@selector(tableView:titleForHeaderInSection:)])
-        return [dataSource tableView:ttableView titleForHeaderInSection:section];
+    if(!usesSections)
+    {
+        if([dataSource respondsToSelector:@selector(tableView:titleForHeaderInSection:)])
+            return [dataSource tableView:ttableView titleForHeaderInSection:section];
+        
+        return nil;
+    }
     
-    return nil;
+    __JUSectionProxy *proxy = [content objectAtIndex:section];
+    return [proxy header];
 }
 
 - (NSString *)tableView:(UITableView *)ttableView titleForFooterInSection:(NSInteger)section
 {
-    if([dataSource respondsToSelector:@selector(tableView:titleForFooterInSection:)])
-        return [dataSource tableView:ttableView titleForFooterInSection:section];
+    if(!usesSections)
+    {
+        if([dataSource respondsToSelector:@selector(tableView:titleForFooterInSection:)])
+            return [dataSource tableView:ttableView titleForFooterInSection:section];
+        
+        return nil;
+    }
     
-    return nil;
+    __JUSectionProxy *proxy = [content objectAtIndex:section];
+    return [proxy footer];
 }
+
+
 
 - (BOOL)tableView:(UITableView *)ttableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
