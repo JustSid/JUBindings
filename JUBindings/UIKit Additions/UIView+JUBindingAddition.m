@@ -16,23 +16,36 @@
 //
 
 #import "UIView+JUBindingAddition.h"
+#import "NSString+JUMassComparison.h"
+#import "JUBindings.h"
 
 @implementation UIView (JUBindingAddition)
 
 + (void)initializeBindings
 {
+    [self exposeBinding:@"backgroundColor"];
     [self exposeBinding:@"hidden"];
     [self exposeBinding:@"alpha"];
+    [self exposeBinding:@"opaque"];
+    [self exposeBinding:@"clipsToBounds"];
+    [self exposeBinding:@"userInteractionEnabled"];
+    [self exposeBinding:@"multipleTouchEnabled"];
+    [self exposeBinding:@"exclusiveTouch"];
+    [self exposeBinding:@"autoresizingMask"];
+    [self exposeBinding:@"autoresizesSubviews"];
+    [self exposeBinding:@"contentMode"];
+    [self exposeBinding:@"contentScaleFactor"];
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"hidden"] || [bindingKey isEqualToString:@"alpha"])
-    {
+    if([binding isEqualToAnyStringInArray:JUArray(@"hidden", @"alpha", @"opaque", @"clipsToBounds", @"userInteractionEnabled", @"multipleTouchEnabled", @"exclusiveTouch", @"autoresizingMask", @"autoresizingSubviews", @"contentMode", @"contentScaleFactor")])
         return [NSNumber class];
-    }
+        
+    if([binding isEqualToString:@"backgroundColor"])
+        return [UIColor class];
     
-    return [super valueClassForBinding:bindingKey];
+    return [super valueClassForBinding:binding];
 }
 
 @end

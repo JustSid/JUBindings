@@ -30,6 +30,10 @@ A slightly more interesting example:
     [defaultsController bind:@"DemoSwitchState" toObject:onSwitch withKeyPath:@"on" options:nil];
     [defaultsController bind:@"DemoTextField" toObject:textField withKeyPath:@"text" options:nil];
 
+## Using JUBindings
+If you want to use JUBindings in your project, you can simply link agains the static library created by the Xcode project, or just copy and paste the code into your project. If you want to use the static library, you **must** also include the following `Other linker flags` in you projects build settings: `-all_load -ObjC`. 
+
+And thats it, you don't need to call any other function or change any of the classes you are already using, everything will work right out of the box!
 	
 ## Currently Implemented
 ### Controller
@@ -41,16 +45,19 @@ A slightly more interesting example:
   * `JUTableController` (No AppKit counterpart, used to manage table view like content with sections)
   
 ### Classes
-**Remark:** This is a list of classes that are already exposing some of their properties as bindings. 
+**Remark:** This is a list of classes that are already exposing some or all of their properties as bindings. 
 
-  * `UITextField`
-  * `UILabel`
-  * `UISlider`
-  * `UIView`
-  * `UIViewController`
+  * `UIControl`
   * `UIImageView`
+  * `UILabel`
+  * `UINavigationBar`
+  * `UISlider`
   * `UISwitch`
   * `UITableView`
+  * `UITextField`
+  * `UIView`
+  * `UIViewController`
+  * `UIWebView`
 	
 ## Whats Missing?
 There is a ton of stuff missing, for example there are some controllers that aren't implemented yet, there are no Core Data bindings at the moment (one of the coolest features of Cocoa Bindings) and a lot of classes *should* expose some, or all, of their properties but don't.

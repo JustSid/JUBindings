@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  JUValueTransformer.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,8 +15,30 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "JUValueTransformer.h"
 
-@interface UIViewController (JUBindingAddition)
+@implementation JUValueTransformer
+
+- (id)transformedValue:(id)value
+{
+    return transformBlock(value);
+}
+
+
+- (id)initWithTransformBlock:(JUValueTransformerTransform)block
+{
+    if((self = [super init]))
+    {
+        transformBlock = Block_copy(block);
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    Block_release(transformBlock);
+    [super dealloc];
+}
 
 @end

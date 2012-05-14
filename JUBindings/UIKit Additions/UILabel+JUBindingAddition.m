@@ -16,6 +16,8 @@
 //
 
 #import "UILabel+JUBindingAddition.h"
+#import "NSString+JUMassComparison.h"
+#import "JUBindings.h"
 
 @implementation UILabel (JUBindingAddition)
 
@@ -24,20 +26,30 @@
     [self exposeBinding:@"text"];
     [self exposeBinding:@"textColor"];
     [self exposeBinding:@"font"];
+    [self exposeBinding:@"textAlignment"];
+    [self exposeBinding:@"lineBreakMode"];
+    [self exposeBinding:@"adjustFontSizeToFitWidth"];
+    [self exposeBinding:@"baselineAdjustment"];
+    [self exposeBinding:@"minimumFontSize"];
+    [self exposeBinding:@"numberOfLines"];
+    
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"text"])
+    if([binding isEqualToString:@"text"])
         return [NSString class];
     
-    if([bindingKey isEqualToString:@"textColor"])
+    if([binding isEqualToString:@"textColor"])
         return [UIColor class];
     
-    if([bindingKey isEqualToString:@"font"])
+    if([binding isEqualToString:@"font"])
         return [UIFont class];
     
-    return [super valueClassForBinding:bindingKey];
+    if([binding isEqualToAnyStringInArray:JUArray(@"textAlignment", @"lineBreakMode", @"adjustFontSizeToFitWidth", @"baselineAdjustment", @"minimumFontSize", @"numberOfLines")])
+        return [NSNumber class];
+    
+    return [super valueClassForBinding:binding];
 }
 
 @end

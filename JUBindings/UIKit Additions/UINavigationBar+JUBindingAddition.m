@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  UINavigationBar+JUBindingAddition.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,8 +15,41 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "UINavigationBar+JUBindingAddition.h"
+#import "JUBindings.h"
 
-@interface UIViewController (JUBindingAddition)
+@implementation UINavigationBar (JUBindingAddition)
+
++ (void)initializeBindings
+{
+    [self exposeBinding:@"barStyle"];
+    [self exposeBinding:@"translucent"];
+    [self exposeBinding:@"items"];
+    [self exposeBinding:@"topItem"];
+    [self exposeBinding:@"backItem"];
+    [self exposeBinding:@"tintColor"];
+}
+
+- (Class)valueClassForBinding:(NSString *)binding
+{
+    if([binding isEqualToString:@"barStyle"] || [binding isEqualToString:@"translucent"])
+        return [NSNumber class];
+    
+    if([binding isEqualToString:@"items"])
+        return [NSArray class];
+    
+    if([binding isEqualToString:@"topItem"] || [binding isEqualToString:@"backItem"])
+        return [UINavigationItem class];
+    
+    if([binding isEqualToString:@"tintColor"])
+        return [UIColor class];
+    
+    return [super valueClassForBinding:binding];
+}
 
 @end
+
+__attribute__((constructor)) void _UINavigationBarInitBindings()
+{
+    [UINavigationBar initializeBindings];
+}

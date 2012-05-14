@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  UIWebView+JUBindingAddition.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,8 +15,43 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIWebView+JUBindingAddition.h"
+#import "JUBindings.h"
 
-@interface UIViewController (JUBindingAddition)
+@implementation UIWebView (JUBindingAddition)
+
++ (void)initializeBindings
+{
+    [self exposeBinding:@"URL"];
+    [self exposeBinding:@"request"];
+}
+
+- (Class)valueClassForBinding:(NSString *)binding
+{
+    if([binding isEqualToString:@"URL"])
+        return [NSURL class];
+    
+    if([binding isEqualToString:@"request"])
+        return [NSURLRequest class];
+    
+    return [super valueClassForBinding:binding];
+}
+
+
+- (void)setURL:(NSURL *)URL
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    [self loadRequest:request];
+}
+
+- (void)setRequest:(NSURLRequest *)request
+{
+    [self loadRequest:request];
+}
 
 @end
+
+__attribute__((constructor)) void _UIWebViewInitBindings()
+{
+    [UIWebView initializeBindings];
+}

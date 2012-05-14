@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  NSString+JUMassComparison.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,8 +15,19 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "NSString+JUMassComparison.h"
 
-@interface UIViewController (JUBindingAddition)
+@implementation NSString (JUMassComparison)
+
+- (BOOL)isEqualToAnyStringInArray:(NSArray *)array
+{
+    for(NSString *string in array)
+    {
+        if([string isEqualToString:self])
+            return YES;
+    }
+    
+    return NO;
+}
 
 @end

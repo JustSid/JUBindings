@@ -19,6 +19,7 @@
 #import "LabelDemoViewController.h"
 #import "DefaultsDemoViewController.h"
 #import "TableDemoViewController.h"
+#import "WebViewDemoViewController.h"
 
 @implementation RootViewController
 
@@ -106,6 +107,7 @@
     [entries addObject:[self dictionaryForEntryWithTitle:@"Label & Slider" subtitle:@"A label bound to a slider" viewController:[LabelDemoViewController class] andNibName:@"LabelDemoView"]];
     [entries addObject:[self dictionaryForEntryWithTitle:@"User Defaults" subtitle:@"User defaults bound to objects" viewController:[DefaultsDemoViewController class] andNibName:@"DefaultsDemoView"]];
     [entries addObject:[self dictionaryForEntryWithTitle:@"Table View" subtitle:@"Table view with sections and search" viewController:[TableDemoViewController class] andNibName:@"TableDemoView"]];
+    [entries addObject:[self dictionaryForEntryWithTitle:@"WebView" subtitle:@"Binding with a value transformer" viewController:[WebViewDemoViewController class] andNibName:@"WebViewDemoView"]];
     
     [self didChangeValueForKey:@"entries"];
     

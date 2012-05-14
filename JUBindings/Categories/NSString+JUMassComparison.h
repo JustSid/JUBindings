@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  NSString+JUMassComparison.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,8 +15,12 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface UIViewController (JUBindingAddition)
+@interface NSString (JUMassComparison)
+
+- (BOOL)isEqualToAnyStringInArray:(NSArray *)array;
 
 @end
+
+#define JUArray(...) [NSArray arrayWithObjects:__VA_ARGS__, nil]

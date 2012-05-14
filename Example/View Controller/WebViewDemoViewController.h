@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  WebViewDemoViewController.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -17,6 +17,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (JUBindingAddition)
+@interface WebViewDemoViewController : UIViewController
+{
+@private
+    IBOutlet UIWebView *webView;
+    
+    JUValueTransformer *urlTransformer;
+    NSURL *url;
+}
+
+@property (nonatomic, retain) NSURL *url;
+
+- (IBAction)appleAction:(id)sender;
+- (IBAction)googleAction:(id)sender;
+- (IBAction)githubAction:(id)sender;
 
 @end

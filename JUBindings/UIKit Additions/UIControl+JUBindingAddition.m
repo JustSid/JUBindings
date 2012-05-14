@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  UIControl+JUBindingAddition.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,8 +15,33 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "UIControl+JUBindingAddition.h"
+#import "NSString+JUMassComparison.h"
+#import "JUBindings.h"
 
-@interface UIViewController (JUBindingAddition)
+@implementation UIControl (JUBindingAddition)
+
++ (void)initializeBindings
+{
+    [self exposeBinding:@"enabled"];
+    [self exposeBinding:@"selected"];
+    [self exposeBinding:@"highlighted"];
+    [self exposeBinding:@"contentVerticalAlignment"];
+    [self exposeBinding:@"contentHorizontalAlignment"];
+}
+
+- (Class)valueClassForBinding:(NSString *)binding
+{
+    if([binding isEqualToAnyStringInArray:JUArray(@"enabled", @"selected", @"highlighted", @"contentVerticalAlignment", @"contentHorizontalAlignment")])
+        return [NSNumber class];
+    
+    return [super valueClassForBinding:binding];
+}
 
 @end
+
+
+__attribute__((constructor)) void _UIControlInitBinding()
+{
+    [UIControl initializeBindings];
+}

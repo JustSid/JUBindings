@@ -25,6 +25,18 @@
 		E9670E25155F5719006D6BAF /* JUSectionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9670E23155F5719006D6BAF /* JUSectionProxy.m */; };
 		E96D6EB11560862F0022E619 /* TableDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EB01560862F0022E619 /* TableDemoViewController.m */; };
 		E96D6EB41560A1A80022E619 /* TableDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96D6EB31560A1A80022E619 /* TableDemoView.xib */; };
+		E96D6EB91560B7D70022E619 /* UIWebView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6EB71560B7D60022E619 /* UIWebView+JUBindingAddition.h */; };
+		E96D6EBA1560B7D70022E619 /* UIWebView+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EB81560B7D60022E619 /* UIWebView+JUBindingAddition.m */; };
+		E96D6EBD1560B8CD0022E619 /* WebViewDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EBC1560B8CD0022E619 /* WebViewDemoViewController.m */; };
+		E96D6EC01560B9660022E619 /* JUValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6EBE1560B9660022E619 /* JUValueTransformer.h */; };
+		E96D6EC11560B9660022E619 /* JUValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EBF1560B9660022E619 /* JUValueTransformer.m */; };
+		E96D6EC31560BBCC0022E619 /* WebViewDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96D6EC21560BBCC0022E619 /* WebViewDemoView.xib */; };
+		E96D6EC61560BF3A0022E619 /* UINavigationBar+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6EC41560BF390022E619 /* UINavigationBar+JUBindingAddition.h */; };
+		E96D6EC71560BF3A0022E619 /* UINavigationBar+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EC51560BF390022E619 /* UINavigationBar+JUBindingAddition.m */; };
+		E96D6ECE1560C9E30022E619 /* NSString+JUMassComparison.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6ECC1560C9E30022E619 /* NSString+JUMassComparison.h */; };
+		E96D6ECF1560C9E30022E619 /* NSString+JUMassComparison.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6ECD1560C9E30022E619 /* NSString+JUMassComparison.m */; };
+		E96D6ED2156133EB0022E619 /* UIControl+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6ED0156133EA0022E619 /* UIControl+JUBindingAddition.h */; };
+		E96D6ED3156133EB0022E619 /* UIControl+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6ED1156133EB0022E619 /* UIControl+JUBindingAddition.m */; };
 		E9844278155D8535007066C3 /* UITextField+JUBindingsAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E9844279155D8535007066C3 /* UITextField+JUBindingsAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */; };
 		E9844286155D8758007066C3 /* LabelDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E984427F155D8758007066C3 /* LabelDemoView.xib */; };
@@ -97,6 +109,19 @@
 		E96D6EAF1560862F0022E619 /* TableDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDemoViewController.h; sourceTree = "<group>"; };
 		E96D6EB01560862F0022E619 /* TableDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDemoViewController.m; sourceTree = "<group>"; };
 		E96D6EB31560A1A80022E619 /* TableDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableDemoView.xib; sourceTree = "<group>"; };
+		E96D6EB71560B7D60022E619 /* UIWebView+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E96D6EB81560B7D60022E619 /* UIWebView+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E96D6EBB1560B8CD0022E619 /* WebViewDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDemoViewController.h; sourceTree = "<group>"; };
+		E96D6EBC1560B8CD0022E619 /* WebViewDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDemoViewController.m; sourceTree = "<group>"; };
+		E96D6EBE1560B9660022E619 /* JUValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUValueTransformer.h; sourceTree = "<group>"; };
+		E96D6EBF1560B9660022E619 /* JUValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUValueTransformer.m; sourceTree = "<group>"; };
+		E96D6EC21560BBCC0022E619 /* WebViewDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewDemoView.xib; sourceTree = "<group>"; };
+		E96D6EC41560BF390022E619 /* UINavigationBar+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E96D6EC51560BF390022E619 /* UINavigationBar+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E96D6ECC1560C9E30022E619 /* NSString+JUMassComparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JUMassComparison.h"; sourceTree = "<group>"; };
+		E96D6ECD1560C9E30022E619 /* NSString+JUMassComparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JUMassComparison.m"; sourceTree = "<group>"; };
+		E96D6ED0156133EA0022E619 /* UIControl+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+JUBindingAddition.h"; sourceTree = "<group>"; };
+		E96D6ED1156133EB0022E619 /* UIControl+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+JUBindingAddition.m"; sourceTree = "<group>"; };
 		E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+JUBindingsAddition.h"; sourceTree = "<group>"; };
 		E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+JUBindingsAddition.m"; sourceTree = "<group>"; };
 		E984427F155D8758007066C3 /* LabelDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelDemoView.xib; sourceTree = "<group>"; };
@@ -244,6 +269,8 @@
 				E9670E16155F5603006D6BAF /* NSObject+JUAssociatedSet.m */,
 				E9670E17155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h */,
 				E9670E18155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m */,
+				E96D6ECC1560C9E30022E619 /* NSString+JUMassComparison.h */,
+				E96D6ECD1560C9E30022E619 /* NSString+JUMassComparison.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -253,6 +280,8 @@
 			children = (
 				E9670E22155F5719006D6BAF /* JUSectionProxy.h */,
 				E9670E23155F5719006D6BAF /* JUSectionProxy.m */,
+				E96D6EBE1560B9660022E619 /* JUValueTransformer.h */,
+				E96D6EBF1560B9660022E619 /* JUValueTransformer.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -260,26 +289,32 @@
 		E9844275155D8503007066C3 /* UIKit Additions */ = {
 			isa = PBXGroup;
 			children = (
-				E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */,
-				E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */,
+				E9844321155DF30F007066C3 /* JUTableViewProxy.h */,
+				E9844322155DF310007066C3 /* JUTableViewProxy.m */,
+				E96D6ED0156133EA0022E619 /* UIControl+JUBindingAddition.h */,
+				E96D6ED1156133EB0022E619 /* UIControl+JUBindingAddition.m */,
+				E9844329155E1144007066C3 /* UIImageView+JUBindingAddition.h */,
+				E984432A155E1144007066C3 /* UIImageView+JUBindingAddition.m */,
 				E98442C1155DA557007066C3 /* UILabel+JUBindingAddition.h */,
 				E98442C2155DA557007066C3 /* UILabel+JUBindingAddition.m */,
+				E96D6EC41560BF390022E619 /* UINavigationBar+JUBindingAddition.h */,
+				E96D6EC51560BF390022E619 /* UINavigationBar+JUBindingAddition.m */,
 				E984428D155D89FC007066C3 /* UISlider+JUBindingAddition.h */,
 				E984428E155D89FC007066C3 /* UISlider+JUBindingAddition.m */,
-				E98442C9155DC6C4007066C3 /* UIView+JUBindingAddition.h */,
-				E98442CA155DC6C4007066C3 /* UIView+JUBindingAddition.m */,
-				E98442CD155DCCF1007066C3 /* UIViewController+JUBindingAddition.h */,
-				E98442CE155DCCF1007066C3 /* UIViewController+JUBindingAddition.m */,
+				E9844332155E1E12007066C3 /* UISwitch+JUBindingAddition.h */,
+				E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */,
 				E984430A155DDFF7007066C3 /* UITableView+JUBindingAddition.h */,
 				E984430B155DDFF7007066C3 /* UITableView+JUBindingAddition.m */,
 				E9844325155E0B62007066C3 /* UITableViewCell+JUBindingAddition.h */,
 				E9844326155E0B62007066C3 /* UITableViewCell+JUBindingAddition.m */,
-				E9844329155E1144007066C3 /* UIImageView+JUBindingAddition.h */,
-				E984432A155E1144007066C3 /* UIImageView+JUBindingAddition.m */,
-				E9844332155E1E12007066C3 /* UISwitch+JUBindingAddition.h */,
-				E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */,
-				E9844321155DF30F007066C3 /* JUTableViewProxy.h */,
-				E9844322155DF310007066C3 /* JUTableViewProxy.m */,
+				E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */,
+				E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */,
+				E98442C9155DC6C4007066C3 /* UIView+JUBindingAddition.h */,
+				E98442CA155DC6C4007066C3 /* UIView+JUBindingAddition.m */,
+				E98442CD155DCCF1007066C3 /* UIViewController+JUBindingAddition.h */,
+				E98442CE155DCCF1007066C3 /* UIViewController+JUBindingAddition.m */,
+				E96D6EB71560B7D60022E619 /* UIWebView+JUBindingAddition.h */,
+				E96D6EB81560B7D60022E619 /* UIWebView+JUBindingAddition.m */,
 			);
 			path = "UIKit Additions";
 			sourceTree = "<group>";
@@ -291,6 +326,7 @@
 				E984427F155D8758007066C3 /* LabelDemoView.xib */,
 				E9844331155E1D71007066C3 /* DefaultsDemoView.xib */,
 				E96D6EB31560A1A80022E619 /* TableDemoView.xib */,
+				E96D6EC21560BBCC0022E619 /* WebViewDemoView.xib */,
 				E9844280155D8758007066C3 /* MainWindow.xib */,
 			);
 			path = Nibs;
@@ -317,6 +353,8 @@
 				E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */,
 				E96D6EAF1560862F0022E619 /* TableDemoViewController.h */,
 				E96D6EB01560862F0022E619 /* TableDemoViewController.m */,
+				E96D6EBB1560B8CD0022E619 /* WebViewDemoViewController.h */,
+				E96D6EBC1560B8CD0022E619 /* WebViewDemoViewController.m */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -363,6 +401,11 @@
 				E9670E1A155F5603006D6BAF /* NSObject+JUAssociatedSet.h in Headers */,
 				E9670E1C155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.h in Headers */,
 				E9670E24155F5719006D6BAF /* JUSectionProxy.h in Headers */,
+				E96D6EB91560B7D70022E619 /* UIWebView+JUBindingAddition.h in Headers */,
+				E96D6EC01560B9660022E619 /* JUValueTransformer.h in Headers */,
+				E96D6EC61560BF3A0022E619 /* UINavigationBar+JUBindingAddition.h in Headers */,
+				E96D6ECE1560C9E30022E619 /* NSString+JUMassComparison.h in Headers */,
+				E96D6ED2156133EB0022E619 /* UIControl+JUBindingAddition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +483,7 @@
 				E9844320155DEFF1007066C3 /* RootView.xib in Resources */,
 				E9844287155D8758007066C3 /* MainWindow.xib in Resources */,
 				E96D6EB41560A1A80022E619 /* TableDemoView.xib in Resources */,
+				E96D6EC31560BBCC0022E619 /* WebViewDemoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +500,7 @@
 				E98442D3155DDC02007066C3 /* RootViewController.m in Sources */,
 				E984433A155E1EBF007066C3 /* DefaultsDemoViewController.m in Sources */,
 				E96D6EB11560862F0022E619 /* TableDemoViewController.m in Sources */,
+				E96D6EBD1560B8CD0022E619 /* WebViewDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +527,11 @@
 				E9670E1B155F5603006D6BAF /* NSObject+JUAssociatedSet.m in Sources */,
 				E9670E1D155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m in Sources */,
 				E9670E25155F5719006D6BAF /* JUSectionProxy.m in Sources */,
+				E96D6EBA1560B7D70022E619 /* UIWebView+JUBindingAddition.m in Sources */,
+				E96D6EC11560B9660022E619 /* JUValueTransformer.m in Sources */,
+				E96D6EC71560BF3A0022E619 /* UINavigationBar+JUBindingAddition.m in Sources */,
+				E96D6ECF1560C9E30022E619 /* NSString+JUMassComparison.m in Sources */,
+				E96D6ED3156133EB0022E619 /* UIControl+JUBindingAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

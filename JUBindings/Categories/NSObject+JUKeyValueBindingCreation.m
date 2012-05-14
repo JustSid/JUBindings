@@ -18,6 +18,7 @@
 #import <objc/runtime.h>
 
 #import "NSObject+JUKeyValueBindingCreation.h"
+#import "JUBindings.h"
 #import "JUBindingProxy.h"
 #import "JUExplicitBinding.h"
 
@@ -58,6 +59,8 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     [bindings addObject:binding];
 }
 
+
+// Helper to check
 + (NSArray *)exposedBindingsForClass:(Class)class
 {
     NSMutableArray *bindings = [NSMutableArray array];
@@ -101,11 +104,13 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 
 - (void)bind:(NSString *)bindingKey toObject:(id)observableController withKeyPath:(NSString *)keyPath options:(NSDictionary *)options
 {
+#ifdef JUBindingAvailabilityChecks
     if(![self exposesBinding:bindingKey])
     {
         @throw [NSException exceptionWithName:[NSString stringWithFormat:@"%@ doesn't expose %@!", self, bindingKey] reason:@"No such binding found!" userInfo:nil];
         return;
     }
+#endif
     
     
     JUBindingProxy *proxy = [self bindingProxy];
@@ -138,6 +143,7 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 
 - (Class)valueClassForBinding:(NSString *)bindingKey
 {
+#ifdef JUBindingsRuntimeChecks
     // This is just a helper, should probably overwritten in subclasses!
     JUBindingProxy *proxy = [self bindingProxy];
     JUExplicitBinding *binding = [proxy explicitBindingForBinding:bindingKey];
@@ -147,6 +153,9 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     
     id object = [[binding object] valueForKeyPath:[binding keyPath]];
     return [object class];
+#endif
+    
+    return nil;
 }
 
 - (NSDictionary *)infoForBinding:(NSString *)bindingKey
@@ -160,7 +169,7 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 
 - (NSArray *)optionDescriptionsForBinding:(NSString *)binding
 {
-    // Not implemented anywhere because this is most of the time only used by IB
+    // Not implemented anywhere because this is only used by IB afair
     return nil;
 }
 

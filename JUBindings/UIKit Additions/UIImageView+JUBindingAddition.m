@@ -24,12 +24,22 @@
 {
     [self exposeBinding:@"image"];
     [self exposeBinding:@"highlightedImage"];
+    [self exposeBinding:@"animationImages"];
+    [self exposeBinding:@"highlightedAnimationImages"];
+    [self exposeBinding:@"animationDuration"];
+    [self exposeBinding:@"animationRepeatCount"];
 }
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
     if([binding isEqualToString:@"image"] || [binding isEqualToString:@"highlightedImage"])
         return [UIImage class];
+    
+    if([binding isEqualToString:@"animationImages"] || [binding isEqualToString:@"highlightedAnimationImages"])
+        return [NSArray class];
+    
+    if([binding isEqualToString:@"animationDuration"] || [binding isEqualToString:@"animationRepeatCount"])
+        return [NSNumber class];
     
     return [super valueClassForBinding:binding];
 }

@@ -53,7 +53,7 @@ static NSString *JUBindingUISwitchValueKey = @"JUBindingUISwitchValueKey";
 {
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
     
-    if([keyPath isEqualToString:@"on"])
+    if([keyPath isEqualToString:@"on"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
         [self addObject:observer intoSetWithKey:JUBindingUISwitchValueKey];
         
@@ -66,7 +66,7 @@ static NSString *JUBindingUISwitchValueKey = @"JUBindingUISwitchValueKey";
 {
     [super removeObserver:observer forKeyPath:keyPath context:context];
     
-    if([keyPath isEqualToString:@"on"])
+    if([keyPath isEqualToString:@"on"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
         [self removeObject:observer fromSetWithKey:JUBindingUISwitchValueKey];
         

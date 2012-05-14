@@ -20,6 +20,7 @@
 #import "NSObject+JUKeyValueBindingCreation.h"
 #import "JUExplicitBinding.h"
 #import "JUBindingProxy.h"
+#import "JUValueTransformer.h"
 
 #import "JUObjectController.h"
 #import "JUUserDefaultsController.h"
@@ -27,3 +28,8 @@
 #import "JUTableController.h"
 
 #import "UITableView+JUBindingAddition.h"
+
+#ifdef DEBUG
+    #define JUBindingsRuntimeChecks 1 // Adds extra runtime type checks at the cost of CPU load
+    #define JUBindingAvailabilityChecks 1 // Adds checks wether a certain binding is available or not, at the cost of some extra CPU load
+#endif

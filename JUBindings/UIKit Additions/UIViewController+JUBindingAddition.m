@@ -16,6 +16,8 @@
 //
 
 #import "UIViewController+JUBindingAddition.h"
+#import "NSString+JUMassComparison.h"
+#import "JUBindings.h"
 
 @implementation UIViewController (JUBindingAddition)
 
@@ -23,21 +25,30 @@
 {
     [self exposeBinding:@"title"];
     [self exposeBinding:@"view"];
+    [self exposeBinding:@"wantsFullScreenLayout"];
     [self exposeBinding:@"editing"];
+    [self exposeBinding:@"modalTransitionStyle"];
+    [self exposeBinding:@"modalPresentationStyle"];
+    [self exposeBinding:@"hidesBottomBarWhenPushed"];
+    [self exposeBinding:@"tabBarItem"];
+    [self exposeBinding:@"modalInPopover"];
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"title"])
+    if([binding isEqualToString:@"title"])
         return [NSString class];
     
-    if([bindingKey isEqualToString:@"view"])
+    if([binding isEqualToString:@"view"])
         return [UIView class];
     
-    if([bindingKey isEqualToString:@"editing"])
+    if([binding isEqualToAnyStringInArray:JUArray(@"wantsFullScreenLayout", @"editing", @"modalTransitionStyle", @"modalPresentationStyle", @"hidesBottomBarWhenPushed", @"modalInPopover")])
         return [NSNumber class];
     
-    return [super valueClassForBinding:bindingKey];
+    if([binding isEqualToString:@"tabBarItem"])
+        return [UITabBarItem class];
+    
+    return [super valueClassForBinding:binding];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.h
+//  UIWebView+JUBindingAddition.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -17,6 +17,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (JUBindingAddition)
+@interface UIWebView (JUBindingAddition)
 
 @end

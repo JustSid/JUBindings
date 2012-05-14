@@ -16,33 +16,47 @@
 //
 
 #import "UITextField+JUBindingsAddition.h"
+#import "NSString+JUMassComparison.h"
 
 @implementation UITextField (JUBindingsAddition)
 
 + (void)initializeBindings
 {
-    [self exposeBinding:@"text"];
-    [self exposeBinding:@"textColor"];
-    [self exposeBinding:@"font"];
-    [self exposeBinding:@"placeholder"];
+    [self exposeBinding:@"text"]; //
+    [self exposeBinding:@"placeholder"]; //
+    [self exposeBinding:@"font"]; //
+    [self exposeBinding:@"textColor"]; //
+    [self exposeBinding:@"textAlignment"];
+    [self exposeBinding:@"adjustFontSizeToFitWidth"];
+    [self exposeBinding:@"minimumFontSize"];
     [self exposeBinding:@"clearsOnBeginEditing"];
+    [self exposeBinding:@"clearButtonMode"];
+    [self exposeBinding:@"leftView"];
+    [self exposeBinding:@"leftViewMode"];
+    [self exposeBinding:@"rightView"];
+    [self exposeBinding:@"rightViewMode"];
+    [self exposeBinding:@"inputView"];
+    [self exposeBinding:@"inputAccessoryView"];
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"text"] || [bindingKey isEqualToString:@"placeholder"])
+    if([binding isEqualToString:@"text"] || [binding isEqualToString:@"placeholder"])
         return [NSString class];
     
-    if([bindingKey isEqualToString:@"textColor"])
+    if([binding isEqualToString:@"textColor"])
         return [UIColor class];
     
-    if([bindingKey isEqualToString:@"font"])
+    if([binding isEqualToString:@"font"])
         return [UIFont class];
     
-    if([bindingKey isEqualToString:@"clearsOnBeginEditing"])
+    if([binding isEqualToAnyStringInArray:JUArray(@"textAlignment", @"adjustFontSizeToFitWidth", @"minimumFontSize", @"clearsOnBeginEditing", @"clearButtonMode", @"leftViewMode", @"rightViewMode")])
         return [NSNumber class];
     
-    return [super valueClassForBinding:bindingKey];
+    if([binding isEqualToAnyStringInArray:JUArray(@"leftView", @"rightView", @"inputView", @"inputAccessoryView")])
+        return [UIView class];
+    
+    return [super valueClassForBinding:binding];
 }
 
 @end

@@ -61,7 +61,7 @@
     id placeholder = [options objectForKey:NSNullPlaceholderBindingOption];
     id result = nil;
     
-
+#ifdef JUBindingsRuntimeChecks
     if(newValue && ![newValue isKindOfClass:[NSNull class]])
     {
         result = transformer ? [transformer transformedValue:newValue] : [self convertObject:newValue toClass:[target valueClassForBinding:binding]];
@@ -72,6 +72,13 @@
     {
         result = placeholder;
     }
+#else
+    if(transformer)
+        result = [transformer transformedValue:newValue];
+    
+    if(!result) 
+        result = placeholder;
+#endif
     
     [target setValue:result forKeyPath:binding];
 }

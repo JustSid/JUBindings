@@ -18,6 +18,7 @@
 #import <objc/runtime.h>
 #import "UISlider+JUBindingAddition.h"
 #import "NSObject+JUAssociatedSet.h"
+#import "JUBindings.h"
 
 static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 
@@ -28,17 +29,22 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
     [self exposeBinding:@"value"];
     [self exposeBinding:@"minimumValue"];
     [self exposeBinding:@"maximumValue"];
+    [self exposeBinding:@"minimumValueImage"];
+    [self exposeBinding:@"maximumValueImage"];
 }
 
-- (Class)valueClassForBinding:(NSString *)bindingKey
+- (Class)valueClassForBinding:(NSString *)binding
 {
-    if([bindingKey isEqualToString:@"value"])
+    if([binding isEqualToString:@"value"])
         return [NSNumber class];
     
-    if([bindingKey isEqualToString:@"minimumValue"] || [bindingKey isEqualToString:@"maximumValue"])
+    if([binding isEqualToString:@"minimumValue"] || [binding isEqualToString:@"maximumValue"])
         return [NSNumber class];
     
-    return [super valueClassForBinding:bindingKey];
+    if([binding isEqualToString:@"minimumValueImage"] || [binding isEqualToString:@"maximumValueImage"])
+        return [UIImage class];
+    
+    return [super valueClassForBinding:binding];
 }
 
 
@@ -58,7 +64,7 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 {
     [super addObserver:observer forKeyPath:keyPath options:options context:context];
     
-    if([keyPath isEqualToString:@"value"])
+    if([keyPath isEqualToString:@"value"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
         [self addObject:observer intoSetWithKey:JUBindingUISliderValueKey];
         
@@ -71,7 +77,7 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 {
     [super removeObserver:observer forKeyPath:keyPath context:context];
     
-    if([keyPath isEqualToString:@"value"])
+    if([keyPath isEqualToString:@"value"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
         [self removeObject:observer fromSetWithKey:JUBindingUISliderValueKey];
         
