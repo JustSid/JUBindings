@@ -1,5 +1,5 @@
 //
-//  NSString+JUMassComparison.m
+//  SimpleObjectTests.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,27 +15,22 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "NSString+JUMassComparison.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import "SimpleObject.h"
 
-@implementation NSString (JUMassComparison)
-
-- (BOOL)ju_isEqualToAnyStringInArray:(NSArray *)array
+@interface SimpleObjectTests : SenTestCase
 {
-    if([array count] < 10)
-    {
-        for(NSString *string in array)
-        {
-            if([string isEqualToString:self])
-                return YES;
-        }
-    }
-    else
-    {
-        NSSet *set = [NSSet setWithArray:array];
-        return [set containsObject:self];
-    }
+    SimpleObject *object;
+    SimpleObject *chained;
+    SimpleObjectWithoutValueClass *objectWithoutValueClass;
     
-    return NO;
+    char character;
+    NSInteger integer;
+    CGFloat floating;
 }
+
+@property (nonatomic, assign) char character;
+@property (nonatomic, assign) NSInteger integer;
+@property (nonatomic, assign) CGFloat floating;
 
 @end

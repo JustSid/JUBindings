@@ -39,7 +39,7 @@
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
-    if([binding isEqualToAnyStringInArray:JUArray(@"hidden", @"alpha", @"opaque", @"clipsToBounds", @"userInteractionEnabled", @"multipleTouchEnabled", @"exclusiveTouch", @"autoresizingMask", @"autoresizingSubviews", @"contentMode", @"contentScaleFactor")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"hidden", @"alpha", @"opaque", @"clipsToBounds", @"userInteractionEnabled", @"multipleTouchEnabled", @"exclusiveTouch", @"autoresizingMask", @"autoresizingSubviews", @"contentMode", @"contentScaleFactor")])
         return [NSNumber class];
         
     if([binding isEqualToString:@"backgroundColor"])

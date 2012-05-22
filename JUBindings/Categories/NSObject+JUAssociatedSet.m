@@ -20,20 +20,20 @@
 
 @implementation NSObject (JUAssociatedSet)
 
-- (void)addObject:(id)object intoSetWithKey:(void *)key
+- (void)ju_addObject:(id)object intoSetWithKey:(void *)key
 {
     NSMutableSet *set = objc_getAssociatedObject(self, key);
     if(!set)
     {
-        set = [[[NSMutableSet alloc] init] autorelease];
+        set = [[NSMutableSet alloc] init];
         objc_setAssociatedObject(self, key, set, OBJC_ASSOCIATION_RETAIN);
+        [set release];
     }
-    
     
     [set addObject:object];
 }
 
-- (void)removeObject:(id)object fromSetWithKey:(void *)key
+- (void)ju_removeObject:(id)object fromSetWithKey:(void *)key
 {
     NSMutableSet *set = objc_getAssociatedObject(self, key);
     if(!set)
@@ -45,7 +45,7 @@
         objc_setAssociatedObject(self, key, nil, OBJC_ASSOCIATION_RETAIN);
 }
 
-- (NSArray *)objectsInSetWithKey:(void *)key
+- (NSArray *)ju_objectsInSetWithKey:(void *)key
 {
     NSMutableSet *set = objc_getAssociatedObject(self, key);
     return [set allObjects];

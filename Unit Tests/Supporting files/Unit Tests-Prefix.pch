@@ -1,0 +1,12 @@
+//
+// Prefix header for all source files of the 'Unit Tests' target in the 'Unit Tests' project
+//
+
+#define JUBindingEnableChecks
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    #import "JUBindings.h"
+#endif

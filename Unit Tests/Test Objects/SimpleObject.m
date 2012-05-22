@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.m
+//  SimpleObject.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,45 +15,29 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "UIViewController+JUBindingAddition.h"
-#import "NSString+JUMassComparison.h"
-#import "JUBindings.h"
+#import "SimpleObject.h"
 
-@implementation UIViewController (JUBindingAddition)
+@implementation SimpleObjectWithoutValueClass
+@synthesize character, integer, floating;
 
-+ (void)initializeBindings
++ (void)initialize
 {
-    [self exposeBinding:@"title"];
-    [self exposeBinding:@"view"];
-    [self exposeBinding:@"wantsFullScreenLayout"];
-    [self exposeBinding:@"editing"];
-    [self exposeBinding:@"modalTransitionStyle"];
-    [self exposeBinding:@"modalPresentationStyle"];
-    [self exposeBinding:@"hidesBottomBarWhenPushed"];
-    [self exposeBinding:@"tabBarItem"];
-    [self exposeBinding:@"modalInPopover"];
+    [self exposeBinding:@"character"];
+    [self exposeBinding:@"integer"];
+    [self exposeBinding:@"floating"];
 }
+
+@end
+
+
+@implementation SimpleObject
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
-    if([binding isEqualToString:@"title"])
-        return [NSString class];
-    
-    if([binding isEqualToString:@"view"])
-        return [UIView class];
-    
-    if([binding ju_isEqualToAnyStringInArray:JUArray(@"wantsFullScreenLayout", @"editing", @"modalTransitionStyle", @"modalPresentationStyle", @"hidesBottomBarWhenPushed", @"modalInPopover")])
+    if([binding isEqualToString:@"character"] || [binding isEqualToString:@"integer"] || [binding isEqualToString:@"floating"])
         return [NSNumber class];
-    
-    if([binding isEqualToString:@"tabBarItem"])
-        return [UITabBarItem class];
     
     return [super valueClassForBinding:binding];
 }
 
 @end
-
-__attribute__((constructor)) void _UIViewControllerInitBindings()
-{
-    [UIViewController initializeBindings];
-}

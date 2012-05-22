@@ -50,13 +50,13 @@ static NSString *JUTableViewProxyKey = @"JUTableViewProxyKey";
     if([binding isEqualToString:@"content"])
         return [NSArray class];
     
-    if([binding isEqualToAnyStringInArray:JUArray(@"rowHeight", @"seperatorStyle", @"sectionHeaderHeight", @"sectionFooterHeight", @"sectionFooterHeight", @"sectionIndexMinimumDisplayRowCount")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"rowHeight", @"seperatorStyle", @"sectionHeaderHeight", @"sectionFooterHeight", @"sectionFooterHeight", @"sectionIndexMinimumDisplayRowCount")])
         return [NSNumber class];
     
-    if([binding isEqualToAnyStringInArray:JUArray(@"allowsSelection", @"allowsMultipleSelection", @"allowsSelectionDuringEditing", @"allowsMultipleSelectionDuringEditing", @"editing")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"allowsSelection", @"allowsMultipleSelection", @"allowsSelectionDuringEditing", @"allowsMultipleSelectionDuringEditing", @"editing")])
         return [NSNumber class];
     
-    if([binding isEqualToAnyStringInArray:JUArray(@"backgroundView", @"tableHeaderView", @"tableFooterView")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"backgroundView", @"tableHeaderView", @"tableFooterView")])
         return [UIView class];
     
     if([binding isEqualToString:@"seperatorColor"])

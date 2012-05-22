@@ -18,11 +18,6 @@
 #import "JUExplicitBinding.h"
 #import "JUBindings.h"
 
-
-@interface NSObject (JUBindingAddition)
-- (void)fireKeyPath:(NSString *)keyPath;
-@end
-
 @interface JUExplicitBinding ()
 {
     BOOL bound;
@@ -36,20 +31,25 @@
 
 - (id)convertObject:(id)tobject toClass:(Class)class
 {
+    if(!class)
+        return tobject;
+    
     if([tobject isKindOfClass:class])
         return tobject;
     
+    if([tobject isKindOfClass:[NSNull class]])
+        tobject = nil;
+    
     if([class isSubclassOfClass:[NSString class]])
-    {
         return [tobject description];
-    }
     
     if([class isSubclassOfClass:[NSNumber class]])
     {
-        if([object isKindOfClass:[NSString class]])
-        {
-            return [NSNumber numberWithFloat:[object floatValue]];
-        }
+        if([tobject isKindOfClass:[NSString class]])
+            return [NSNumber numberWithFloat:[tobject floatValue]];
+        
+        if(!tobject)
+            return [NSNumber numberWithBool:NO];
     }
     
     return nil;
@@ -61,25 +61,18 @@
     id placeholder = [options objectForKey:NSNullPlaceholderBindingOption];
     id result = nil;
     
-#ifdef JUBindingsRuntimeChecks
-    if(newValue && ![newValue isKindOfClass:[NSNull class]])
-    {
-        result = transformer ? [transformer transformedValue:newValue] : [self convertObject:newValue toClass:[target valueClassForBinding:binding]];
-        if(!result)
-            result = placeholder;
-    }
-    else 
-    {
+    result = transformer ? [transformer transformedValue:newValue] : [self convertObject:newValue toClass:[target valueClassForBinding:binding]];
+    if(!result)
         result = placeholder;
+    
+    if(!result)
+    {
+        NSNumber *allowsNull = [options objectForKey:NSAllowsNullArgumentBindingOption];
+        
+        if(allowsNull && ![allowsNull boolValue])
+            return;
     }
-#else
-    if(transformer)
-        result = [transformer transformedValue:newValue];
-    
-    if(!result) 
-        result = placeholder;
-#endif
-    
+
     [target setValue:result forKeyPath:binding];
 }
 
@@ -97,9 +90,10 @@
 {
     NSKeyValueObservingOptions ovserverOptions = NSKeyValueObservingOptionNew;
     [object addObserver:self forKeyPath:keyPath options:ovserverOptions context:self];
-    [object fireKeyPath:keyPath];
     
     bound = YES;
+    
+    [self boundValueChangedTo:[object valueForKeyPath:keyPath]];
 }
 
 

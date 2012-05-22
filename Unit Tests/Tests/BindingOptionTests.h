@@ -1,5 +1,5 @@
 //
-//  NSString+JUMassComparison.m
+//  BindingOptionTests.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,27 +15,20 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "NSString+JUMassComparison.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import "SimpleObject.h"
+#import "ComplexObject.h"
 
-@implementation NSString (JUMassComparison)
-
-- (BOOL)ju_isEqualToAnyStringInArray:(NSArray *)array
+@interface BindingOptionTests : SenTestCase
 {
-    if([array count] < 10)
-    {
-        for(NSString *string in array)
-        {
-            if([string isEqualToString:self])
-                return YES;
-        }
-    }
-    else
-    {
-        NSSet *set = [NSSet setWithArray:array];
-        return [set containsObject:self];
-    }
+    NSString *nilString; // Ivar that is supposed to be nil
+    NSString *characterString;
     
-    return NO;
+    SimpleObject *simpleObject;
+    ComplexObject *complexObject;
 }
+
+@property (nonatomic, retain) NSString *nilString;
+@property (nonatomic, retain) NSString *characterString;
 
 @end

@@ -52,7 +52,7 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
 
 - (void)__valueDidChange:(id)object
 {
-    NSArray *observer = [self objectsInSetWithKey:JUBindingUISliderValueKey];
+    NSArray *observer = [self ju_objectsInSetWithKey:JUBindingUISliderValueKey];
     NSNumber *value = [NSNumber numberWithFloat:[self value]];
     
     for(JUExplicitBinding *binding in observer)
@@ -66,9 +66,9 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
     
     if([keyPath isEqualToString:@"value"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
-        [self addObject:observer intoSetWithKey:JUBindingUISliderValueKey];
+        [self ju_addObject:observer intoSetWithKey:JUBindingUISliderValueKey];
         
-        if([[self objectsInSetWithKey:JUBindingUISliderValueKey] count] == 1)
+        if([[self ju_objectsInSetWithKey:JUBindingUISliderValueKey] count] == 1)
             [self addTarget:self action:@selector(__valueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
 }
@@ -79,9 +79,9 @@ static NSString *JUBindingUISliderValueKey = @"JUBindingUISliderValueKey";
     
     if([keyPath isEqualToString:@"value"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
-        [self removeObject:observer fromSetWithKey:JUBindingUISliderValueKey];
+        [self ju_removeObject:observer fromSetWithKey:JUBindingUISliderValueKey];
         
-        if([[self objectsInSetWithKey:JUBindingUISliderValueKey] count] == 0)
+        if([[self ju_objectsInSetWithKey:JUBindingUISliderValueKey] count] == 0)
             [self removeTarget:self action:@selector(__valueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
 }

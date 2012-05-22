@@ -19,7 +19,7 @@
 
 @interface NSString (JUMassComparison)
 
-- (BOOL)isEqualToAnyStringInArray:(NSArray *)array;
+- (BOOL)ju_isEqualToAnyStringInArray:(NSArray *)array;
 
 @end
 

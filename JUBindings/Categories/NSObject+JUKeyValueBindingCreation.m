@@ -25,8 +25,8 @@
 static NSString *JUBindingProxyKey = @"JUBindingProxyKey";
 
 NSString *NSValueTransformerBindingOption   = @"NSValueTransformerBindingOption";
-NSString *NSSelectorNameBindingOption       = @"NSSelectorNameBindingOption";
 NSString *NSNullPlaceholderBindingOption    = @"NSNullPlaceholderBindingOption";
+NSString *NSAllowsNullArgumentBindingOption = @"NSAllowsNullArgumentBindingOption";
 
 NSString *NSObservedObjectKey   = @"NSObservedObjectKey";
 NSString *NSObservedKeyPathKey  = @"NSObservedKeyPathKey";
@@ -69,7 +69,7 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
         NSSet *set = [JUBindingExposedBindings objectForKey:class];
         
         [bindings addObjectsFromArray:[set allObjects]];
-    } while ((class = class_getSuperclass(class)));
+    } while((class = class_getSuperclass(class)));
     
     return bindings;
 }
@@ -82,7 +82,7 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
         NSSet *set = [JUBindingExposedBindings objectForKey:class];
         
         [bindings unionSet:set];
-    } while ((class = class_getSuperclass(class)));
+    } while((class = class_getSuperclass(class)));
     
     return bindings;
 }
@@ -121,11 +121,11 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     [proxy setExplicitBinding:nil forBinding:bindingKey];
     
     // Create a new binding
-    binding = [[[JUExplicitBinding alloc] initWithBindingKey:bindingKey observable:observableController withKeyPath:keyPath options:options andTarget:self] autorelease];
-    
-    [binding bind];
+    binding = [[JUExplicitBinding alloc] initWithBindingKey:bindingKey observable:observableController withKeyPath:keyPath options:options andTarget:self];
     [proxy setExplicitBinding:binding forBinding:bindingKey];
     
+    [binding bind];
+    [binding release];
 }
 
 - (void)unbind:(NSString *)binding
@@ -138,8 +138,32 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 }
 
 
+#ifdef JUBindingsRuntimeChecks
+#define JUCheckObjectAndReturnClass(object, cls) if([object isKindOfClass:[cls class]]) return [cls class];
 
-
+- (Class)guessClassForBinding:(JUExplicitBinding *)binding
+{
+    id object = [[binding object] valueForKeyPath:[binding keyPath]];
+    if(object && ![object isKindOfClass:[NSNull class]])
+    {
+        // Take extra care of the known class clusters
+        JUCheckObjectAndReturnClass(object, NSArray);
+        JUCheckObjectAndReturnClass(object, NSSet);
+        JUCheckObjectAndReturnClass(object, NSDictionary);
+        JUCheckObjectAndReturnClass(object, NSNumber);
+        JUCheckObjectAndReturnClass(object, NSString);
+        JUCheckObjectAndReturnClass(object, NSData);
+        JUCheckObjectAndReturnClass(object, NSDate);
+        
+        return [object class];
+    }
+    
+    // TODO: This only works everything non nil!
+    // One could check the ivars/properties directly using the Objective-C runtime, but this would require
+    
+    return nil;
+}
+#endif
 
 - (Class)valueClassForBinding:(NSString *)bindingKey
 {
@@ -151,10 +175,10 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
     if(!binding)
         return nil;
     
-    id object = [[binding object] valueForKeyPath:[binding keyPath]];
-    return [object class];
+    return [self guessClassForBinding:binding];
 #endif
     
+    @throw [NSException exceptionWithName:@"valueClassForBinding: must be implemented" reason:[NSString stringWithFormat:@"Overwrite valueClassForBinding: for \"%@\" or define JUBindingsRuntimeChecks", bindingKey] userInfo:nil];
     return nil;
 }
 
@@ -162,6 +186,9 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 {
     JUBindingProxy *proxy = [self bindingProxy];
     JUExplicitBinding *binding = [proxy explicitBindingForBinding:bindingKey];
+    
+    if(!binding)
+        return nil;
     
     return [NSDictionary dictionaryWithObjectsAndKeys:[binding object], NSObservedObjectKey, [binding keyPath], NSObservedKeyPathKey, [binding options], NSOptionsKey, nil];
 
@@ -175,33 +202,18 @@ NSMutableDictionary *JUBindingExposedBindings = nil;
 
 
 
-- (void)fireKeyPath:(NSString *)keyPath
-{
-    NSRange range = [keyPath rangeOfString:@"."];
-    if(range.location == NSNotFound)
-    {
-        [self willChangeValueForKey:keyPath];
-        [self didChangeValueForKey:keyPath];
-        
-        return;
-    }
-    
-    NSString *key = [keyPath substringToIndex:range.location];
-    keyPath = [keyPath substringFromIndex:range.location + 1];
-
-    NSObject *object = [self valueForKey:key];
-    [object fireKeyPath:keyPath];    
-}
-
-
-
 - (JUBindingProxy *)bindingProxy
 {
-    id proxy = objc_getAssociatedObject(self, JUBindingProxyKey);
-    if(!proxy)
-    {
-        proxy = [[[JUBindingProxy alloc] init] autorelease];
-        objc_setAssociatedObject(self, JUBindingProxyKey, proxy, OBJC_ASSOCIATION_RETAIN);
+    id proxy;
+    
+    @autoreleasepool {
+        proxy = objc_getAssociatedObject(self, JUBindingProxyKey);
+        if(!proxy)
+        {
+            proxy = [[JUBindingProxy alloc] init];
+            objc_setAssociatedObject(self, JUBindingProxyKey, proxy, OBJC_ASSOCIATION_RETAIN);
+            [proxy release];
+        }
     }
     
     return proxy;

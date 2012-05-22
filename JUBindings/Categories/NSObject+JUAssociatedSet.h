@@ -19,8 +19,9 @@
 
 @interface NSObject (JUAssociatedSet)
 
-- (void)addObject:(id)object intoSetWithKey:(void *)key;
-- (void)removeObject:(id)object fromSetWithKey:(void *)key;
-- (NSArray *)objectsInSetWithKey:(void *)key;
+- (void)ju_addObject:(id)object intoSetWithKey:(void *)key;
+- (void)ju_removeObject:(id)object fromSetWithKey:(void *)key;
+
+- (NSArray *)ju_objectsInSetWithKey:(void *)key;
 
 @end

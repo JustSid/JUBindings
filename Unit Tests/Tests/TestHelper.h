@@ -1,5 +1,5 @@
 //
-//  NSString+JUMassComparison.m
+//  TestHelper.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,27 +15,26 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "NSString+JUMassComparison.h"
+#ifndef JUBindings_TestHelper_h
+#define JUBindings_TestHelper_h
 
-@implementation NSString (JUMassComparison)
+#define JUAssertValueClass(object, binding, cls) STAssertEqualObjects([object valueClassForBinding:binding], [cls class], @"Value class for \"<%@> %@\" must be %s", [object class], binding, #cls)
+#define JUAssertThrows(block, description, ...) \
+do { \
+    BOOL __caughtException = NO; \
+    @try { \
+        block();\
+    } \
+    @catch (id anException) { \
+        __caughtException = YES; \
+    }\
+    if (!__caughtException) { \
+        [self failWithException:([NSException failureInRaise:@"Block" \
+            exception:nil \
+            inFile:[NSString stringWithUTF8String:__FILE__] \
+            atLine:__LINE__ \
+            withDescription:@"%@", STComposeString(description, ##__VA_ARGS__)])]; \
+    } \
+} while (0)
 
-- (BOOL)ju_isEqualToAnyStringInArray:(NSArray *)array
-{
-    if([array count] < 10)
-    {
-        for(NSString *string in array)
-        {
-            if([string isEqualToString:self])
-                return YES;
-        }
-    }
-    else
-    {
-        NSSet *set = [NSSet setWithArray:array];
-        return [set containsObject:self];
-    }
-    
-    return NO;
-}
-
-@end
+#endif

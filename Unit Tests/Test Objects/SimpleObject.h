@@ -1,5 +1,5 @@
 //
-//  NSString+JUMassComparison.m
+//  SimpleObject
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,27 +15,22 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "NSString+JUMassComparison.h"
+#import <Foundation/Foundation.h>
 
-@implementation NSString (JUMassComparison)
-
-- (BOOL)ju_isEqualToAnyStringInArray:(NSArray *)array
+@interface SimpleObjectWithoutValueClass : NSObject
 {
-    if([array count] < 10)
-    {
-        for(NSString *string in array)
-        {
-            if([string isEqualToString:self])
-                return YES;
-        }
-    }
-    else
-    {
-        NSSet *set = [NSSet setWithArray:array];
-        return [set containsObject:self];
-    }
-    
-    return NO;
+    char character;
+    NSInteger integer;
+    CGFloat floating;
 }
+
+@property (nonatomic, assign) char character;
+@property (nonatomic, assign) NSInteger integer;
+@property (nonatomic, assign) CGFloat floating;
+
+@end
+
+
+@interface SimpleObject : SimpleObjectWithoutValueClass
 
 @end

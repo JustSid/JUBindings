@@ -32,7 +32,7 @@
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
-    if([binding isEqualToAnyStringInArray:JUArray(@"enabled", @"selected", @"highlighted", @"contentVerticalAlignment", @"contentHorizontalAlignment")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"enabled", @"selected", @"highlighted", @"contentVerticalAlignment", @"contentHorizontalAlignment")])
         return [NSNumber class];
     
     return [super valueClassForBinding:binding];

@@ -36,6 +36,7 @@
 
 extern NSString *NSValueTransformerBindingOption;
 extern NSString *NSNullPlaceholderBindingOption;
+extern NSString *NSAllowsNullArgumentBindingOption;
 
 extern NSString *NSObservedObjectKey;
 extern NSString *NSObservedKeyPathKey;

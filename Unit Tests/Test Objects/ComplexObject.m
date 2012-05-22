@@ -1,5 +1,5 @@
 //
-//  UIViewController+JUBindingAddition.m
+//  ComplexObject.m
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,45 +15,39 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "UIViewController+JUBindingAddition.h"
-#import "NSString+JUMassComparison.h"
-#import "JUBindings.h"
+#import "ComplexObject.h"
 
-@implementation UIViewController (JUBindingAddition)
+@implementation ComplexObjectWithoutValueClass
+@synthesize object, string, data, dictionary;
 
-+ (void)initializeBindings
++ (void)initialize
 {
-    [self exposeBinding:@"title"];
-    [self exposeBinding:@"view"];
-    [self exposeBinding:@"wantsFullScreenLayout"];
-    [self exposeBinding:@"editing"];
-    [self exposeBinding:@"modalTransitionStyle"];
-    [self exposeBinding:@"modalPresentationStyle"];
-    [self exposeBinding:@"hidesBottomBarWhenPushed"];
-    [self exposeBinding:@"tabBarItem"];
-    [self exposeBinding:@"modalInPopover"];
+    [self exposeBinding:@"object"];
+    [self exposeBinding:@"string"];
+    [self exposeBinding:@"data"];
+    [self exposeBinding:@"dictionary"];
 }
+
+@end
+
+
+@implementation ComplexObject
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
-    if([binding isEqualToString:@"title"])
+    if([binding isEqualToString:@"object"])
+        return [SimpleObject class];
+    
+    if([binding isEqualToString:@"string"])
         return [NSString class];
     
-    if([binding isEqualToString:@"view"])
-        return [UIView class];
+    if([binding isEqualToString:@"data"])
+        return [NSData class];
     
-    if([binding ju_isEqualToAnyStringInArray:JUArray(@"wantsFullScreenLayout", @"editing", @"modalTransitionStyle", @"modalPresentationStyle", @"hidesBottomBarWhenPushed", @"modalInPopover")])
-        return [NSNumber class];
-    
-    if([binding isEqualToString:@"tabBarItem"])
-        return [UITabBarItem class];
+    if([binding isEqualToString:@"dictionary"])
+        return [NSDictionary class];
     
     return [super valueClassForBinding:binding];
 }
 
 @end
-
-__attribute__((constructor)) void _UIViewControllerInitBindings()
-{
-    [UIViewController initializeBindings];
-}

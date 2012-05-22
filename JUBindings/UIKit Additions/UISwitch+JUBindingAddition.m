@@ -41,7 +41,7 @@ static NSString *JUBindingUISwitchValueKey = @"JUBindingUISwitchValueKey";
 
 - (void)__valueDidChange:(id)object
 {
-    NSArray *observer = [self objectsInSetWithKey:JUBindingUISwitchValueKey];
+    NSArray *observer = [self ju_objectsInSetWithKey:JUBindingUISwitchValueKey];
     NSNumber *value = [NSNumber numberWithBool:[self isOn]];
     
     for(JUExplicitBinding *binding in observer)
@@ -55,9 +55,9 @@ static NSString *JUBindingUISwitchValueKey = @"JUBindingUISwitchValueKey";
     
     if([keyPath isEqualToString:@"on"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
-        [self addObject:observer intoSetWithKey:JUBindingUISwitchValueKey];
+        [self ju_addObject:observer intoSetWithKey:JUBindingUISwitchValueKey];
         
-        if([[self objectsInSetWithKey:JUBindingUISwitchValueKey] count] == 1)
+        if([[self ju_objectsInSetWithKey:JUBindingUISwitchValueKey] count] == 1)
             [self addTarget:self action:@selector(__valueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
 }
@@ -68,9 +68,9 @@ static NSString *JUBindingUISwitchValueKey = @"JUBindingUISwitchValueKey";
     
     if([keyPath isEqualToString:@"on"] && [observer isKindOfClass:[JUExplicitBinding class]])
     {
-        [self removeObject:observer fromSetWithKey:JUBindingUISwitchValueKey];
+        [self ju_removeObject:observer fromSetWithKey:JUBindingUISwitchValueKey];
         
-        if([[self objectsInSetWithKey:JUBindingUISwitchValueKey] count] == 0)
+        if([[self ju_objectsInSetWithKey:JUBindingUISwitchValueKey] count] == 0)
             [self removeTarget:self action:@selector(__valueDidChange:) forControlEvents:UIControlEventValueChanged];
     }
 }

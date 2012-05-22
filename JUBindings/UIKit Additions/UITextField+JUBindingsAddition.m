@@ -22,10 +22,10 @@
 
 + (void)initializeBindings
 {
-    [self exposeBinding:@"text"]; //
-    [self exposeBinding:@"placeholder"]; //
-    [self exposeBinding:@"font"]; //
-    [self exposeBinding:@"textColor"]; //
+    [self exposeBinding:@"text"];
+    [self exposeBinding:@"placeholder"];
+    [self exposeBinding:@"font"];
+    [self exposeBinding:@"textColor"];
     [self exposeBinding:@"textAlignment"];
     [self exposeBinding:@"adjustFontSizeToFitWidth"];
     [self exposeBinding:@"minimumFontSize"];
@@ -50,10 +50,10 @@
     if([binding isEqualToString:@"font"])
         return [UIFont class];
     
-    if([binding isEqualToAnyStringInArray:JUArray(@"textAlignment", @"adjustFontSizeToFitWidth", @"minimumFontSize", @"clearsOnBeginEditing", @"clearButtonMode", @"leftViewMode", @"rightViewMode")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"textAlignment", @"adjustFontSizeToFitWidth", @"minimumFontSize", @"clearsOnBeginEditing", @"clearButtonMode", @"leftViewMode", @"rightViewMode")])
         return [NSNumber class];
     
-    if([binding isEqualToAnyStringInArray:JUArray(@"leftView", @"rightView", @"inputView", @"inputAccessoryView")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"leftView", @"rightView", @"inputView", @"inputAccessoryView")])
         return [UIView class];
     
     return [super valueClassForBinding:binding];

@@ -46,7 +46,7 @@
     if([binding isEqualToString:@"font"])
         return [UIFont class];
     
-    if([binding isEqualToAnyStringInArray:JUArray(@"textAlignment", @"lineBreakMode", @"adjustFontSizeToFitWidth", @"baselineAdjustment", @"minimumFontSize", @"numberOfLines")])
+    if([binding ju_isEqualToAnyStringInArray:JUArray(@"textAlignment", @"lineBreakMode", @"adjustFontSizeToFitWidth", @"baselineAdjustment", @"minimumFontSize", @"numberOfLines")])
         return [NSNumber class];
     
     return [super valueClassForBinding:binding];

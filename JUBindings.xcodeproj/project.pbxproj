@@ -72,12 +72,29 @@
 		E9844338155E1E8E007066C3 /* DefaultsDemoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */; };
 		E984433A155E1EBF007066C3 /* DefaultsDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */; };
 		E984433B155E1FE0007066C3 /* DefaultsDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9844331155E1D71007066C3 /* DefaultsDemoView.xib */; };
+		E985983D1565BFC200D8FAAC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985983C1565BFC200D8FAAC /* SenTestingKit.framework */; };
+		E985983E1565BFC200D8FAAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF2E155D68F800711060 /* UIKit.framework */; };
+		E985983F1565BFC200D8FAAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF30155D68F800711060 /* Foundation.framework */; };
+		E985984E1565BFCC00D8FAAC /* libJUBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF4D155D6A0400711060 /* libJUBindings.a */; };
+		E9D70412156AD9B9000A5B6C /* ComplexObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D70411156AD9B9000A5B6C /* ComplexObject.m */; };
+		E9D70416156ADBDF000A5B6C /* ComplexObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */; };
+		E9D70419156B243D000A5B6C /* CategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D70418156B243D000A5B6C /* CategoryTests.m */; };
+		E9D7041D156BF5AA000A5B6C /* BindingOptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D7041C156BF5AA000A5B6C /* BindingOptionTests.m */; };
 		E9DCB277155F32730008D9F3 /* JUTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DCB275155F32730008D9F3 /* JUTableController.h */; };
 		E9DCB278155F32730008D9F3 /* JUTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DCB276155F32730008D9F3 /* JUTableController.m */; };
+		E9E62E711567DD8F00E6AB91 /* SimpleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E62E701567DD8F00E6AB91 /* SimpleObject.m */; };
+		E9E62E741567E02C00E6AB91 /* SimpleObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		E960EF77155D805F00711060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E960EF21155D68F800711060 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E960EF4C155D6A0400711060;
+			remoteInfo = JUBindings;
+		};
+		E985984F1565BFD000D8FAAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E960EF21155D68F800711060 /* Project object */;
 			proxyType = 1;
@@ -161,8 +178,25 @@
 		E9844333155E1E12007066C3 /* UISwitch+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+JUBindingAddition.m"; sourceTree = "<group>"; };
 		E9844336155E1E8E007066C3 /* DefaultsDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsDemoViewController.h; sourceTree = "<group>"; };
 		E9844337155E1E8E007066C3 /* DefaultsDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsDemoViewController.m; sourceTree = "<group>"; };
+		E985983B1565BFC200D8FAAC /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E985983C1565BFC200D8FAAC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E98598521565C09D00D8FAAC /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		E98598531565C09D00D8FAAC /* Unit Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Unit Tests-Prefix.pch"; sourceTree = "<group>"; };
+		E9D70410156AD9B9000A5B6C /* ComplexObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexObject.h; sourceTree = "<group>"; };
+		E9D70411156AD9B9000A5B6C /* ComplexObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexObject.m; sourceTree = "<group>"; };
+		E9D70414156ADBDF000A5B6C /* ComplexObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexObjectTests.h; sourceTree = "<group>"; };
+		E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexObjectTests.m; sourceTree = "<group>"; };
+		E9D70417156B243D000A5B6C /* CategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTests.h; sourceTree = "<group>"; };
+		E9D70418156B243D000A5B6C /* CategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTests.m; sourceTree = "<group>"; };
+		E9D7041A156BF3F9000A5B6C /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		E9D7041B156BF5AA000A5B6C /* BindingOptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingOptionTests.h; sourceTree = "<group>"; };
+		E9D7041C156BF5AA000A5B6C /* BindingOptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingOptionTests.m; sourceTree = "<group>"; };
 		E9DCB275155F32730008D9F3 /* JUTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUTableController.h; sourceTree = "<group>"; };
 		E9DCB276155F32730008D9F3 /* JUTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUTableController.m; sourceTree = "<group>"; };
+		E9E62E6F1567DD8F00E6AB91 /* SimpleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObject.h; sourceTree = "<group>"; };
+		E9E62E701567DD8F00E6AB91 /* SimpleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObject.m; sourceTree = "<group>"; };
+		E9E62E721567E02C00E6AB91 /* SimpleObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObjectTests.h; sourceTree = "<group>"; };
+		E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObjectTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +219,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E98598371565BFC200D8FAAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E985984E1565BFCC00D8FAAC /* libJUBindings.a in Frameworks */,
+				E985983D1565BFC200D8FAAC /* SenTestingKit.framework in Frameworks */,
+				E985983E1565BFC200D8FAAC /* UIKit.framework in Frameworks */,
+				E985983F1565BFC200D8FAAC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -193,6 +238,7 @@
 			children = (
 				E960EF4F155D6A0400711060 /* JUBindings */,
 				E960EF58155D6A1D00711060 /* Example */,
+				E98598401565BFC200D8FAAC /* Unit Tests */,
 				E960EF2D155D68F800711060 /* Frameworks */,
 				E960EF2B155D68F800711060 /* Products */,
 			);
@@ -203,6 +249,7 @@
 			children = (
 				E960EF2A155D68F800711060 /* JUBindingsExample.app */,
 				E960EF4D155D6A0400711060 /* libJUBindings.a */,
+				E985983B1565BFC200D8FAAC /* Unit Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,6 +260,7 @@
 				E960EF2E155D68F800711060 /* UIKit.framework */,
 				E960EF30155D68F800711060 /* Foundation.framework */,
 				E960EF32155D68F800711060 /* CoreGraphics.framework */,
+				E985983C1565BFC200D8FAAC /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -374,6 +422,52 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E98598401565BFC200D8FAAC /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E98598591565C19F00D8FAAC /* Test Objects */,
+				E98598541565C09D00D8FAAC /* Tests */,
+				E98598511565C09D00D8FAAC /* Supporting files */,
+			);
+			path = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		E98598511565C09D00D8FAAC /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				E98598521565C09D00D8FAAC /* Unit Tests-Info.plist */,
+				E98598531565C09D00D8FAAC /* Unit Tests-Prefix.pch */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		E98598541565C09D00D8FAAC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E9D7041A156BF3F9000A5B6C /* TestHelper.h */,
+				E9D7041B156BF5AA000A5B6C /* BindingOptionTests.h */,
+				E9D7041C156BF5AA000A5B6C /* BindingOptionTests.m */,
+				E9D70417156B243D000A5B6C /* CategoryTests.h */,
+				E9D70418156B243D000A5B6C /* CategoryTests.m */,
+				E9D70414156ADBDF000A5B6C /* ComplexObjectTests.h */,
+				E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */,
+				E9E62E721567E02C00E6AB91 /* SimpleObjectTests.h */,
+				E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		E98598591565C19F00D8FAAC /* Test Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E9D70410156AD9B9000A5B6C /* ComplexObject.h */,
+				E9D70411156AD9B9000A5B6C /* ComplexObject.m */,
+				E9E62E6F1567DD8F00E6AB91 /* SimpleObject.h */,
+				E9E62E701567DD8F00E6AB91 /* SimpleObject.m */,
+			);
+			path = "Test Objects";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -447,6 +541,25 @@
 			productReference = E960EF4D155D6A0400711060 /* libJUBindings.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		E985983A1565BFC200D8FAAC /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E985984C1565BFC200D8FAAC /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				E98598361565BFC200D8FAAC /* Sources */,
+				E98598371565BFC200D8FAAC /* Frameworks */,
+				E98598381565BFC200D8FAAC /* Resources */,
+				E98598391565BFC200D8FAAC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E98598501565BFD000D8FAAC /* PBXTargetDependency */,
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = E985983B1565BFC200D8FAAC /* Unit Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -469,6 +582,7 @@
 			targets = (
 				E960EF4C155D6A0400711060 /* JUBindings */,
 				E960EF29155D68F800711060 /* JUBindingsExample */,
+				E985983A1565BFC200D8FAAC /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -487,7 +601,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E98598381565BFC200D8FAAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E98598391565BFC200D8FAAC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E960EF26155D68F800711060 /* Sources */ = {
@@ -535,6 +672,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E98598361565BFC200D8FAAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9E62E711567DD8F00E6AB91 /* SimpleObject.m in Sources */,
+				E9E62E741567E02C00E6AB91 /* SimpleObjectTests.m in Sources */,
+				E9D70412156AD9B9000A5B6C /* ComplexObject.m in Sources */,
+				E9D70416156ADBDF000A5B6C /* ComplexObjectTests.m in Sources */,
+				E9D70419156B243D000A5B6C /* CategoryTests.m in Sources */,
+				E9D7041D156BF5AA000A5B6C /* BindingOptionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -542,6 +692,11 @@
 			isa = PBXTargetDependency;
 			target = E960EF4C155D6A0400711060 /* JUBindings */;
 			targetProxy = E960EF77155D805F00711060 /* PBXContainerItemProxy */;
+		};
+		E98598501565BFD000D8FAAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E960EF4C155D6A0400711060 /* JUBindings */;
+			targetProxy = E985984F1565BFD000D8FAAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -643,6 +798,48 @@
 			};
 			name = Release;
 		};
+		E985984A1565BFC200D8FAAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Unit Tests/Supporting files/Unit Tests-Prefix.pch";
+				INFOPLIST_FILE = "Unit Tests/Supporting files/Unit Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E985984B1565BFC200D8FAAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Unit Tests/Supporting files/Unit Tests-Prefix.pch";
+				INFOPLIST_FILE = "Unit Tests/Supporting files/Unit Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -669,6 +866,15 @@
 			buildConfigurations = (
 				E960EF56155D6A0400711060 /* Debug */,
 				E960EF57155D6A0400711060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E985984C1565BFC200D8FAAC /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E985984A1565BFC200D8FAAC /* Debug */,
+				E985984B1565BFC200D8FAAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

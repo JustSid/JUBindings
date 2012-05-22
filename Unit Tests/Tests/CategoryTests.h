@@ -1,5 +1,5 @@
 //
-//  NSString+JUMassComparison.m
+//  CategoryTests.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,27 +15,11 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "NSString+JUMassComparison.h"
+#import <SenTestingKit/SenTestingKit.h>
 
-@implementation NSString (JUMassComparison)
-
-- (BOOL)ju_isEqualToAnyStringInArray:(NSArray *)array
-{
-    if([array count] < 10)
-    {
-        for(NSString *string in array)
-        {
-            if([string isEqualToString:self])
-                return YES;
-        }
-    }
-    else
-    {
-        NSSet *set = [NSSet setWithArray:array];
-        return [set containsObject:self];
-    }
-    
-    return NO;
-}
+/**
+ * A testsuite to check if the categories implemented to support JUBindings work correctly
+ **/
+@interface CategoryTests : SenTestCase
 
 @end
