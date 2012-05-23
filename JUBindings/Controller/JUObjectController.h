@@ -16,9 +16,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 @interface JUObjectController : NSObject
+
 @property (nonatomic, retain) id content;
+@property (nonatomic, retain) Class objectClass;
+@property (nonatomic, assign) BOOL canAdd;
+@property (nonatomic, assign) BOOL canRemove;
+@property (nonatomic, assign, getter=isEditable) BOOL editable;
+
+@property (nonatomic, assign) BOOL usesLazyFetching;
+@property (nonatomic, retain) NSString *entityName;
+@property (nonatomic, retain) NSPredicate *fetchPredicate;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+- (id)newObject;
+- (IBAction)add:(id)sender;
+- (IBAction)remove:(id)sender;
+
+- (NSFetchRequest *)defaultFetchRequest;
+- (void)fetch:(id)sender;
+- (BOOL)fetchWithRequest:(NSFetchRequest *)fetchRequest merge:(BOOL)merge error:(NSError **)error;
+
 
 - (id)selection;
 - (NSArray *)selectedObjects;

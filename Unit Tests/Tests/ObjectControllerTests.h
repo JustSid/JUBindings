@@ -1,5 +1,5 @@
 //
-//  JUBindings.h
+//  ObjectControllerTests.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -15,33 +15,13 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
+#import "CoreDataAbstraction.h"
 
-#import "NSObject+JUAssociatedSet.h"
-#import "NSObject+JUKeyValueBindingCreation.h"
-#import "NSString+JUMassComparison.h"
+@interface ObjectControllerTests : SenTestCase
+{
+    CoreDataAbstraction *coreData;
+    JUObjectController *controller;
+}
 
-
-#import "JUExplicitBinding.h"
-#import "JUBindingProxy.h"
-#import "JUValueTransformer.h"
-
-#import "JUObjectController.h"
-#import "JUUserDefaultsController.h"
-#import "JUArrayController.h"
-#import "JUTableController.h"
-
-#import "UITableView+JUBindingAddition.h"
-
-#if defined(DEBUG) || defined(JUBindingEnableChecks)
-    #define JUBindingsRuntimeChecks 1 // Adds extra runtime type checks at the cost of CPU load
-    #define JUBindingAvailabilityChecks 1 // Adds checks wether a certain binding is available or not, at the cost of some extra CPU load
-#endif
-
-#define JUAlertViewPresentWithError(error) do{ \
-    UIAlertView *alert = [[UIAlertView alloc] init]; \
-    [alert setTitle:@"Error"]; \
-    [alert setMessage:[error localizedFailureReason]]; \
-    [alert show]; \
-    [alert release]; \
-}while(0)
+@end

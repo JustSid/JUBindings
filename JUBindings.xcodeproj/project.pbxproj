@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9498EB6156C2F4B0051556B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9498EB5156C2F4B0051556B /* CoreData.framework */; };
+		E9498EB8156C2F590051556B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF2E155D68F800711060 /* UIKit.framework */; };
+		E9498EB9156C32BC0051556B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9498EB5156C2F4B0051556B /* CoreData.framework */; };
+		E9498EBC156C415A0051556B /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9498EBA156C415A0051556B /* TestModel.xcdatamodeld */; };
+		E9498ECC156C73790051556B /* CoreDataAbstraction.m in Sources */ = {isa = PBXBuildFile; fileRef = E9498ECB156C73790051556B /* CoreDataAbstraction.m */; };
+		E9498ECF156C7E220051556B /* ObjectControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9498ECE156C7E220051556B /* ObjectControllerTests.m */; };
+		E9498ED0156C7F030051556B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9498EB5156C2F4B0051556B /* CoreData.framework */; };
 		E960EF2F155D68F800711060 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF2E155D68F800711060 /* UIKit.framework */; };
 		E960EF31155D68F800711060 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF30155D68F800711060 /* Foundation.framework */; };
 		E960EF33155D68F800711060 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF32155D68F800711060 /* CoreGraphics.framework */; };
@@ -104,6 +111,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E9498EB5156C2F4B0051556B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E9498EBB156C415A0051556B /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
+		E9498ECA156C73790051556B /* CoreDataAbstraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataAbstraction.h; sourceTree = "<group>"; };
+		E9498ECB156C73790051556B /* CoreDataAbstraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAbstraction.m; sourceTree = "<group>"; };
+		E9498ECD156C7E220051556B /* ObjectControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectControllerTests.h; sourceTree = "<group>"; };
+		E9498ECE156C7E220051556B /* ObjectControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectControllerTests.m; sourceTree = "<group>"; };
 		E960EF2A155D68F800711060 /* JUBindingsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUBindingsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E960EF2E155D68F800711060 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E960EF30155D68F800711060 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -204,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9498EB9156C32BC0051556B /* CoreData.framework in Frameworks */,
 				E960EF2F155D68F800711060 /* UIKit.framework in Frameworks */,
 				E960EF31155D68F800711060 /* Foundation.framework in Frameworks */,
 				E960EF33155D68F800711060 /* CoreGraphics.framework in Frameworks */,
@@ -215,6 +229,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9498EB8156C2F590051556B /* UIKit.framework in Frameworks */,
+				E9498EB6156C2F4B0051556B /* CoreData.framework in Frameworks */,
 				E960EF4E155D6A0400711060 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9498ED0156C7F030051556B /* CoreData.framework in Frameworks */,
 				E985984E1565BFCC00D8FAAC /* libJUBindings.a in Frameworks */,
 				E985983D1565BFC200D8FAAC /* SenTestingKit.framework in Frameworks */,
 				E985983E1565BFC200D8FAAC /* UIKit.framework in Frameworks */,
@@ -257,6 +274,7 @@
 		E960EF2D155D68F800711060 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9498EB5156C2F4B0051556B /* CoreData.framework */,
 				E960EF2E155D68F800711060 /* UIKit.framework */,
 				E960EF30155D68F800711060 /* Foundation.framework */,
 				E960EF32155D68F800711060 /* CoreGraphics.framework */,
@@ -437,6 +455,7 @@
 			children = (
 				E98598521565C09D00D8FAAC /* Unit Tests-Info.plist */,
 				E98598531565C09D00D8FAAC /* Unit Tests-Prefix.pch */,
+				E9498EBA156C415A0051556B /* TestModel.xcdatamodeld */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -453,6 +472,8 @@
 				E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */,
 				E9E62E721567E02C00E6AB91 /* SimpleObjectTests.h */,
 				E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */,
+				E9498ECD156C7E220051556B /* ObjectControllerTests.h */,
+				E9498ECE156C7E220051556B /* ObjectControllerTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -460,6 +481,8 @@
 		E98598591565C19F00D8FAAC /* Test Objects */ = {
 			isa = PBXGroup;
 			children = (
+				E9498ECA156C73790051556B /* CoreDataAbstraction.h */,
+				E9498ECB156C73790051556B /* CoreDataAbstraction.m */,
 				E9D70410156AD9B9000A5B6C /* ComplexObject.h */,
 				E9D70411156AD9B9000A5B6C /* ComplexObject.m */,
 				E9E62E6F1567DD8F00E6AB91 /* SimpleObject.h */,
@@ -682,6 +705,9 @@
 				E9D70416156ADBDF000A5B6C /* ComplexObjectTests.m in Sources */,
 				E9D70419156B243D000A5B6C /* CategoryTests.m in Sources */,
 				E9D7041D156BF5AA000A5B6C /* BindingOptionTests.m in Sources */,
+				E9498EBC156C415A0051556B /* TestModel.xcdatamodeld in Sources */,
+				E9498ECC156C73790051556B /* CoreDataAbstraction.m in Sources */,
+				E9498ECF156C7E220051556B /* ObjectControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +906,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E9498EBA156C415A0051556B /* TestModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E9498EBB156C415A0051556B /* TestModel.xcdatamodel */,
+			);
+			currentVersion = E9498EBB156C415A0051556B /* TestModel.xcdatamodel */;
+			path = TestModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E960EF21155D68F800711060 /* Project object */;
 }

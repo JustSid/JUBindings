@@ -1,5 +1,5 @@
 //
-//  JUBindings.h
+//  CoreDataAbstraction.h
 //  JUBindings
 //
 //  Copyright (c) 2012 by Sidney Just
@@ -16,32 +16,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-#import "NSObject+JUAssociatedSet.h"
-#import "NSObject+JUKeyValueBindingCreation.h"
-#import "NSString+JUMassComparison.h"
+@interface CoreDataAbstraction : NSObject
+{
+    NSPersistentStore *persistentStore;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;
+}
 
+@property (nonatomic, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-#import "JUExplicitBinding.h"
-#import "JUBindingProxy.h"
-#import "JUValueTransformer.h"
+- (NSManagedObject *)insertEntity:(NSString *)entity;
+- (void)removeObject:(NSManagedObject *)object;
+- (void)save;
 
-#import "JUObjectController.h"
-#import "JUUserDefaultsController.h"
-#import "JUArrayController.h"
-#import "JUTableController.h"
-
-#import "UITableView+JUBindingAddition.h"
-
-#if defined(DEBUG) || defined(JUBindingEnableChecks)
-    #define JUBindingsRuntimeChecks 1 // Adds extra runtime type checks at the cost of CPU load
-    #define JUBindingAvailabilityChecks 1 // Adds checks wether a certain binding is available or not, at the cost of some extra CPU load
-#endif
-
-#define JUAlertViewPresentWithError(error) do{ \
-    UIAlertView *alert = [[UIAlertView alloc] init]; \
-    [alert setTitle:@"Error"]; \
-    [alert setMessage:[error localizedFailureReason]]; \
-    [alert show]; \
-    [alert release]; \
-}while(0)
+@end

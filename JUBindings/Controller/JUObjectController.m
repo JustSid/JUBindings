@@ -21,43 +21,204 @@
 @interface JUObjectController ()
 {
     id content;
+    Class objectClass;
+    
+    BOOL editable;
+    BOOL canAdd;
+    BOOL canRemove;
+    
+    // Core Data support
+    BOOL usesLazyFetching;
+    NSString *entityName;
+    NSPredicate *fetchPredicate;
+    NSManagedObjectContext *managedObjectContext;
 }
-
 @end
 
+
 @implementation JUObjectController
-@synthesize content;
+@synthesize content, objectClass, canAdd, canRemove, editable;
+@synthesize usesLazyFetching, entityName, fetchPredicate, managedObjectContext;
 
 + (void)initialize
 {
     [self exposeBinding:@"content"];
+    [self exposeBinding:@"contentObject"];
+    [self exposeBinding:@"editable"];
+    [self exposeBinding:@"managedObjectContext"];
 }
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
-    if([binding isEqualToString:@"content"])
+    if([binding isEqualToString:@"content"] || [binding isEqualToString:@"contentObject"])
         return [NSObject class];
+    
+    if([binding isEqualToString:@"editable"])
+        return [NSNumber class];
+    
+    if([binding isEqualToString:@"managedObjectContext"])
+        return [NSManagedObjectContext class];
     
     return [super valueClassForBinding:binding];
 }
 
+#pragma mark -
+#pragma mark CoreData / Object Mode
 
+- (id)newObject
+{
+    if([self entityName] == nil || [self managedObjectContext] == nil)
+    {
+        Class cls = [self objectClass];
+        id object = [[cls alloc] init];
+        
+        return object;
+    }
+    
+    return [[NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:[self managedObjectContext]] retain];
+}
+
+- (IBAction)add:(id)sender
+{
+    if(![self canAdd] || ![self isEditable])
+        return;
+    
+    id object = [[self newObject] autorelease];
+    
+    if([self content] == nil)
+        self.content = object;
+}
+
+- (IBAction)remove:(id)sender
+{
+    if(![self canRemove] || ![self isEditable])
+        return;
+    
+    self.content = nil;
+}
+
+#pragma mark -
+#pragma mark Core Data
+
+#define JUObjectControllerCheckAndThrowOnObjectContext(context) do{ if(!(context)) @throw @"Cannot perform operation without a managed object context"; }while(0)
+
+- (NSFetchRequest *)defaultFetchRequest
+{
+    JUObjectControllerCheckAndThrowOnObjectContext([self managedObjectContext]);
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:[self entityName] inManagedObjectContext:[self managedObjectContext]];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    if(!entityDescription)
+    {
+        [request release];
+        @throw [NSString stringWithFormat:@"Cannot perform operation since entity with name '%@' cannot be found", [self entityName]];
+    }
+        
+    [request setEntity:entityDescription];
+    [request setPredicate:[self fetchPredicate]];
+    [request setFetchLimit:1];
+    
+    return [request autorelease];
+}
+
+- (void)fetch:(id)sender
+{
+    NSError *error = nil;
+    BOOL result = [self fetchWithRequest:nil merge:NO error:&error];
+    
+    if(!result)
+        JUAlertViewPresentWithError(error);
+}
+
+- (BOOL)fetchWithRequest:(NSFetchRequest *)fetchRequest merge:(BOOL)merge error:(NSError **)error
+{
+    JUObjectControllerCheckAndThrowOnObjectContext([self managedObjectContext]);
+    
+    if(!fetchRequest)
+        fetchRequest = [self defaultFetchRequest];
+    
+    NSArray *result = [[self managedObjectContext] executeFetchRequest:fetchRequest error:error];
+    if(!result)
+        return NO;
+    
+    id object = ([result count] >= 1) ? [result objectAtIndex:0] : nil;
+    self.content = object;
+    
+    return YES;
+}
+
+- (void)managedObjectContextDidSave:(NSNotification *)notification
+{
+    if([self entityName])
+        [self fetch:nil];
+}
+
+- (void)setManagedObjectContext:(NSManagedObjectContext *)tmanagedObjectContext
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSManagedObjectContextDidSaveNotification object:managedObjectContext];
+    
+    [managedObjectContext autorelease];
+    managedObjectContext = [tmanagedObjectContext retain];
+    
+    if(managedObjectContext)
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(managedObjectContextDidSave:) name:NSManagedObjectContextDidSaveNotification object:managedObjectContext];
+        [self managedObjectContextDidSave:nil];
+    }
+}
+
+
+#pragma mark -
+#pragma mark Misc
 
 - (id)selection
 {
-    return content;
+    return self.content;
 }
 
 - (NSArray *)selectedObjects
 {
-    return [NSArray arrayWithObject:content];
+    id _content = [self content];
+    if(!_content)
+        return nil;
+    
+    return [NSArray arrayWithObject:_content];
+}
+
+- (void)setContentObject:(id)object
+{
+    self.content = object;
+}
+
+- (id)contentObject
+{
+    return self.content;
 }
 
 
+#pragma mark -
+#pragma mark Constructor / Destructor
+
+- (id)init
+{
+    if((self = [super init]))
+    {
+        self.canAdd = YES;
+        self.canRemove = YES;
+        self.editable = YES;
+        self.usesLazyFetching = YES;
+        self.objectClass = [NSMutableDictionary class];
+        
+        
+    }
+    
+    return self;
+}
 
 - (id)initWithContent:(id)tcontent
 {
-    if((self = [super init]))
+    if((self = [self init]))
     {
         self.content = tcontent;
     }
@@ -67,7 +228,12 @@
 
 - (void)dealloc
 {
-    [content release];
+    self.content = nil;
+    self.objectClass = nil;
+    self.entityName = nil;
+    self.fetchPredicate = nil;
+    self.managedObjectContext = nil;
+    
     [super dealloc];
 }
 
