@@ -9,4 +9,10 @@
     #import <Foundation/Foundation.h>
 
     #import "JUBindings.h"
+    #import "Kiwi.h"
+
+    #import "ComplexObject.h"
+    #import "CoreDataAbstraction.h"
+    #import "SimpleObject.h"
+    #import "TestObject.h"
 #endif

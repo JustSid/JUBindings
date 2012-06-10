@@ -45,6 +45,12 @@
         objc_setAssociatedObject(self, key, nil, OBJC_ASSOCIATION_RETAIN);
 }
 
+- (void)ju_removeAllObjectsFromSetWithKey:(void *)key
+{
+    objc_setAssociatedObject(self, key, nil, OBJC_ASSOCIATION_RETAIN);
+}
+
+
 - (NSArray *)ju_objectsInSetWithKey:(void *)key
 {
     NSMutableSet *set = objc_getAssociatedObject(self, key);

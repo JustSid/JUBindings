@@ -1,6 +1,6 @@
 //
-//  TestHelper.h
-//  JUBindings
+//  TestObject.m
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -15,26 +15,25 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#ifndef JUBindings_TestHelper_h
-#define JUBindings_TestHelper_h
+#import "TestObject.h"
 
-#define JUAssertValueClass(object, binding, cls) STAssertEqualObjects([object valueClassForBinding:binding], [cls class], @"Value class for \"<%@> %@\" must be %s", [object class], binding, #cls)
-#define JUAssertThrows(block, description, ...) \
-do { \
-    BOOL __caughtException = NO; \
-    @try { \
-        block();\
-    } \
-    @catch (id anException) { \
-        __caughtException = YES; \
-    }\
-    if (!__caughtException) { \
-        [self failWithException:([NSException failureInRaise:@"Block" \
-            exception:nil \
-            inFile:[NSString stringWithUTF8String:__FILE__] \
-            atLine:__LINE__ \
-            withDescription:@"%@", STComposeString(description, ##__VA_ARGS__)])]; \
-    } \
-} while (0)
+@implementation TestObject
+@synthesize nilString, characterString;
+@synthesize character, integer, floating;
+@synthesize source, string, data, dictionary;
 
-#endif
+- (void)dealloc
+{
+    self.source = nil;
+    self.string = nil;
+    self.data = nil;
+    self.dictionary = nil;
+    
+    self.nilString = nil;
+    self.characterString = nil;
+    
+    
+    [super dealloc];
+}
+
+@end

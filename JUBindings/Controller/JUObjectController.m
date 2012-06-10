@@ -100,8 +100,6 @@
 #pragma mark -
 #pragma mark Core Data
 
-#define JUObjectControllerCheckAndThrowOnObjectContext(context) do{ if(!(context)) @throw @"Cannot perform operation without a managed object context"; }while(0)
-
 - (NSFetchRequest *)defaultFetchRequest
 {
     JUObjectControllerCheckAndThrowOnObjectContext([self managedObjectContext]);
@@ -112,7 +110,7 @@
     if(!entityDescription)
     {
         [request release];
-        @throw [NSString stringWithFormat:@"Cannot perform operation since entity with name '%@' cannot be found", [self entityName]];
+        [NSException raise:@"No entity found" format:@"Cannot perform operation because entity with name '%@' cannot be found", [self entityName]];
     }
         
     [request setEntity:entityDescription];

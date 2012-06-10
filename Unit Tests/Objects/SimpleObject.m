@@ -1,6 +1,6 @@
 //
-//  ComplexObject.m
-//  JUBindings
+//  SimpleObject.m
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -15,37 +15,27 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "ComplexObject.h"
+#import "SimpleObject.h"
 
-@implementation ComplexObjectWithoutValueClass
-@synthesize object, string, data, dictionary;
+@implementation SimpleObjectWithoutValueClass
+@synthesize character, integer, floating;
 
 + (void)initialize
 {
-    [self exposeBinding:@"object"];
-    [self exposeBinding:@"string"];
-    [self exposeBinding:@"data"];
-    [self exposeBinding:@"dictionary"];
+    [self exposeBinding:@"character"];
+    [self exposeBinding:@"integer"];
+    [self exposeBinding:@"floating"];
 }
 
 @end
 
 
-@implementation ComplexObject
+@implementation SimpleObject
 
 - (Class)valueClassForBinding:(NSString *)binding
 {
-    if([binding isEqualToString:@"object"])
-        return [SimpleObject class];
-    
-    if([binding isEqualToString:@"string"])
-        return [NSString class];
-    
-    if([binding isEqualToString:@"data"])
-        return [NSData class];
-    
-    if([binding isEqualToString:@"dictionary"])
-        return [NSDictionary class];
+    if([binding isEqualToString:@"character"] || [binding isEqualToString:@"integer"] || [binding isEqualToString:@"floating"])
+        return [NSNumber class];
     
     return [super valueClassForBinding:binding];
 }

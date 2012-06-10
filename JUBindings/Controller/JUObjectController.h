@@ -18,6 +18,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define JUObjectControllerCheckAndThrowOnObjectContext(context) do{ if(!(context)) {[NSException raise:@"No managed object context" format:@"Cannot perform operation without a managed object context"];}}while(0)
+
 @interface JUObjectController : NSObject
 
 @property (nonatomic, retain) id content;

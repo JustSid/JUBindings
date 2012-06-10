@@ -1,6 +1,6 @@
 //
-//  SimpleObjectTests.h
-//  JUBindings
+//  TestObject.h
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -15,22 +15,34 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
 #import "SimpleObject.h"
 
-@interface SimpleObjectTests : SenTestCase
-{
-    SimpleObject *object;
-    SimpleObject *chained;
-    SimpleObjectWithoutValueClass *objectWithoutValueClass;
+@interface TestObject : NSObject
+{    
+    NSString *nilString;
+    NSString *characterString;
     
     char character;
     NSInteger integer;
     CGFloat floating;
+    
+    SimpleObject *source;
+    NSString *string;
+    NSData *data;
+    NSDictionary *dictionary;
 }
+
+@property (nonatomic, retain) NSString *nilString;
+@property (nonatomic, retain) NSString *characterString;
 
 @property (nonatomic, assign) char character;
 @property (nonatomic, assign) NSInteger integer;
 @property (nonatomic, assign) CGFloat floating;
+
+@property (nonatomic, retain) SimpleObject *source;
+@property (nonatomic, retain) NSString *string;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic, retain) NSDictionary *dictionary;
 
 @end

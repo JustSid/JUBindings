@@ -1,6 +1,6 @@
 //
-//  ComplexObjectTests.h
-//  JUBindings
+//  CoreDataAbstraction.h
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -15,33 +15,23 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
-#import "ComplexObject.h"
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface ComplexObjectTests : SenTestCase
+@interface CoreDataAbstraction : NSObject
 {
-    ComplexObject *object;
-    ComplexObject *chained;
-    ComplexObjectWithoutValueClass *objectWithoutValueClass;
-    
-    
-    char character;
-    NSInteger integer;
-    CGFloat floating;
-    
-    SimpleObject *source;
-    NSString *string;
-    NSData *data;
-    NSDictionary *dictionary;
+    NSPersistentStore *persistentStore;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;
 }
 
-@property (nonatomic, assign) char character;
-@property (nonatomic, assign) NSInteger integer;
-@property (nonatomic, assign) CGFloat floating;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic, retain) SimpleObject *source;
-@property (nonatomic, retain) NSString *string;
-@property (nonatomic, retain) NSData *data;
-@property (nonatomic, retain) NSDictionary *dictionary;
+- (NSManagedObject *)insertEntity:(NSString *)entity;
+- (void)removeObject:(NSManagedObject *)object;
+- (void)save;
 
 @end

@@ -1,6 +1,6 @@
 //
-//  CategoryTests.h
-//  JUBindings
+//  SimpleObject
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -15,11 +15,22 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <Foundation/Foundation.h>
 
-/**
- * A testsuite to check if the categories implemented to support JUBindings work correctly
- **/
-@interface CategoryTests : SenTestCase
+@interface SimpleObjectWithoutValueClass : NSObject
+{
+    char character;
+    NSInteger integer;
+    CGFloat floating;
+}
+
+@property (nonatomic, assign) char character;
+@property (nonatomic, assign) NSInteger integer;
+@property (nonatomic, assign) CGFloat floating;
+
+@end
+
+
+@interface SimpleObject : SimpleObjectWithoutValueClass
 
 @end

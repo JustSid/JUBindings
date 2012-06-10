@@ -1,6 +1,6 @@
 //
 //  CoreDataAbstraction.m
-//  JUBindings
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 

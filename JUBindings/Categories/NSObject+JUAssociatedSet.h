@@ -21,6 +21,7 @@
 
 - (void)ju_addObject:(id)object intoSetWithKey:(void *)key;
 - (void)ju_removeObject:(id)object fromSetWithKey:(void *)key;
+- (void)ju_removeAllObjectsFromSetWithKey:(void *)key;
 
 - (NSArray *)ju_objectsInSetWithKey:(void *)key;
 

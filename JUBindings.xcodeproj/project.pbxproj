@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90559591583199B00889765 /* ComplexObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E90559541583199B00889765 /* ComplexObject.m */; };
+		E905595A1583199B00889765 /* CoreDataAbstraction.m in Sources */ = {isa = PBXBuildFile; fileRef = E90559561583199B00889765 /* CoreDataAbstraction.m */; };
+		E905595B1583199B00889765 /* SimpleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E90559581583199B00889765 /* SimpleObject.m */; };
 		E9498EB6156C2F4B0051556B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9498EB5156C2F4B0051556B /* CoreData.framework */; };
 		E9498EB8156C2F590051556B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF2E155D68F800711060 /* UIKit.framework */; };
 		E9498EB9156C32BC0051556B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9498EB5156C2F4B0051556B /* CoreData.framework */; };
 		E9498EBC156C415A0051556B /* TestModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9498EBA156C415A0051556B /* TestModel.xcdatamodeld */; };
-		E9498ECC156C73790051556B /* CoreDataAbstraction.m in Sources */ = {isa = PBXBuildFile; fileRef = E9498ECB156C73790051556B /* CoreDataAbstraction.m */; };
-		E9498ECF156C7E220051556B /* ObjectControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9498ECE156C7E220051556B /* ObjectControllerTests.m */; };
 		E9498ED0156C7F030051556B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9498EB5156C2F4B0051556B /* CoreData.framework */; };
 		E960EF2F155D68F800711060 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF2E155D68F800711060 /* UIKit.framework */; };
 		E960EF31155D68F800711060 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF30155D68F800711060 /* Foundation.framework */; };
@@ -30,6 +31,7 @@
 		E9670E1D155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9670E18155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m */; };
 		E9670E24155F5719006D6BAF /* JUSectionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E9670E22155F5719006D6BAF /* JUSectionProxy.h */; };
 		E9670E25155F5719006D6BAF /* JUSectionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9670E23155F5719006D6BAF /* JUSectionProxy.m */; };
+		E96B7D6715830AF20052ED82 /* libKiwi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E96B7D5D15830A630052ED82 /* libKiwi.a */; };
 		E96D6EB11560862F0022E619 /* TableDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6EB01560862F0022E619 /* TableDemoViewController.m */; };
 		E96D6EB41560A1A80022E619 /* TableDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E96D6EB31560A1A80022E619 /* TableDemoView.xib */; };
 		E96D6EB91560B7D70022E619 /* UIWebView+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6EB71560B7D60022E619 /* UIWebView+JUBindingAddition.h */; };
@@ -44,6 +46,8 @@
 		E96D6ECF1560C9E30022E619 /* NSString+JUMassComparison.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6ECD1560C9E30022E619 /* NSString+JUMassComparison.m */; };
 		E96D6ED2156133EB0022E619 /* UIControl+JUBindingAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E96D6ED0156133EA0022E619 /* UIControl+JUBindingAddition.h */; };
 		E96D6ED3156133EB0022E619 /* UIControl+JUBindingAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E96D6ED1156133EB0022E619 /* UIControl+JUBindingAddition.m */; };
+		E977709C1583F69D006EE22E /* ObjectControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E977709B1583F69D006EE22E /* ObjectControllerSpec.m */; };
+		E977709E158402A1006EE22E /* SimpleObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E977709D158402A1006EE22E /* SimpleObjectSpec.m */; };
 		E9844278155D8535007066C3 /* UITextField+JUBindingsAddition.h in Headers */ = {isa = PBXBuildFile; fileRef = E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */; settings = {ATTRIBUTES = (); }; };
 		E9844279155D8535007066C3 /* UITextField+JUBindingsAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */; };
 		E9844286155D8758007066C3 /* LabelDemoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E984427F155D8758007066C3 /* LabelDemoView.xib */; };
@@ -83,14 +87,12 @@
 		E985983E1565BFC200D8FAAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF2E155D68F800711060 /* UIKit.framework */; };
 		E985983F1565BFC200D8FAAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF30155D68F800711060 /* Foundation.framework */; };
 		E985984E1565BFCC00D8FAAC /* libJUBindings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E960EF4D155D6A0400711060 /* libJUBindings.a */; };
-		E9D70412156AD9B9000A5B6C /* ComplexObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D70411156AD9B9000A5B6C /* ComplexObject.m */; };
-		E9D70416156ADBDF000A5B6C /* ComplexObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */; };
-		E9D70419156B243D000A5B6C /* CategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D70418156B243D000A5B6C /* CategoryTests.m */; };
-		E9D7041D156BF5AA000A5B6C /* BindingOptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D7041C156BF5AA000A5B6C /* BindingOptionTests.m */; };
+		E9882AAE15831CB4002CC864 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9882AAD15831CB4002CC864 /* TestObject.m */; };
+		E98D459F15830E3400CF8971 /* CategorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E98D459E15830E3400CF8971 /* CategorySpec.m */; };
+		E98D45A1158318B100CF8971 /* BindingOptionsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E98D45A0158318B100CF8971 /* BindingOptionsSpec.m */; };
 		E9DCB277155F32730008D9F3 /* JUTableController.h in Headers */ = {isa = PBXBuildFile; fileRef = E9DCB275155F32730008D9F3 /* JUTableController.h */; };
 		E9DCB278155F32730008D9F3 /* JUTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DCB276155F32730008D9F3 /* JUTableController.m */; };
-		E9E62E711567DD8F00E6AB91 /* SimpleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E62E701567DD8F00E6AB91 /* SimpleObject.m */; };
-		E9E62E741567E02C00E6AB91 /* SimpleObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */; };
+		E9E9149E15854D4200559B80 /* ComplexObjectSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E9149D15854D4200559B80 /* ComplexObjectSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = E960EF4C155D6A0400711060;
 			remoteInfo = JUBindings;
+		};
+		E96B7D5C15830A630052ED82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5015B9F11583A77002E9A98;
+			remoteInfo = Kiwi;
+		};
+		E96B7D5E15830A630052ED82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 832C83C7157263B300F160D5;
+			remoteInfo = "Kiwi-OSX";
+		};
+		E96B7D6015830A630052ED82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F5015C9E11584017002E9A98;
+			remoteInfo = KiwiTests;
+		};
+		E96B7D6215830A630052ED82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A3B16542139967B800E9CC6E;
+			remoteInfo = KiwiExamples;
+		};
+		E96B7D6515830AE80052ED82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F5015B9E11583A77002E9A98;
+			remoteInfo = Kiwi;
 		};
 		E985984F1565BFD000D8FAAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -111,12 +148,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E90559531583199B00889765 /* ComplexObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexObject.h; sourceTree = "<group>"; };
+		E90559541583199B00889765 /* ComplexObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexObject.m; sourceTree = "<group>"; };
+		E90559551583199B00889765 /* CoreDataAbstraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataAbstraction.h; sourceTree = "<group>"; };
+		E90559561583199B00889765 /* CoreDataAbstraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAbstraction.m; sourceTree = "<group>"; };
+		E90559571583199B00889765 /* SimpleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObject.h; sourceTree = "<group>"; };
+		E90559581583199B00889765 /* SimpleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObject.m; sourceTree = "<group>"; };
 		E9498EB5156C2F4B0051556B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E9498EBB156C415A0051556B /* TestModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestModel.xcdatamodel; sourceTree = "<group>"; };
-		E9498ECA156C73790051556B /* CoreDataAbstraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataAbstraction.h; sourceTree = "<group>"; };
-		E9498ECB156C73790051556B /* CoreDataAbstraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAbstraction.m; sourceTree = "<group>"; };
-		E9498ECD156C7E220051556B /* ObjectControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectControllerTests.h; sourceTree = "<group>"; };
-		E9498ECE156C7E220051556B /* ObjectControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectControllerTests.m; sourceTree = "<group>"; };
 		E960EF2A155D68F800711060 /* JUBindingsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JUBindingsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E960EF2E155D68F800711060 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E960EF30155D68F800711060 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,6 +175,7 @@
 		E9670E18155F5603006D6BAF /* NSObject+JUKeyValueBindingCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JUKeyValueBindingCreation.m"; sourceTree = "<group>"; };
 		E9670E22155F5719006D6BAF /* JUSectionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUSectionProxy.h; sourceTree = "<group>"; };
 		E9670E23155F5719006D6BAF /* JUSectionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUSectionProxy.m; sourceTree = "<group>"; };
+		E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kiwi.xcodeproj; path = Kiwi/Kiwi.xcodeproj; sourceTree = "<group>"; };
 		E96D6EAF1560862F0022E619 /* TableDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDemoViewController.h; sourceTree = "<group>"; };
 		E96D6EB01560862F0022E619 /* TableDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDemoViewController.m; sourceTree = "<group>"; };
 		E96D6EB31560A1A80022E619 /* TableDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableDemoView.xib; sourceTree = "<group>"; };
@@ -152,6 +192,8 @@
 		E96D6ECD1560C9E30022E619 /* NSString+JUMassComparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JUMassComparison.m"; sourceTree = "<group>"; };
 		E96D6ED0156133EA0022E619 /* UIControl+JUBindingAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+JUBindingAddition.h"; sourceTree = "<group>"; };
 		E96D6ED1156133EB0022E619 /* UIControl+JUBindingAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+JUBindingAddition.m"; sourceTree = "<group>"; };
+		E977709B1583F69D006EE22E /* ObjectControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectControllerSpec.m; sourceTree = "<group>"; };
+		E977709D158402A1006EE22E /* SimpleObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObjectSpec.m; sourceTree = "<group>"; };
 		E9844276155D8535007066C3 /* UITextField+JUBindingsAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+JUBindingsAddition.h"; sourceTree = "<group>"; };
 		E9844277155D8535007066C3 /* UITextField+JUBindingsAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+JUBindingsAddition.m"; sourceTree = "<group>"; };
 		E984427F155D8758007066C3 /* LabelDemoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelDemoView.xib; sourceTree = "<group>"; };
@@ -195,21 +237,13 @@
 		E985983C1565BFC200D8FAAC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E98598521565C09D00D8FAAC /* Unit Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		E98598531565C09D00D8FAAC /* Unit Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Unit Tests-Prefix.pch"; sourceTree = "<group>"; };
-		E9D70410156AD9B9000A5B6C /* ComplexObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexObject.h; sourceTree = "<group>"; };
-		E9D70411156AD9B9000A5B6C /* ComplexObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexObject.m; sourceTree = "<group>"; };
-		E9D70414156ADBDF000A5B6C /* ComplexObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComplexObjectTests.h; sourceTree = "<group>"; };
-		E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexObjectTests.m; sourceTree = "<group>"; };
-		E9D70417156B243D000A5B6C /* CategoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTests.h; sourceTree = "<group>"; };
-		E9D70418156B243D000A5B6C /* CategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTests.m; sourceTree = "<group>"; };
-		E9D7041A156BF3F9000A5B6C /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
-		E9D7041B156BF5AA000A5B6C /* BindingOptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingOptionTests.h; sourceTree = "<group>"; };
-		E9D7041C156BF5AA000A5B6C /* BindingOptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingOptionTests.m; sourceTree = "<group>"; };
+		E9882AAC15831CB4002CC864 /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
+		E9882AAD15831CB4002CC864 /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
+		E98D459E15830E3400CF8971 /* CategorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategorySpec.m; sourceTree = "<group>"; };
+		E98D45A0158318B100CF8971 /* BindingOptionsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingOptionsSpec.m; sourceTree = "<group>"; };
 		E9DCB275155F32730008D9F3 /* JUTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JUTableController.h; sourceTree = "<group>"; };
 		E9DCB276155F32730008D9F3 /* JUTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JUTableController.m; sourceTree = "<group>"; };
-		E9E62E6F1567DD8F00E6AB91 /* SimpleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObject.h; sourceTree = "<group>"; };
-		E9E62E701567DD8F00E6AB91 /* SimpleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObject.m; sourceTree = "<group>"; };
-		E9E62E721567E02C00E6AB91 /* SimpleObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleObjectTests.h; sourceTree = "<group>"; };
-		E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleObjectTests.m; sourceTree = "<group>"; };
+		E9E9149D15854D4200559B80 /* ComplexObjectSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComplexObjectSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,8 +273,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9498ED0156C7F030051556B /* CoreData.framework in Frameworks */,
 				E985984E1565BFCC00D8FAAC /* libJUBindings.a in Frameworks */,
+				E96B7D6715830AF20052ED82 /* libKiwi.a in Frameworks */,
+				E9498ED0156C7F030051556B /* CoreData.framework in Frameworks */,
 				E985983D1565BFC200D8FAAC /* SenTestingKit.framework in Frameworks */,
 				E985983E1565BFC200D8FAAC /* UIKit.framework in Frameworks */,
 				E985983F1565BFC200D8FAAC /* Foundation.framework in Frameworks */,
@@ -250,6 +285,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E90559521583199B00889765 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				E90559531583199B00889765 /* ComplexObject.h */,
+				E90559541583199B00889765 /* ComplexObject.m */,
+				E90559551583199B00889765 /* CoreDataAbstraction.h */,
+				E90559561583199B00889765 /* CoreDataAbstraction.m */,
+				E90559571583199B00889765 /* SimpleObject.h */,
+				E90559581583199B00889765 /* SimpleObject.m */,
+				E9882AAC15831CB4002CC864 /* TestObject.h */,
+				E9882AAD15831CB4002CC864 /* TestObject.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		E960EF1F155D68F800711060 = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +308,7 @@
 				E98598401565BFC200D8FAAC /* Unit Tests */,
 				E960EF2D155D68F800711060 /* Frameworks */,
 				E960EF2B155D68F800711060 /* Products */,
+				E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -352,6 +403,36 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		E96B7D5215830A620052ED82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E96B7D5D15830A630052ED82 /* libKiwi.a */,
+				E96B7D5F15830A630052ED82 /* libKiwi-OSX.a */,
+				E96B7D6115830A630052ED82 /* KiwiTests.octest */,
+				E96B7D6315830A630052ED82 /* KiwiExamples.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E96B7D6815830B6C0052ED82 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				E98D45A0158318B100CF8971 /* BindingOptionsSpec.m */,
+				E98D459E15830E3400CF8971 /* CategorySpec.m */,
+				E977709D158402A1006EE22E /* SimpleObjectSpec.m */,
+				E9E9149D15854D4200559B80 /* ComplexObjectSpec.m */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		E977709A1583F64D006EE22E /* Controller Specs */ = {
+			isa = PBXGroup;
+			children = (
+				E977709B1583F69D006EE22E /* ObjectControllerSpec.m */,
+			);
+			path = "Controller Specs";
+			sourceTree = "<group>";
+		};
 		E9844275155D8503007066C3 /* UIKit Additions */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,8 +524,9 @@
 		E98598401565BFC200D8FAAC /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E98598591565C19F00D8FAAC /* Test Objects */,
-				E98598541565C09D00D8FAAC /* Tests */,
+				E90559521583199B00889765 /* Objects */,
+				E977709A1583F64D006EE22E /* Controller Specs */,
+				E96B7D6815830B6C0052ED82 /* Specs */,
 				E98598511565C09D00D8FAAC /* Supporting files */,
 			);
 			path = "Unit Tests";
@@ -458,37 +540,6 @@
 				E9498EBA156C415A0051556B /* TestModel.xcdatamodeld */,
 			);
 			path = "Supporting files";
-			sourceTree = "<group>";
-		};
-		E98598541565C09D00D8FAAC /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				E9D7041A156BF3F9000A5B6C /* TestHelper.h */,
-				E9D7041B156BF5AA000A5B6C /* BindingOptionTests.h */,
-				E9D7041C156BF5AA000A5B6C /* BindingOptionTests.m */,
-				E9D70417156B243D000A5B6C /* CategoryTests.h */,
-				E9D70418156B243D000A5B6C /* CategoryTests.m */,
-				E9D70414156ADBDF000A5B6C /* ComplexObjectTests.h */,
-				E9D70415156ADBDF000A5B6C /* ComplexObjectTests.m */,
-				E9E62E721567E02C00E6AB91 /* SimpleObjectTests.h */,
-				E9E62E731567E02C00E6AB91 /* SimpleObjectTests.m */,
-				E9498ECD156C7E220051556B /* ObjectControllerTests.h */,
-				E9498ECE156C7E220051556B /* ObjectControllerTests.m */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		E98598591565C19F00D8FAAC /* Test Objects */ = {
-			isa = PBXGroup;
-			children = (
-				E9498ECA156C73790051556B /* CoreDataAbstraction.h */,
-				E9498ECB156C73790051556B /* CoreDataAbstraction.m */,
-				E9D70410156AD9B9000A5B6C /* ComplexObject.h */,
-				E9D70411156AD9B9000A5B6C /* ComplexObject.m */,
-				E9E62E6F1567DD8F00E6AB91 /* SimpleObject.h */,
-				E9E62E701567DD8F00E6AB91 /* SimpleObject.m */,
-			);
-			path = "Test Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -576,6 +627,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E96B7D6615830AE80052ED82 /* PBXTargetDependency */,
 				E98598501565BFD000D8FAAC /* PBXTargetDependency */,
 			);
 			name = "Unit Tests";
@@ -601,6 +653,12 @@
 			mainGroup = E960EF1F155D68F800711060;
 			productRefGroup = E960EF2B155D68F800711060 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E96B7D5215830A620052ED82 /* Products */;
+					ProjectRef = E96B7D5115830A620052ED82 /* Kiwi.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E960EF4C155D6A0400711060 /* JUBindings */,
@@ -609,6 +667,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E96B7D5D15830A630052ED82 /* libKiwi.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libKiwi.a;
+			remoteRef = E96B7D5C15830A630052ED82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E96B7D5F15830A630052ED82 /* libKiwi-OSX.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libKiwi-OSX.a";
+			remoteRef = E96B7D5E15830A630052ED82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E96B7D6115830A630052ED82 /* KiwiTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KiwiTests.octest;
+			remoteRef = E96B7D6015830A630052ED82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E96B7D6315830A630052ED82 /* KiwiExamples.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = KiwiExamples.octest;
+			remoteRef = E96B7D6215830A630052ED82 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E960EF28155D68F800711060 /* Resources */ = {
@@ -699,15 +788,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9E62E711567DD8F00E6AB91 /* SimpleObject.m in Sources */,
-				E9E62E741567E02C00E6AB91 /* SimpleObjectTests.m in Sources */,
-				E9D70412156AD9B9000A5B6C /* ComplexObject.m in Sources */,
-				E9D70416156ADBDF000A5B6C /* ComplexObjectTests.m in Sources */,
-				E9D70419156B243D000A5B6C /* CategoryTests.m in Sources */,
-				E9D7041D156BF5AA000A5B6C /* BindingOptionTests.m in Sources */,
 				E9498EBC156C415A0051556B /* TestModel.xcdatamodeld in Sources */,
-				E9498ECC156C73790051556B /* CoreDataAbstraction.m in Sources */,
-				E9498ECF156C7E220051556B /* ObjectControllerTests.m in Sources */,
+				E98D459F15830E3400CF8971 /* CategorySpec.m in Sources */,
+				E98D45A1158318B100CF8971 /* BindingOptionsSpec.m in Sources */,
+				E90559591583199B00889765 /* ComplexObject.m in Sources */,
+				E905595A1583199B00889765 /* CoreDataAbstraction.m in Sources */,
+				E905595B1583199B00889765 /* SimpleObject.m in Sources */,
+				E9882AAE15831CB4002CC864 /* TestObject.m in Sources */,
+				E977709C1583F69D006EE22E /* ObjectControllerSpec.m in Sources */,
+				E977709E158402A1006EE22E /* SimpleObjectSpec.m in Sources */,
+				E9E9149E15854D4200559B80 /* ComplexObjectSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +808,11 @@
 			isa = PBXTargetDependency;
 			target = E960EF4C155D6A0400711060 /* JUBindings */;
 			targetProxy = E960EF77155D805F00711060 /* PBXContainerItemProxy */;
+		};
+		E96B7D6615830AE80052ED82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kiwi;
+			targetProxy = E96B7D6515830AE80052ED82 /* PBXContainerItemProxy */;
 		};
 		E98598501565BFD000D8FAAC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -841,6 +936,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Kiwi/\"/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -862,6 +958,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Kiwi/\"/**";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

@@ -1,6 +1,6 @@
 //
-//  SimpleObject.m
-//  JUBindings
+//  ComplexObject.h
+//  Unit Tests
 //
 //  Copyright (c) 2012 by Sidney Just
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
@@ -15,29 +15,25 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#import <Foundation/Foundation.h>
 #import "SimpleObject.h"
 
-@implementation SimpleObjectWithoutValueClass
-@synthesize character, integer, floating;
-
-+ (void)initialize
+@interface ComplexObjectWithoutValueClass : NSObject
 {
-    [self exposeBinding:@"character"];
-    [self exposeBinding:@"integer"];
-    [self exposeBinding:@"floating"];
+    SimpleObject *object;
+    NSString *string;
+    NSData *data;
+    NSDictionary *dictionary;
 }
+
+@property (nonatomic, retain) SimpleObject *object;
+@property (nonatomic, retain) NSString *string;
+@property (nonatomic, retain) NSData *data;
+@property (nonatomic, retain) NSDictionary *dictionary;
 
 @end
 
 
-@implementation SimpleObject
-
-- (Class)valueClassForBinding:(NSString *)binding
-{
-    if([binding isEqualToString:@"character"] || [binding isEqualToString:@"integer"] || [binding isEqualToString:@"floating"])
-        return [NSNumber class];
-    
-    return [super valueClassForBinding:binding];
-}
+@interface ComplexObject : ComplexObjectWithoutValueClass
 
 @end

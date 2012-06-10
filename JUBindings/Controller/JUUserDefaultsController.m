@@ -19,7 +19,6 @@
 #import "JUBindings.h"
 
 @interface JUUserDefaultsControllerTransformer : NSValueTransformer
-
 @end
 
 @implementation JUUserDefaultsControllerTransformer
